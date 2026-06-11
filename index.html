@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bali Top Wedding — Luxury Wedding Planner in Bali</title>
+  <title>Bali Top Wedding — Luxury Wedding Planner di Bali</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap"
@@ -39,7 +39,7 @@
       overflow-x: hidden;
     }
 
-    /* ── HEADER ── */
+    /* ── HEADER & TOP BAR ── */
     .top-bar {
       background: var(--dark);
       height: 42px;
@@ -70,18 +70,6 @@
 
     .top-bar-socials a:hover {
       color: var(--cream);
-    }
-
-    .top-bar-brand {
-      font-family: 'Jost', sans-serif;
-      font-weight: 500;
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      color: var(--cream);
-      text-transform: uppercase;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
     .top-bar-cta {
@@ -115,15 +103,7 @@
       left: 0;
       right: 0;
       z-index: 99;
-      gap: 0;
       transition: top 0.3s;
-    }
-
-    .navbar-logo {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-      text-decoration: none;
     }
 
     .navbar-logo img {
@@ -135,7 +115,7 @@
     .navbar-links {
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 32px;
     }
 
     .nav-item {
@@ -165,6 +145,7 @@
       width: 100%;
     }
 
+    /* Dropdown Panel */
     .nav-dropdown {
       position: relative;
     }
@@ -173,17 +154,32 @@
       display: none;
       position: absolute;
       top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
       background: var(--nude);
       border: 0.5px solid var(--accent);
-      padding: 28px 32px;
-      min-width: 240px;
+      padding: 24px 28px;
+      min-width: 260px;
       z-index: 200;
     }
 
     .nav-dropdown:hover .dropdown-panel {
       display: block;
+    }
+
+    .dropdown-group-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 12px 0 6px;
+      border-bottom: 0.5px solid var(--accent);
+      padding-bottom: 3px;
+    }
+
+    .dropdown-group-title:first-child {
+      margin-top: 0;
     }
 
     .dropdown-panel a {
@@ -192,26 +188,20 @@
       font-size: 16px;
       color: var(--dark);
       text-decoration: none;
-      padding: 8px 0;
-      border-bottom: 0.5px solid var(--hover);
+      padding: 6px 0;
       transition: padding-left 0.2s, color 0.2s;
     }
 
-    .dropdown-panel a:last-child {
-      border-bottom: none;
-    }
-
     .dropdown-panel a:hover {
-      padding-left: 10px;
+      padding-left: 8px;
       color: var(--muted);
     }
 
-    /* ── SPACER ── */
     .header-spacer {
-      height: 102px;
+      height: 106px;
     }
 
-    /* ── HERO ── */
+    /* ── HERO SECTION ── */
     .hero {
       position: relative;
       height: 100vh;
@@ -225,9 +215,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)),
-        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80') center/cover no-repeat;
     }
 
     .hero-content {
@@ -240,19 +228,17 @@
       animation: fadeUp 1.2s 0.3s forwards;
     }
 
-    .hero-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
+    .hero-logo-desktop {
+      height: 110px;
+      width: auto;
+      filter: brightness(0) invert(1);
       display: block;
+      margin: 0 auto 28px;
     }
 
-    .hero-title {
-      font-size: clamp(48px, 7vw, 86px);
+    .hero-text-mobile {
+      display: none;
+      font-size: clamp(38px, 8vw, 64px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.1;
@@ -260,12 +246,14 @@
       color: var(--cream);
     }
 
-    .hero-sub {
-      font-size: clamp(18px, 2.2vw, 26px);
-      font-weight: 300;
-      font-style: italic;
+    .hero-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 44px;
+      display: block;
+      margin-bottom: 20px;
     }
 
     .btn-ghost {
@@ -280,6 +268,33 @@
       color: var(--cream);
       text-decoration: none;
       transition: all 0.25s;
+      margin-top: 15px;
+    }
+
+    /* ── BUBBLE CTA BUTTON ── */
+    .btn-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 50px; /* Membuat ujungnya membulat penuh seperti bubble */
+      background-color: var(--dark);
+      color: var(--cream);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(30, 25, 22, 0.15); /* Efek bayangan halus */
+    }
+    
+    .btn-bubble:hover {
+      background-color: var(--accent);
+      color: var(--dark);
+      box-shadow: 0 6px 20px rgba(196, 176, 154, 0.3);
+      transform: translateY(-3px); /* Efek terangkat saat disentuh kursor */
     }
 
     .btn-ghost:hover {
@@ -304,13 +319,9 @@
       }
     }
 
-    /* ── SECTIONS ── */
+    /* ── GENERAL SECTIONS ── */
     .section {
       padding: 110px 48px;
-    }
-
-    .section-sm {
-      padding: 80px 48px;
     }
 
     .max-w {
@@ -341,12 +352,6 @@
       margin: 14px 0 22px;
     }
 
-    .section-rule-full {
-      height: 0.5px;
-      background: var(--accent);
-      margin: 32px 0;
-    }
-
     h2 {
       font-size: clamp(36px, 4vw, 52px);
       font-weight: 300;
@@ -364,55 +369,47 @@
     }
 
     p {
-      color: var(--dark);
       margin-bottom: 20px;
     }
 
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ── WHO WE ARE ── */
+    /* ── SPLIT LAYOUT ── */
     .split {
       display: grid;
-      grid-template-columns: 58% 42%;
+      grid-template-columns: 50% 50%;
       gap: 0;
       align-items: stretch;
-    }
-
-    .split-reverse {
-      grid-template-columns: 42% 58%;
+      min-height: 600px;
     }
 
     .split-text {
-      padding-right: 72px;
+      padding: 60px 72px 60px 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .split-reverse .split-text {
-      padding-right: 0;
-      padding-left: 72px;
+    /* ── INTRO FADE SLIDESHOW ── */
+    .intro-slider-container {
+      position: relative; height: 100%; width: 100%; overflow: hidden; background: var(--dark);
+    }
+    .intro-slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0; visibility: hidden;
+      /* Animasi memudar selama 0.8 detik yang sangat halus */
+      transition: opacity 0.8s ease-in-out, visibility 0.8s; 
+      z-index: 1;
+    }
+    .intro-slide.active-slide {
+      opacity: 1; visibility: visible; z-index: 2;
+    }
+    .intro-slide img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
 
-    .split-image {
-      position: relative;
-      min-height: 560px;
-      overflow: hidden;
-    }
-
-    .split-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ── SERVICES ── */
+    /* ── SERVICES TILES GRID ── */
     .services-tiles {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
       margin-bottom: 64px;
     }
@@ -421,7 +418,6 @@
       position: relative;
       aspect-ratio: 1;
       overflow: hidden;
-      cursor: pointer;
     }
 
     .service-tile img {
@@ -438,15 +434,15 @@
     .service-tile-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(transparent 40%, rgba(30, 25, 22, 0.72) 100%);
+      background: linear-gradient(transparent 30%, rgba(30, 25, 22, 0.8) 100%);
       display: flex;
       align-items: flex-end;
-      padding: 14px 14px;
+      padding: 20px;
     }
 
     .service-tile-name {
       font-family: 'Jost', sans-serif;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -454,126 +450,185 @@
       line-height: 1.3;
     }
 
-    /* ── PORTFOLIO EDITORIAL ── */
-    .portfolio-editorial {
+    /* ── ABOUT TIM HERO & JS SLIDER (YANG BARU DIPERBAIKI) ── */
+    .about-tim-hero {
+      height: 60vh;
+      min-height: 400px;
+      background: linear-gradient(rgba(30, 25, 22, 0.4), rgba(30, 25, 22, 0.6)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about-tim-hero h2 {
+      color: var(--cream);
+      font-size: clamp(40px, 5vw, 64px);
+    }
+
+    .split-right-pad {
+      padding: 80px 72px 80px 48px;
+      background: var(--cream);
       display: flex;
       flex-direction: column;
-      gap: 0;
-      margin-bottom: 56px;
+      justify-content: center;
     }
 
-    /* Each row = one couple, alternates left/right */
-    .pe-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 560px;
+    .staff-slider-container {
       position: relative;
-    }
-
-    .pe-row:nth-child(even) {
-      direction: rtl;
-    }
-
-    .pe-row:nth-child(even)>* {
-      direction: ltr;
-    }
-
-    /* Photo side */
-    .pe-photo {
-      position: relative;
+      height: 100%;
+      width: 100%;
+      background: var(--dark);
       overflow: hidden;
-      cursor: pointer;
     }
 
-    .pe-photo img {
+    .staff-slider-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .staff-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .staff-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.7s ease;
     }
 
-    .pe-photo:hover img {
+    .staff-info-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(30, 25, 22, 0.95));
+      padding: 60px 40px 40px;
+      color: var(--cream);
+    }
+
+    .staff-name {
+      font-family: 'Jost', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+
+    .staff-role {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 15px;
+      display: block;
+      opacity: 0.8;
+    }
+
+    .staff-quote {
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .slideshow-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dot.active {
+      background: var(--accent);
+      width: 24px;
+      border-radius: 10px;
+    }
+
+    /* ── PORTFOLIO ROW LAYOUT ── */
+    .portfolio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+      background: var(--cream);
+    }
+
+    .portfolio-row:nth-child(even) {
+      direction: rtl;
+    }
+
+    .portfolio-row:nth-child(even)>* {
+      direction: ltr;
+    }
+
+    .portfolio-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-photo:hover img {
       transform: scale(1.04);
     }
 
-    /* Vertical label on photo edge */
-    .pe-vertical-label {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      width: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
-    }
-
-    .pe-row:nth-child(even) .pe-vertical-label {
-      right: auto;
-      left: 0;
-      transform: rotate(0deg);
-    }
-
-    .pe-vertical-label span {
-      font-family: 'Jost', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(250, 248, 245, 0.7);
-      white-space: nowrap;
-    }
-
-    /* Info side — generous whitespace, editorial */
-    .pe-info {
+    .portfolio-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 80px 72px;
-      background: var(--cream);
-      position: relative;
     }
 
-    .pe-row:nth-child(even) .pe-info {
+    .portfolio-row:nth-child(even) .portfolio-info {
       background: var(--nude);
     }
 
-    .pe-service-tag {
+    .portfolio-tag {
       font-family: 'Jost', sans-serif;
       font-size: 9px;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
-      display: block;
       margin-bottom: 6px;
+      display: block;
     }
 
-    /* Thin divider line */
-    .pe-divider {
-      width: 40px;
-      height: 0.5px;
-      background: var(--accent);
-      margin: 14px 0 24px;
-    }
-
-    .pe-couple-name {
+    .portfolio-title {
       font-size: clamp(32px, 3.5vw, 48px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.15;
-      color: var(--dark);
       margin-bottom: 6px;
     }
 
-    .pe-location {
+    .portfolio-meta {
       font-family: 'Jost', sans-serif;
       font-size: 10px;
-      font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
@@ -581,16 +636,7 @@
       display: block;
     }
 
-    .pe-excerpt {
-      font-size: 17px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--muted);
-      margin-bottom: 36px;
-      max-width: 340px;
-    }
-
-    .pe-link {
+    .portfolio-link {
       font-family: 'Jost', sans-serif;
       font-size: 10px;
       font-weight: 500;
@@ -598,156 +644,52 @@
       text-transform: uppercase;
       color: var(--dark);
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
       border-bottom: 0.5px solid var(--accent);
       padding-bottom: 3px;
-      transition: color 0.2s, gap 0.2s;
+      transition: color 0.2s;
       width: fit-content;
+      margin-top: 14px;
     }
 
-    .pe-link:hover {
+    .portfolio-link:hover {
       color: var(--muted);
-      gap: 16px;
     }
 
-    /* Small italicised caption on photo — like Sinclair & Moore */
-    .pe-photo-caption {
-      position: absolute;
-      bottom: 28px;
-      left: 24px;
-      font-size: 13px;
-      font-style: italic;
-      font-weight: 300;
-      color: rgba(250, 248, 245, 0.75);
-      pointer-events: none;
+    /* ── SEARCH BOX & BLOG ── */
+    .search-box {
+      max-width: 480px;
+      margin: 0 auto 48px;
+      display: flex;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 8px;
     }
 
-    .pe-row:nth-child(even) .pe-photo-caption {
-      left: auto;
-      right: 24px;
-      text-align: right;
-    }
-
-    @media (max-width: 900px) {
-
-      .pe-row,
-      .pe-row:nth-child(even) {
-        grid-template-columns: 1fr;
-        direction: ltr;
-        min-height: auto;
-      }
-
-      .pe-photo {
-        min-height: 320px;
-      }
-
-      .pe-info {
-        padding: 48px 28px;
-      }
-
-      .pe-vertical-label {
-        display: none;
-      }
-    }
-
-    /* ── VIDEO SECTION ── */
-    .video-section {
-      background: var(--dark);
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .video-inner {
-      position: relative;
+    .search-box input {
       width: 100%;
-      padding-top: 56.25%;
-      /* 16:9 */
-      background: #0a0806;
-    }
-
-    .video-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        linear-gradient(rgba(30, 25, 22, 0.6), rgba(30, 25, 22, 0.6)),
-        url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80') center/cover;
-    }
-
-    .video-play-btn {
-      width: 72px;
-      height: 72px;
-      border: 1px solid rgba(250, 248, 245, 0.6);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.25s;
-      color: var(--cream);
-    }
-
-    .video-play-btn:hover {
-      background: rgba(250, 248, 245, 0.15);
-      border-color: var(--cream);
-    }
-
-    .video-quote {
-      background: var(--dark);
-      text-align: center;
-      padding: 48px 24px;
-    }
-
-    .video-quote p {
-      font-size: clamp(18px, 2vw, 26px);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--cream);
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* ── TESTIMONIAL ── */
-    .testimonial-section {
-      background: var(--cream);
-      text-align: center;
-      padding: 100px 48px;
-    }
-
-    .testimonial-quote {
-      font-size: clamp(22px, 2.5vw, 32px);
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.65;
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: var(--dark);
-    }
-
-    .testimonial-attr {
+      border: none;
+      background: transparent;
       font-family: 'Jost', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 14px;
+      color: var(--dark);
+      outline: none;
     }
 
-    /* ── BLOG CARDS ── */
+    .search-box button {
+      background: transparent;
+      border: none;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
-      margin-bottom: 48px;
     }
 
     .blog-card {
-      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
 
     .blog-card-image {
@@ -771,7 +713,6 @@
     .blog-card-tag {
       font-family: 'Jost', sans-serif;
       font-size: 10px;
-      font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -781,350 +722,56 @@
 
     .blog-card-title {
       font-size: 22px;
-      font-weight: 400;
       line-height: 1.35;
-      color: var(--dark);
       margin-bottom: 10px;
     }
 
-    .blog-card-excerpt {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-
-    .blog-card-more {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--dark);
-      text-decoration: none;
-      border-bottom: 0.5px solid var(--accent);
-      padding-bottom: 2px;
-      transition: color 0.2s;
-    }
-
-    .blog-card-more:hover {
-      color: var(--muted);
-    }
-
-    /* ── SOCIAL FEED ── */
-    .social-feed {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 0;
-    }
-
-    .social-feed-item {
-      aspect-ratio: 1;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .social-feed-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s, filter 0.4s;
-      filter: brightness(0.95);
-    }
-
-    .social-feed-item:hover img {
-      transform: scale(1.06);
-      filter: brightness(1.05);
-    }
-
-    /* ── FOOTER ── */
-    footer {
+    /* ── GOOGLE REVIEW SECTION ── */
+    .google-reviews-section {
       background: var(--dark);
-      padding: 80px 48px 40px;
-    }
-
-    .footer-brand {
-      font-family: 'Jost', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      padding: 90px 48px;
+      text-align: center;
       color: var(--cream);
-      text-align: center;
-      display: block;
-      margin-bottom: 12px;
     }
 
-    .footer-tagline {
-      font-size: 20px;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
-      text-align: center;
-      display: block;
-      margin-bottom: 48px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      padding: 48px 0;
-      border-top: 0.5px solid #3A3330;
-      border-bottom: 0.5px solid #3A3330;
-      margin-bottom: 32px;
-    }
-
-    .footer-col-head {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
+    .stars-container {
+      color: #fbbc04;
+      font-size: 26px;
+      letter-spacing: 5px;
       margin-bottom: 18px;
     }
 
-    .footer-col a {
-      display: block;
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--cream);
-    }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-copy {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .footer-socials a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex;
-    }
-
-    .footer-socials a:hover {
-      color: var(--cream);
-    }
-
-    /* ── ABOUT BTW ── */
-    .about-hero {
-      position: relative;
-      height: 100vh;
-      min-height: 580px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 80px;
-    }
-
-    .about-hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(30, 25, 22, 0.72) 0%, rgba(30, 25, 22, 0.18) 60%, transparent 100%),
-        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80') center/cover no-repeat;
-    }
-
-    .about-hero-text {
-      position: relative;
-      text-align: center;
-      color: var(--cream);
-    }
-
-    /* Philosophy pull quote */
-    .philosophy-quote {
-      font-size: clamp(26px, 3vw, 38px);
+    .review-quote-text {
+      font-size: clamp(20px, 2.5vw, 30px);
       font-style: italic;
       font-weight: 300;
-      line-height: 1.55;
-      max-width: 820px;
-      margin: 0 auto 32px;
-      color: var(--dark);
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--nude);
     }
 
-    /* ── TEAM LAYOUT ── */
-    /* Outer wrapper — each row = 2 staff side by side */
-    .team-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .team-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 0.5px solid var(--accent);
-    }
-
-    .team-row:last-child {
-      border-bottom: 0.5px solid var(--accent);
-    }
-
-    /* Each member card = photo LEFT + info RIGHT */
-    .team-member {
-      display: grid;
-      grid-template-columns: 42% 58%;
-      min-height: 420px;
-    }
-
-    /* Alternate: second member in each row flips bg */
-    .team-row .team-member:nth-child(2) {
-      background: var(--nude);
-      border-left: 0.5px solid var(--accent);
-    }
-
-    .team-member-photo {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .team-member-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .team-member:hover .team-member-photo img {
-      transform: scale(1.03);
-    }
-
-    .team-member-info {
-      padding: 48px 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .team-member-name {
-      font-family: 'Jost', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    .team-member-role {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .team-member-divider {
-      width: 32px;
-      height: 0.5px;
+    /* ── SPECIAL OFFER ── */
+    .special-offer-banner {
       background: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .team-member-quote {
-      font-size: 18px;
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .team-member-bio {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.75;
+      padding: 72px 48px;
+      text-align: center;
       color: var(--dark);
     }
 
-    /* CTA dark strip */
-    .about-cta {
-      background: var(--dark);
-      text-align: center;
-      padding: 96px 48px;
+    .special-offer-banner h2 {
+      margin-bottom: 14px;
+      color: var(--dark);
     }
 
-    .about-cta h2 {
-      color: var(--cream);
-      margin-bottom: 16px;
-    }
-
-    .about-cta p {
-      color: var(--accent);
+    .special-offer-banner p {
       font-size: 20px;
       font-style: italic;
-      font-weight: 300;
-      max-width: 520px;
-      margin: 0 auto 40px;
+      max-width: 640px;
+      margin: 0 auto 32px;
     }
 
-    .btn-ghost-light {
-      border-color: var(--accent);
-      color: var(--cream);
-    }
-
-    .btn-ghost-light:hover {
-      background: var(--accent);
-      color: var(--dark);
-    }
-
-    @media (max-width: 900px) {
-      .team-row {
-        grid-template-columns: 1fr;
-      }
-
-      .team-row .team-member:nth-child(2) {
-        border-left: none;
-        border-top: 0.5px solid var(--accent);
-      }
-
-      .team-member {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .team-member-photo {
-        min-height: 280px;
-      }
-
-      .team-member-info {
-        padding: 32px 24px;
-      }
-    }
-
-    /* ── SCROLL REVEAL ── */
+    /* ── SCROLL REVEAL EFFECT ── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -1136,713 +783,824 @@
       transform: translateY(0);
     }
 
-    /* ── CENTERED TEXT ── */
-    .text-center {
-      text-align: center;
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 90px 48px 40px;
+      color: var(--cream);
     }
 
-    .centered-section-head {
+    .footer-heading-block {
       text-align: center;
       margin-bottom: 56px;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    .footer-heading-block p {
+      color: var(--accent);
+      max-width: 720px;
+      margin: 20px auto 0;
+    }
 
-      .split,
-      .split-reverse {
-        grid-template-columns: 1fr;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      padding-bottom: 48px;
+      border-bottom: 0.5px solid #3A3330;
+      margin-bottom: 32px;
+    }
+
+    .footer-col-head {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .footer-col a:hover {
+      color: var(--cream);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE MEDIA QUERIES ── */
+    @media (max-width: 900px) {
+      .hero-logo-desktop {
+        display: none;
       }
 
-      .split-image {
-        min-height: 320px;
+      .hero-text-mobile {
+        display: block;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        min-height: auto;
       }
 
       .split-text,
-      .split-reverse .split-text {
-        padding: 48px 0 0;
+      .split-right-pad {
+        padding: 48px 24px;
+      }
+
+      .intro-slideshow,
+      .staff-slider-container {
+        min-height: 420px;
       }
 
       .services-tiles {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portfolio-grid-bottom {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .blog-grid {
+      .portfolio-row,
+      .portfolio-row:nth-child(even) {
         grid-template-columns: 1fr;
+        direction: ltr;
       }
 
-      .social-feed {
-        grid-template-columns: repeat(4, 1fr);
+      .portfolio-photo {
+        min-height: 340px;
       }
 
+      .portfolio-info {
+        padding: 48px 24px;
+      }
+
+      .blog-grid,
       .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
 
       .section {
         padding: 64px 24px;
       }
 
-      .top-bar {
-        padding: 0 24px;
-      }
-
       .navbar {
-        gap: 20px;
+        gap: 15px;
         overflow-x: auto;
         padding: 0 24px;
       }
     }
+
+    .tabs-container {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 56px;
+      margin-top: 64px;
+      align-items: start;
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tabs-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-right: 0.5px solid var(--accent);
+      padding-right: 24px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 14px 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+    .tab-btn:hover {
+      color: var(--dark);
+      background-color: rgba(196, 176, 154, 0.1);
+    }
+    .tab-btn.active {
+      color: var(--dark);
+      font-weight: 500;
+      background-color: var(--linen);
+      padding-left: 24px;
+    }
+    .tabs-content {
+      position: relative;
+      min-height: 380px;
+    }
+    .tab-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    }
+    .tab-panel.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .tab-panel h3 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .tab-panel p {
+      font-size: 16.5px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+      .tabs-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .tabs-menu {
+        border-right: none;
+        border-bottom: 0.5px solid var(--accent);
+        padding-right: 0;
+        padding-bottom: 16px;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .tab-btn {
+        padding: 10px 16px;
+      }
+      .tab-btn.active {
+        padding-left: 16px;
+      }
+    }
+
+
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="top-bar-socials">
-      <a href="#" title="YouTube" aria-label="YouTube">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
           stroke-linecap="round" stroke-linejoin="round">
           <path
             d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
           <path d="m10 15 5-3-5-3z" />
-        </svg>
-      </a>
-      <a href="#" title="Instagram" aria-label="Instagram">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        </svg></a>
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
           stroke-linecap="round" stroke-linejoin="round">
           <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
           <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-        </svg>
-      </a>
-      <a href="#" title="TikTok" aria-label="TikTok">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        </svg></a>
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-        </svg>
-      </a>
+        </svg></a>
     </div>
-    <a href="#contact" class="top-bar-cta">Inquire Now</a>
+    <a href="#contact" class="top-bar-cta">Hubungi Kami</a>
   </div>
 
-  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <!-- Logo kiri -->
-    <a href="#" class="navbar-logo">
-      <img src="logo-btw.png" alt="Bali Top Wedding">
-    </a>
-    <!-- Nav items kanan -->
+    <a href="#" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
     <div class="navbar-links">
       <div class="nav-dropdown">
         <a href="#services" class="nav-item">Our Services ▾</a>
         <div class="dropdown-panel">
-          <a href="#">Ceremony</a>
-          <a href="#">Dinner or Lunch Receptions</a>
-          <a href="#">After Party</a>
-          <a href="#">Elopement</a>
-          <a href="#">Engagement</a>
+          <div class="dropdown-group-title">Main Service</div>
+          <a href="#services">Ceremony</a>
+          <a href="#services">Dinner or Lunch Reception</a>
+          <a href="#services">After Party</a>
+          <a href="#services">Elopement</a>
+          <div class="dropdown-group-title">Additional Service</div>
+          <a href="#services">Gala Dinner & Awarding Night</a>
+          <a href="#services">Group Tour & Fun Games</a>
         </div>
       </div>
       <a href="#portfolio" class="nav-item">Portfolio</a>
-      <a href="#blog" class="nav-item">Bali Wedding Guidance</a>
-      <a href="#contact" class="nav-item">Contact Us</a>
+      <a href="#special-offer" class="nav-item">Special Offer</a>
       <a href="#about" class="nav-item">About BTW</a>
+      <a href="#blog" class="nav-item">Bali Wedding Guidance (Blog)</a>
+      <a href="#contact" class="nav-item">Contact Us</a>
     </div>
   </nav>
 
   <div class="header-spacer"></div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <img src="logo-btw.png" alt="Bali Top Wedding"
-        style="height:90px;width:auto;filter:brightness(0) invert(1);margin-bottom:28px;display:block;margin-left:auto;margin-right:auto;">
+      <img src="logo-btw.png" alt="Bali Top Wedding Logo" class="hero-logo-desktop">
+      <h1 class="hero-text-mobile">Momen Sakral & Penuh Makna</h1>
+
       <span class="hero-label">Luxury Wedding Planner · Bali, Indonesia</span>
-      <h1 class="hero-title">Crafting Timeless<br>Celebrations</h1>
-      <p class="hero-sub">in the Island of the Gods</p>
-      <a href="#contact" class="btn-ghost">Begin Your Story</a>
+      <a href="#contact" class="btn-ghost">Wujudkan Impian Anda</a>
     </div>
   </section>
 
-  <!-- WHO WE ARE -->
-  <section class="section" style="background:var(--cream);padding-top:0; padding-bottom:0;">
-    <div class="max-w">
-      <div class="split" style="min-height:580px;">
-        <div class="split-text section" style="padding-top:100px;padding-bottom:100px;">
-          <span class="section-label">Bali Top Wedding</span>
-          <div class="section-rule"></div>
-          <h2>Where Every Detail<br>Tells Your Story</h2>
-          <p>Bali Top Wedding was born from a deep love for the Island of the Gods and a belief that weddings should be
-            as unique as the couples who celebrate them. For over a decade, we have been crafting extraordinary
-            celebrations across Bali's most breathtaking venues — from clifftop terraces overlooking the Indian Ocean to
-            sacred temples nestled within ancient rice terraces.</p>
-          <p>Our team of dedicated planners, designers, and coordinators brings an unmatched depth of local knowledge to
-            every wedding we curate. We have spent years cultivating relationships with Bali's finest vendors, venues,
-            and artisans — so that every detail of your celebration reflects the highest standard of quality and
-            craftsmanship.</p>
-          <p>We serve couples from across the globe who dream of a destination wedding that is both deeply personal and
-            effortlessly refined. Whether you envision an intimate elopement on a hidden beach or a grand reception
-            beneath the stars, we are here to make that vision a reality — with warmth, precision, and an unwavering
-            commitment to excellence.</p>
-          <p style="margin-bottom:32px;">Bali Top Wedding is more than a planning company. We are storytellers,
-            dream-weavers, and dedicated partners in one of the most meaningful days of your life.</p>
-          <a href="#about" class="btn-ghost btn-ghost-dark">Our Story</a>
-        </div>
-        <div class="split-image reveal">
-          <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80"
-            alt="Bali wedding ceremony">
-        </div>
+  <section class="section" style="background:var(--cream); padding-top:0; padding-bottom:0;">
+    <div class="max-w split">
+      <div class="split-text">
+        <span class="section-label">Introduction</span>
+        <div class="section-rule"></div>
+        <h2>Selamat Datang di Bali Top Wedding</h2>
+        <p><em>[Catatan: Teks pengantar utama untuk bagian ini sedang disiapkan oleh Pak Yoga dan Tim]</em></p>
+        <p>Kami hadir untuk mewujudkan setiap detail pernikahan impian Anda di Pulau Dewata. Dengan dedikasi tinggi, kami
+          memastikan hari bahagia Anda berjalan sempurna, bermakna, dan menjadi refleksi murni dari kisah cinta Anda
+          berdua.</p>
+  
+      <div style="margin-top: 36px;">
+        <a href="#contact" class="btn-bubble">Wujudkan Impian Anda</a>
+      </div>
+      </div>
+  
+      <div class="intro-slider-container reveal">
+        <div class="intro-slide active-slide"><img src="https://i.ibb.co.com/9HQnPZjt/1.jpg" alt="Client 1"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/zhm66qZP/2.jpg" alt="Client 2"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/LzZg1r1L/3.jpg" alt="Client 3"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/XZjfxst7/4.jpg" alt="Client 4"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/Mkzq0rhS/5.jpg" alt="Client 5"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/Q3PrzbFv/6.jpg" alt="Client 6"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/wrKtVd8J/7.jpg" alt="Client 7"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/JFFnTkD9/8.jpg" alt="Client 8"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/21bpR3W4/9.jpg" alt="Client 9"></div>
+        <div class="intro-slide"><img src="https://i.ibb.co.com/0jqW1zcx/10.jpg" alt="Client 10"></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section" id="services" style="background:var(--nude);">
-    <div class="max-w">
-      <div class="centered-section-head reveal">
-        <span class="section-label" style="display:block;text-align:center;">What We Offer</span>
-        <h2>Celebrations Crafted<br>for Every Moment</h2>
-      </div>
-      <div class="services-tiles reveal">
-        <div class="service-tile">
-          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400&q=80" alt="Ceremony">
-          <div class="service-tile-overlay"><span class="service-tile-name">Ceremony</span></div>
-        </div>
-        <div class="service-tile">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80" alt="Receptions">
-          <div class="service-tile-overlay"><span class="service-tile-name">Dinner &amp;<br>Lunch Receptions</span>
-          </div>
-        </div>
-        <div class="service-tile">
-          <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=400&q=80" alt="After Party">
-          <div class="service-tile-overlay"><span class="service-tile-name">After Party</span></div>
-        </div>
-        <div class="service-tile">
-          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=400&q=80" alt="Elopement">
-          <div class="service-tile-overlay"><span class="service-tile-name">Elopement</span></div>
-        </div>
-        <div class="service-tile">
-          <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=400&q=80" alt="Engagement">
-          <div class="service-tile-overlay"><span class="service-tile-name">Engagement</span></div>
-        </div>
-        <div class="service-tile">
-          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Full Planning">
-          <div class="service-tile-overlay"><span class="service-tile-name">Full Planning</span></div>
-        </div>
-      </div>
-      <div class="max-w-text reveal" style="text-align:center;">
-        <p>From your first inquiry to the final farewell, Bali Top Wedding is by your side at every step. We offer a
-          comprehensive range of services tailored to the unique needs of each couple — whether you are planning from
-          across the world or arriving on the island weeks before your date.</p>
-        <p>Every service package is deeply personalised. We take the time to understand your vision, your values, and
-          the atmosphere you wish to create — and then we bring it to life with the precision, creativity, and cultural
-          sensitivity that only years of experience in Bali can offer.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio" style="background:var(--cream); padding-top: 110px;">
-    <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
-      <div class="centered-section-head reveal">
-        <span class="section-label" style="display:block;text-align:center;">Our Work</span>
-        <h2>Stories We've Had<br>the Honour to Tell</h2>
-      </div>
+<section id="services" class="section" style="background:var(--nude);">
+  <div class="max-w">
+    <div class="reveal" style="text-align:center; margin-bottom:56px;">
+      <span class="section-label">Layanan Kami</span>
+      <h2>Main &amp; Additional Services</h2>
     </div>
 
-    <!-- ROW 1 — Collage LEFT, Info RIGHT -->
-    <div class="pe-row reveal">
-      <div class="pe-photo" style="position:relative;overflow:hidden;">
-        <div style="display:grid;grid-template-columns:62% 38%;grid-template-rows:1fr 1fr;height:100%;gap:3px;">
-          <div style="grid-row:1/3;overflow:hidden;">
-            <img src="photo-1.jpeg" alt=""
-              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.6s;">
-          </div>
-          <div style="overflow:hidden;">
-            <img src="photo-2.jpeg" alt=""
-              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.6s;">
-          </div>
-          <div style="overflow:hidden;">
-            <img src="photo-6.jpeg" alt=""
-              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.6s;">
-          </div>
-        </div>
-        <div class="pe-vertical-label"><span>Garden Ceremony &nbsp;|&nbsp; Ubud, Bali</span></div>
-        <span class="pe-photo-caption">Step Inside the Wedding</span>
-      </div>
-      <div class="pe-info">
-        <span class="pe-service-tag">Ceremony &amp; Full Planning</span>
-        <div class="pe-divider"></div>
-        <div class="pe-couple-name">Andi &amp; Regen</div>
-        <span class="pe-location">Ubud, Bali &nbsp;·&nbsp; 2024</span>
-        <p class="pe-excerpt">A joyful garden celebration filled with laughter, lush greenery, and the unmistakable
-          energy of two people completely in love.</p>
-        <a href="#" class="pe-link">Step Inside the Wedding →</a>
-      </div>
-    </div>
+    <div class="services-tiles reveal" style="grid-template-columns: repeat(4, 1fr);">
 
-    <!-- ROW 2 — Info LEFT, Collage RIGHT (rtl) -->
-    <div class="pe-row reveal">
-      <div class="pe-photo" style="position:relative;overflow:hidden;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:60% 40%;height:100%;gap:3px;">
-          <div style="overflow:hidden;">
-            <img src="photo-3.jpeg" alt=""
-              style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.6s;">
-          </div>
-          <div style="overflow:hidden;">
-            <img src="photo-4.jpeg" alt=""
-              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.6s;">
-          </div>
-          <div style="grid-column:1/3;overflow:hidden;">
-            <img src="photo-5.jpeg" alt=""
-              style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transition:transform 0.6s;">
-          </div>
-        </div>
-        <div class="pe-vertical-label"><span>Oceanfront Ceremony &nbsp;|&nbsp; Jimbaran, Bali</span></div>
-        <span class="pe-photo-caption">View Their Story</span>
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400&q=80" alt="Ceremony">
+        <div class="service-tile-overlay"><span class="service-tile-name">Ceremony</span></div>
       </div>
-      <div class="pe-info">
-        <span class="pe-service-tag">Ceremony &amp; Reception</span>
-        <div class="pe-divider"></div>
-        <div class="pe-couple-name">Sarah &amp; Eric</div>
-        <span class="pe-location">Jimbaran, Bali &nbsp;·&nbsp; 2024</span>
-        <p class="pe-excerpt">An oceanfront ceremony with sweeping views of the Indian Ocean — elegant, breezy, and
-          surrounded by the people they love most.</p>
-        <a href="#" class="pe-link">View Their Story →</a>
+
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80"
+          alt="Dinner or Lunch Reception">
+        <div class="service-tile-overlay"><span class="service-tile-name">Dinner or Lunch Reception</span></div>
       </div>
-    </div>
 
-    <div class="text-center reveal" style="padding: 56px 48px 110px;">
-      <a href="#" class="btn-ghost btn-ghost-dark">View All Weddings</a>
-    </div>
-  </section>
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=400&q=80" alt="After Party">
+        <div class="service-tile-overlay"><span class="service-tile-name">After Party</span></div>
+      </div>
 
-  <!-- VIDEO -->
-  <div class="video-section">
-    <div class="video-inner">
-      <div class="video-placeholder">
-        <div class="video-play-btn" role="button" aria-label="Play wedding film">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3" />
-          </svg>
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=400&q=80" alt="Elopement">
+        <div class="service-tile-overlay"><span class="service-tile-name">Elopement</span></div>
+      </div>
+
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=400&q=80" alt="Engagement">
+        <div class="service-tile-overlay"><span class="service-tile-name">Engagement</span></div>
+      </div>
+
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80"
+          alt="Gala Dinner and Awarding Night">
+        <div class="service-tile-overlay"><span class="service-tile-name">Gala Dinner &amp;<br>Awarding Night</span>
         </div>
       </div>
+
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&q=80" alt="Group Tour">
+        <div class="service-tile-overlay"><span class="service-tile-name">Group Tour</span></div>
+      </div>
+
+      <div class="service-tile">
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=80" alt="Fun Games">
+        <div class="service-tile-overlay"><span class="service-tile-name">Fun Games</span></div>
+      </div>
+
     </div>
-    <div class="video-quote">
-      <p>"We flew from Sydney not knowing what to expect — and left with memories we will carry for the rest of our
-        lives."</p>
+
+    <div class="reveal services-tabs-wrapper">
+      <div class="tabs-container">
+
+        <div class="tabs-menu">
+          <button class="tab-btn active" onclick="switchTab(event, 'tab-elopement')">Elopement</button>
+          <button class="tab-btn" onclick="switchTab(event, 'tab-agama')">Menikah Sah Secara Agama</button>
+          <button class="tab-btn" onclick="switchTab(event, 'tab-janji')">Perayaan Tukar Janji</button>
+          <button class="tab-btn" onclick="switchTab(event, 'tab-vows')">Pembaruan Janji Suci</button>
+          <button class="tab-btn" onclick="switchTab(event, 'tab-resepsi')">Resepsi Pernikahan</button>
+          <button class="tab-btn" onclick="switchTab(event, 'tab-party')">After Party</button>
+        </div>
+
+        <div class="tabs-content">
+
+          <div id="tab-elopement" class="tab-panel active">
+            <h3>Elopement (Pernikahan Privat Berdua)</h3>
+            <p>Memimpikan pernikahan privat hanya Anda dan kisah cinta Anda berdua saja? Bali elopement adalah jawaban
+              yang
+              sempurna. Lupakan segala kerumitan pernikahan umum dan rasakan keajaiban cinta di Pulau Dewata. Bali
+              menawarkan latar terbaik untuk pernikahan privat yang tak terlupakan.</p>
+            <p>Mengikrarkan janji suci di pantai berpasir putih, di tengah pepohonan hijau yang asri, atau di depan air
+              terjun yang luar biasa indah, semua dapat diwujudkan oleh Bali Top Wedding. Kami menyediakan berbagai
+              pilihan
+              paket elopement yang dirancang untuk memastikan hari istimewa Anda berjalan hangat, mulus, dan tak lekang
+              oleh
+              waktu. Rencanakan Bali elopement Anda sekarang juga dan ciptakan kenangan kebersamaan yang abadi
+              selamanya.
+              Bersama Bali Top Wedding, semua jadi praktis.</p>
+          </div>
+
+          <div id="tab-agama" class="tab-panel">
+            <h3>Menikah Sah Secara Agama (Religious Wedding Ceremony)</h3>
+            <p>Menikah sah secara agama di Bali? Tentu saja bisa! Bali Top Wedding memahami bahwa pernikahan bukan hanya
+              tentang perayaan yang indah, tapi juga tentang sebuah awal yang penuh berkah dan janji suci yang tulus di
+              hadapan Tuhan. Untuk itu, kami siap membantu mewujudkan upacara pernikahan Anda sesuai tata cara agama
+              resmi
+              yang berlaku di Indonesia.</p>
+            <p>Kami sadar bahwa setiap detail dalam prosesi keagamaan memiliki makna yang sangat mendalam. Itulah
+              mengapa
+              tim Bali Top Wedding akan memastikan seluruh pengurusan berkas, koordinasi dengan pemuka agama, hingga
+              jalannya prosesi diurus dengan penuh kehati-hatian, profesional, dan bebas stres. Tugas anda hanyalah
+              hadir
+              dengan hati yang bahagia, karena bersama Bali Top Wedding, momen sakral anda jadi lebih praktis.</p>
+          </div>
+
+          <div id="tab-janji" class="tab-panel">
+            <h3>Perayaan Tukar Janji (Non Religious Commitment Ceremony)</h3>
+            <p>Bertukar janji setia seumur hidup dengan latar belakang keindahan alam Bali. Merayakan momen itu bersama
+              orang-orang terdekat dengan penuh kebahagiaan, tanpa perlu pusing dengan urusan dokumen yang rumit. Jika
+              ini
+              adalah apa yang Anda impikan, Bali Top Wedding siap menjadi yang terdepan untuk membantu mewujudkannya.
+            </p>
+            <p>Di Bali Top Wedding, kami percaya “your love is your rules”—tidak ada aturan kaku dalam mengikrarkan
+              cinta.
+              Mau bertukar janji suci yang Anda tulis sendiri di tepi pantai, bersulang manis di atas tebing saat
+              sunset,
+              ataupun membuat acara unik ala Anda berdua, apa pun itu kami siap mewujudkannya dengan indah tanpa
+              menyisakan
+              stres dan keluh kesah. Mulai dari konsep yang simpel dan intim hingga yang elegan, tim kami akan
+              menyiapkan
+              segala detailnya di balik layar dengan seksama hingga hari bahagia tiba. Anda dan pasangan tinggal duduk
+              manis
+              dan menikmati setiap detiknya.</p>
+          </div>
+
+          <div id="tab-vows" class="tab-panel">
+            <h3>Pembaruan Janji Suci (Renewal of Vows)</h3>
+            <p>Waktu berlalu dan babak berganti, aku akan tetap memilihmu lagi dan lagi. Pembaruan Janji Suci (Renewal
+              of
+              Vows) adalah cara paling indah untuk merayakan perjalanan cinta Anda yang telah teruji oleh waktu. Tanpa
+              perlu
+              pusing dengan urusan ini itu, Bali Top Wedding akan memastikan momen ini sepenuhnya menjadi milik Anda
+              berdua.
+            </p>
+            <p>Di Bali Top Wedding, kami memahami bahwa setiap tahun yang telah Anda lewati bersama memiliki cerita yang
+              berharga. Baik Anda ingin merayakannya secara intim berdua saja, atau berbagi kebahagiaan bersama
+              anak-anak
+              dan keluarga tercinta, kami siap mewujudkannya dengan penuh kehangatan. Anda hanya perlu membawa rasa
+              syukur
+              dan cinta yang semakin mendalam, karena sisanya akan dikerjakan dari belakang layar oleh tangan-tangan
+              kreatif
+              Bali Top Wedding.</p>
+          </div>
+
+          <div id="tab-resepsi" class="tab-panel">
+            <h3>Resepsi Pernikahan</h3>
+            <p>Lupakan resepsi jadul yang penuh sesak, ayo rayakan cinta di bawah langit malam Pulau Dewata yang magis.
+              Setelah janji suci terucap, saatnya melepas ketegangan dan berbagi kebahagiaan dalam sebuah resepsi
+              pernikahan
+              yang merefleksikan karakter Anda berdua. Makan malam romantis di bawah cahaya bintang, tertawa bersama di
+              kebun tropis yang asri, atau bahkan semangat dansa rock n roll di dance floor—apa pun itu, tangan-tangan
+              kreatif Bali Top Wedding siap mewujudkannya untuk Anda.</p>
+            <p>Di Bali Top Wedding, kami memastikan esensi keindahan Bali menyatu dengan karakter unik Anda berdua. Kami
+              tidak hanya menyiapkan dekorasi yang memukau dan berkelas, tetapi juga memastikan setiap detail—mulai dari
+              pemilihan tempat acara, hidangan yang memanjakan lidah, musik yang menghidupkan suasana, hingga alur acara
+              yang mengalir sempurna. Percayakan kemeriahan hari istimewa Anda kepada Bali Top Wedding. Anda dan
+              pasangan
+              hanya perlu berdansa, bersulang di bawah kerlip bintang langit Bali, dan menikmati setiap detiknya, karena
+              tim
+              kami akan memastikan pesta Anda berjalan sempurna dari awal hingga lagu terakhir berdendang.</p>
+          </div>
+
+          <div id="tab-party" class="tab-panel">
+            <h3>After Party</h3>
+            <p>Lepas high heels dan jas, pesta yang sesungguhnya dimulai! Di Bali Top Wedding, kami memahami bahwa After
+              Party adalah waktu di mana aturan formalitas berakhir dan keseruan yang sebenarnya baru saja pecah.
+              Berdansa
+              dan tertawa bersama sahabat dekat, lantunan musik DJ favorit, pendar lampu estetik, kesegaran cocktails,
+              hingga camilan tengah malam (midnight snacks) untuk menjaga energi semua orang tetap membara—sungguh
+              terdengar
+              epic bukan?</p>
+            <p>Anda tidak perlu khawatir apalagi repot mengurus urusan teknis. Dari balik layar, tangan-tangan kreatif
+              kami
+              siap bekerja untuk mengubah malam pernikahan Anda menjadi sebuah perayaan yang legendaris. Jangan biarkan
+              malam yang indah ini cepat berakhir. Anda hanya perlu membawa semangat pesta terbaik, berdansa tanpa
+              lelah,
+              dan serahkan sisanya kepada Bali Top Wedding yang akan memastikan vibes pesta Anda tetap membara hingga
+              lampu
+              terakhir padam.</p>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- WHY BTW -->
-  <section class="section" style="background:var(--nude); padding-top:0; padding-bottom:0;">
-    <div class="max-w">
-      <div class="split split-reverse" style="min-height:560px;">
-        <div class="split-image reveal" style="display:grid;grid-template-rows:1fr 1fr;gap:3px;">
-          <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="BTW planning"
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-          <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&q=80" alt="BTW detail decor"
-            style="width:100%;height:100%;object-fit:cover;display:block;">
+  <section id="about">
+    <div class="about-tim-hero">
+      <div class="max-w">
+        <h2>About Bali Top Wedding</h2>
+        <p
+          style="font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-top:8px;">
+          Foto Bersama Bali Top Wedding</p>
+      </div>
+    </div>
+
+    <div class="split" style="background:var(--linen);">
+      <div class="split-right-pad">
+        <span class="section-label">Profil Perusahaan</span>
+        <div class="section-rule"></div>
+        <h3 style="margin-bottom: 14px;">Tentang Kami</h3>
+        <p>Berdiri sejak 2014, Bali Top Wedding adalah wedding planner dan organizer resmi serta berizin hukum yang
+          berbasis di Bali. Sebagai anggota resmi dari Bali Wedding Association (BWA) sejak 2016, kami berfokus dalam
+          menangani Domestik dan Mix Nationality Weddings (antarnegara).</p>
+        <p>Bali Top Wedding menawarkan paket pernikahan dari kelas basic hingga yang dirancang khusus (Customized
+          Wedding Packages) sesuai dengan kebutuhan dan impian tiap pasangan. Mari jadikan pernikahan impian Anda sebuah
+          momen yang sakral dan penuh makna, namun tetap praktis serta bebas stres bersama Bali Top Wedding.</p>
+
+        <h3 style="margin-top: 40px; margin-bottom: 14px;">Filosofi Kami</h3>
+        <p><strong>CREATE:</strong> Mulai dari awal hingga hari bahagia anda terwujud, Bali Top Wedding akan mendampingi
+          anda di semua tahapannya termasuk pembuatan konsep acara (concepting), pengelolaan anggaran (budgeting),
+          rekomendasi tempat (venue), dan hal – hal terkait lainnya.</p>
+        <p><strong>CARE:</strong> Bali Top Wedding memberikan perhatian penuh terhadap detail sekecil apa pun untuk
+          memastikan hari istimewa anda menjadi refleksi yang tulus dan murni dari kisah cinta anda yang luar biasa.</p>
+        <p><strong>COMMIT:</strong> Bali Top Wedding berkomitmen penuh untuk memberikan anda layanan yang professional,
+          serta pengalaman sebuah wedding yang sakral, penuh makna, dan bebas stres baik sebelum, selama, hingga setelah
+          hari bahagia anda terlaksana.</p>
+      </div>
+
+      <div class="staff-slider-container">
+        <div class="staff-slider-track" id="staffSlider">
+          <div class="staff-slide">
+            <img src="https://i.ibb.co.com/tPpwYKs9/staff-yoga.jpg" alt="Om Yoga - Founder & Director">
+            <div class="staff-info-overlay">
+              <h4 class="staff-name">Om Yoga</h4>
+              <span class="staff-role">Founder &amp; Director</span>
+              <p class="staff-quote">"Every wedding we create is a love letter — to the couple, to Bali, and to the art
+                of celebration itself."</p>
+            </div>
+          </div>
+          <div class="staff-slide">
+            <img src="https://i.ibb.co.com/hF07pdM9/staff-made.jpg" alt="Made - Senior Wedding Coordinator">
+            <div class="staff-info-overlay">
+              <h4 class="staff-name">Made</h4>
+              <span class="staff-role">Senior Wedding Coordinator</span>
+              <p class="staff-quote">"On the day itself, calm is the most important thing I can offer. Everything else
+                follows from there."</p>
+            </div>
+          </div>
+          <div class="staff-slide">
+            <img src="https://i.ibb.co.com/kVZdS61j/staff-dita.jpg" alt="Dita - Creative Director & Stylist">
+            <div class="staff-info-overlay">
+              <h4 class="staff-name">Dita</h4>
+              <span class="staff-role">Creative Director &amp; Stylist</span>
+              <p class="staff-quote">"Design is not decoration — it is the language through which your story is told
+                without words."</p>
+            </div>
+          </div>
         </div>
-        <div class="split-text section" style="padding-top:100px;padding-bottom:100px;">
-          <span class="section-label">The BTW Difference</span>
-          <div class="section-rule"></div>
-          <h2>Luxury Without Compromise</h2>
-          <p>Planning a destination wedding from abroad can feel overwhelming. That is why Bali Top Wedding exists — to
-            be your trusted eyes, ears, and hands on the ground in Bali. From the moment you reach out to us, you are
-            assigned a dedicated planning team who will guide you through every decision, large and small, with patience
-            and expertise.</p>
-          <p>Our vendor network has been curated over many years of working closely with Bali's finest florists,
-            caterers, photographers, musicians, and venue managers. We do not simply make referrals — we build lasting
-            partnerships with the best in the island, ensuring that every element of your wedding meets our exacting
-            standards before it ever meets yours.</p>
-          <p>Our team is multilingual, culturally sensitive, and deeply familiar with the nuances of planning weddings
-            for international couples. We understand that your time zone, your family's expectations, and your vision
-            deserve nothing less than complete dedication — and that is exactly what we bring to every wedding we touch.
-          </p>
+
+        <div class="slideshow-dots" id="dotNav">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL -->
-  <div class="testimonial-section reveal">
-    <div class="section-rule-full" style="max-width:760px;margin:0 auto 48px;"></div>
-    <blockquote class="testimonial-quote">
-      "From the first email to the last dance, Bali Top Wedding exceeded every expectation we had. They understood our
-      vision better than we did — and turned it into something far more beautiful than we ever imagined possible."
-    </blockquote>
-    <div class="section-rule-full" style="max-width:760px;margin:0 auto 24px;"></div>
-    <p class="testimonial-attr">Emily &amp; Jonathan Crawford · Garden Ceremony · Ubud, Bali · April 2024</p>
+  <section id="portfolio" style="background:var(--cream); padding-top:110px;">
+    <div class="max-w" style="padding:0 48px; margin-bottom:48px;">
+      <span class="section-label" style="text-align:center;">Our Work</span>
+      <h2 style="text-align:center;">Portofolio Tamu</h2>
+    </div>
+
+<div class="portfolio-row reveal"
+  style="display: grid; grid-template-columns: 60% 40%; direction: ltr; min-height: auto; background: var(--cream); margin-bottom: 40px;">
+
+  <div class="portfolio-photo" style="width: 100%; height: 100%;">
+    <img src="https://i.ibb.co.com/XfRcnkxb/kolase-1.jpg" alt="Pernikahan Andi &amp; Regen di Ubud"
+      style="object-fit: contain; width: 100%; height: 100%; display: block; background: var(--cream);">
   </div>
 
-  <!-- BLOG -->
-  <section class="section" id="blog" style="background:var(--linen);">
+  <div class="portfolio-info"
+    style="padding: 64px 48px; background: transparent; display: flex; flex-direction: column; justify-content: center; direction: ltr;">
+    <span class="portfolio-tag">Ceremony &amp; Full Planning</span>
+    <div class="section-rule" style="margin: 14px 0 24px;"></div>
+    <h3 class="portfolio-title">Andi &amp; Regen</h3>
+    <span class="portfolio-meta" style="margin-bottom: 24px;">Ubud, Bali</span>
+    <p style="font-size: 16px;">Sebuah perayaan taman yang penuh dengan tawa, kehijauan yang rimbun, dan energi dari dua
+      orang yang saling mencintai di Ubud, Bali.</p>
+    <a href="#" class="portfolio-link">Lihat Galeri Kebahagiaan →</a>
+  </div>
+
+</div>
+
+<div class="portfolio-row reveal"
+  style="display: grid; grid-template-columns: 40% 60%; direction: ltr; min-height: auto; background: var(--nude);">
+
+  <div class="portfolio-info"
+    style="padding: 64px 48px; background: transparent; display: flex; flex-direction: column; justify-content: center; direction: ltr;">
+    <span class="portfolio-tag">Ceremony &amp; Reception</span>
+    <div class="section-rule" style="margin: 14px 0 24px;"></div>
+    <h3 class="portfolio-title">Sarah &amp; Eric</h3>
+    <span class="portfolio-meta" style="margin-bottom: 24px;">Jimbaran, Bali</span>
+    <p style="font-size: 16px;">Upacara di tepi lautan dengan pemandangan langsung ke Samudra Hindia yang elegan di
+      Jimbaran, Bali.</p>
+    <a href="#" class="portfolio-link">Lihat Galeri Kebahagiaan →</a>
+  </div>
+
+  <div class="portfolio-photo" style="width: 100%; height: 100%;">
+    <img src="https://i.ibb.co.com/99T5zv2q/kolase-2.jpg" alt="Pernikahan Sarah &amp; Eric di Jimbaran"
+      style="object-fit: contain; width: 100%; height: 100%; display: block; background: var(--nude);">
+  </div>
+
+</div>
+  </section>
+
+  <section id="special-offer" class="special-offer-banner reveal">
     <div class="max-w">
-      <div class="centered-section-head reveal">
-        <span class="section-label" style="display:block;text-align:center;">Bali Wedding Guidance</span>
-        <h2>Planning Your Dream<br>Wedding in Bali</h2>
+      <span class="section-label" style="color:var(--dark);">Exclusive Privileges</span>
+      <h2>Special Offer</h2>
+      <p>Rencanakan pernikahan impian Anda bersama kami bulan ini dan dapatkan penawaran khusus untuk paket kustomisasi
+        upacara dan resepsi.</p>
+      <a href="#contact" class="btn-ghost btn-ghost-dark">Hubungi Tim Kami</a>
+    </div>
+  </section>
+
+  <section id="blog" class="section" style="background:var(--linen);">
+    <div class="max-w">
+      <div class="reveal" style="text-align:center; margin-bottom:32px;">
+        <span class="section-label">Blog &amp; Edukasi</span>
+        <h2>Bali Wedding Guidance</h2>
       </div>
+
       <div class="blog-grid reveal">
         <div class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Best season">
+          <div class="blog-card-image"><img
+              src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Panduan Iklim Bali">
           </div>
           <span class="blog-card-tag">Edu Tips</span>
-          <div class="blog-card-title">The Best Season to Get Married in Bali: A Complete Guide</div>
-          <p class="blog-card-excerpt">Bali's tropical climate means every month offers something different. Here's how
-            to choose the perfect time for your wedding...</p>
-          <a href="#" class="blog-card-more">Read More →</a>
+          <h4 class="blog-card-title">Musim Terbaik Menikah di Bali</h4>
+          <p style="font-size:15px; color:var(--muted);">Iklim tropis Bali membuat setiap bulan menawarkan keunikannya
+            sendiri. Berikut panduan lengkapnya...</p>
         </div>
         <div class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Venues">
-          </div>
-          <span class="blog-card-tag">Venue</span>
-          <div class="blog-card-title">Bali's Most Breathtaking Wedding Venues for 2025</div>
-          <p class="blog-card-excerpt">From clifftop infinity settings to lush jungle clearings — we explore the venues
-            that are setting the standard for luxury in Bali...</p>
-          <a href="#" class="blog-card-more">Read More →</a>
+          <div class="blog-card-image"><img
+              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
+              alt="Rekomendasi Cliff Venue"></div>
+          <span class="blog-card-tag">Venue Guide</span>
+          <h4 class="blog-card-title">Lokasi Pernikahan Paling Memukau</h4>
+          <p style="font-size:15px; color:var(--muted);">Dari tebing tanpa batas hingga hutan tropis hijau — jelajahi
+            tempat-tempat standar kemewahan di Bali...</p>
         </div>
         <div class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=600&q=80" alt="Elopement">
-          </div>
+          <div class="blog-card-image"><img
+              src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=600&q=80"
+              alt="Tips Intimate Elopement"></div>
           <span class="blog-card-tag">Planning</span>
-          <div class="blog-card-title">Why More Couples Are Choosing Intimate Elopements in Bali</div>
-          <p class="blog-card-excerpt">The elopement trend is redefining luxury weddings. We look at why couples
-            worldwide are choosing Bali for their most intimate celebrations...</p>
-          <a href="#" class="blog-card-more">Read More →</a>
+          <h4 class="blog-card-title">Mengapa Memilih Intimate Elopements</h4>
+          <p style="font-size:15px; color:var(--muted);">Tren elopement meredefinisi pernikahan mewah. Alasan mengapa
+            pasangan memilih momen intim...</p>
         </div>
-      </div>
-      <div class="text-center reveal">
-        <a href="#" class="btn-ghost btn-ghost-dark">Read All Articles</a>
       </div>
     </div>
   </section>
 
-  <!-- SOCIAL FEED -->
-  <section style="background:var(--cream);padding:56px 0 0;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <span
-        style="font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);">Follow
-        Our Journey · @BalitopWedding</span>
-    </div>
-    <div class="social-feed">
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=300&q=80"
-          alt=""></div>
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=80"
-          alt=""></div>
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=300&q=80"
-          alt=""></div>
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=300&q=80"
-          alt=""></div>
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=300&q=80"
-          alt=""></div>
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=300&q=80"
-          alt=""></div>
-      <div class="social-feed-item"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=300&q=80"
-          alt=""></div>
+  <section class="google-reviews-section reveal">
+    <div class="max-w">
+      <div class="stars-container">★★★★★</div>
+      <span class="section-label" style="color:var(--accent); margin-bottom:14px;">Google Review &amp; Award</span>
+      <h2 style="color:var(--cream);">Dipercaya oleh Pasangan di Seluruh Dunia</h2>
+      <p class="review-quote-text">"Dari email pertama hingga tarian terakhir, Bali Top Wedding melampaui semua
+        ekspektasi kami. Mereka memahami visi kami dan menjadikannya kenyataan."</p>
     </div>
   </section>
 
-  <!-- ABOUT BTW -->
-  <section id="about">
-
-    <!-- 1. HERO -->
-    <div class="about-hero">
-      <div class="about-hero-bg"></div>
-      <div class="about-hero-text reveal">
-        <span class="section-label" style="color:var(--accent);margin-bottom:16px;display:block;">About Bali Top
-          Wedding</span>
-        <h1
-          style="font-size:clamp(42px,6vw,76px);font-weight:300;font-style:italic;color:var(--cream);line-height:1.1;margin-bottom:18px;">
-          A Team Rooted<br>in Bali</h1>
-        <p style="font-size:20px;font-style:italic;font-weight:300;color:var(--accent);max-width:520px;margin:0 auto;">
-          Passionate storytellers, dedicated to crafting your most meaningful day</p>
-      </div>
-    </div>
-
-    <!-- 2. ABOUT -->
-    <div style="background:var(--cream);padding-top:0;padding-bottom:0;">
-      <div class="max-w">
-        <div class="split" style="min-height:560px;">
-          <div class="split-text section" style="padding-top:100px;padding-bottom:100px;">
-            <span class="section-label">Who We Are</span>
-            <div class="section-rule"></div>
-            <h2>Born from a Love<br>for Bali</h2>
-            <p>Bali Top Wedding was founded on a simple but powerful belief — that every couple deserves a wedding day
-              that feels completely, unapologetically theirs. Our story began over a decade ago, when our founders fell
-              in love with the magic of Bali's ceremonies, its landscapes, and the warmth of its people, and decided to
-              share that magic with the world.</p>
-            <p>Since those early days, we have grown into one of Bali's most trusted luxury wedding planning companies —
-              serving hundreds of couples from across Asia, Australia, Europe, and the Americas. Each wedding we curate
-              is a testament to our belief that true luxury is not about extravagance — it is about intention,
-              authenticity, and extraordinary attention to detail.</p>
-            <p>Our team is made up of dedicated planners, designers, stylists, and coordinators who have spent years
-              immersed in the world of Bali weddings. We know the island's finest venues, its most talented vendors, and
-              its most breathtaking hidden locations — and we bring all of that knowledge to bear on every celebration
-              we touch.</p>
-            <p>We are proud to serve an international community of couples who come to Bali seeking something rare: a
-              wedding that is both deeply personal and effortlessly beautiful. We are here to make that possible — with
-              warmth, precision, and a dedication to excellence that never wavers.</p>
-          </div>
-          <div class="split-image reveal">
-            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80"
-              alt="About Bali Top Wedding">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. PHILOSOPHY -->
-    <div style="background:var(--nude);padding:110px 48px;">
-      <div class="max-w-text text-center reveal">
-        <span class="section-label" style="display:block;text-align:center;">Our Philosophy</span>
-        <div class="section-rule" style="margin:14px auto 28px;"></div>
-        <h2 style="margin-bottom:40px;">We Don't Plan Weddings.<br>We Craft Legacies.</h2>
-        <p>At Bali Top Wedding, we believe that a wedding is not simply an event — it is the opening chapter of a shared
-          life. Every choice, from the fragrance of the florals to the final note of the last song, should carry
-          meaning. Should feel true. Should be remembered not just by the couple, but by every guest who had the
-          privilege of witnessing it.</p>
-        <p>We approach every wedding as a blank canvas. We listen deeply — to your stories, your values, your vision —
-          before we ever begin to design. Because the best celebrations are not built from a template. They are grown
-          from a conversation, shaped by trust, and brought to life by a team that cares as deeply about your day as you
-          do.</p>
-        <p>We define luxury not by price, but by quality of experience. By the seamlessness of a perfectly coordinated
-          day. By the quiet confidence of knowing that every detail has been considered, every contingency prepared for,
-          and every moment curated to exceed your expectations.</p>
-      </div>
-
-      <!-- Pull quote -->
-      <div class="max-w-text text-center reveal" style="margin-top:64px;">
-        <div style="height:0.5px;background:var(--accent);margin-bottom:40px;"></div>
-        <p class="philosophy-quote">"The finest weddings are not the most expensive ones — they are the ones where every
-          detail whispers of the people at the centre of it all."</p>
-        <div style="height:0.5px;background:var(--accent);margin-top:40px;"></div>
-      </div>
-    </div>
-
-    <!-- 4. OUR TEAM -->
-    <div style="background:var(--cream);padding:110px 0 0;">
-      <div style="max-width:1280px;margin:0 auto;padding:0 48px 64px;">
-        <div class="centered-section-head reveal">
-          <span class="section-label" style="display:block;text-align:center;">The Team</span>
-          <h2>The People Behind<br>Your Perfect Day</h2>
-          <p style="max-width:560px;margin:0 auto;color:var(--muted);font-size:17px;text-align:center;">A collective of
-            passionate professionals who have dedicated their careers to the art of celebration in Bali.</p>
-        </div>
-      </div>
-
-      <div class="team-rows reveal">
-
-        <!-- ROW 1: Om Yoga + Made -->
-        <div class="team-row">
-          <div class="team-member">
-            <div class="team-member-photo">
-              <img src="staff-yoga.png" alt="Om Yoga" style="object-position:center top;">
-            </div>
-            <div class="team-member-info">
-              <div class="team-member-name">Om Yoga</div>
-              <div class="team-member-role">Founder &amp; Director</div>
-              <div class="team-member-divider"></div>
-              <p class="team-member-quote">"Every wedding we create is a love letter — to the couple, to Bali, and to
-                the art of celebration itself."</p>
-              <p class="team-member-bio">With over a decade of experience in the Bali wedding industry, Om Yoga leads
-                Bali Top Wedding with a vision rooted in excellence, cultural sensitivity, and deeply personal service.
-              </p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="team-member-photo">
-              <img src="staff-made.jpg" alt="Made" style="object-position:center top;">
-            </div>
-            <div class="team-member-info">
-              <div class="team-member-name">Made</div>
-              <div class="team-member-role">Senior Wedding Coordinator</div>
-              <div class="team-member-divider"></div>
-              <p class="team-member-quote">"On the day itself, calm is the most important thing I can offer. Everything
-                else follows from there."</p>
-              <p class="team-member-bio">Made brings unmatched composure and local expertise to every event he
-                coordinates. His deep knowledge of Bali's venues and vendors ensures every timeline runs with quiet,
-                confident precision.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 2: Dita + Ayu -->
-        <div class="team-row">
-          <div class="team-member">
-            <div class="team-member-photo">
-              <img src="staff-dita.png" alt="Dita" style="object-position:center top;">
-            </div>
-            <div class="team-member-info">
-              <div class="team-member-name">Dita</div>
-              <div class="team-member-role">Creative Director &amp; Stylist</div>
-              <div class="team-member-divider"></div>
-              <p class="team-member-quote">"Design is not decoration — it is the language through which your story is
-                told without words."</p>
-              <p class="team-member-bio">Dita's eye for beauty has shaped the aesthetic of some of Bali's most
-                celebrated weddings. She brings a painterly sensibility and editorial instinct to every space she
-                transforms.</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="team-member-photo">
-              <img src="staff-ayu.jpg" alt="Ayu" style="object-position:center top;">
-            </div>
-            <div class="team-member-info">
-              <div class="team-member-name">Ayu</div>
-              <div class="team-member-role">Client Relations Manager</div>
-              <div class="team-member-divider"></div>
-              <p class="team-member-quote">"The moment a couple trusts us with their day, we take that responsibility
-                personally — every single time."</p>
-              <p class="team-member-bio">Ayu is the warm and dedicated voice that guides couples from their very first
-                inquiry through to the final farewell, ensuring every client feels heard, understood, and deeply cared
-                for.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 3: Alia + Adam -->
-        <div class="team-row">
-          <div class="team-member">
-            <div class="team-member-photo">
-              <img src="staff-alia.png" alt="Alia" style="object-position:center top;">
-            </div>
-            <div class="team-member-info">
-              <div class="team-member-name">Alia</div>
-              <div class="team-member-role">Planning &amp; Logistics Coordinator</div>
-              <div class="team-member-divider"></div>
-              <p class="team-member-quote">"The most magical moments are made possible by the thousand invisible ones
-                that come before them."</p>
-              <p class="team-member-bio">Alia oversees every logistical detail — from vendor coordination to day-of
-                timelines — with precision and warmth that keeps the entire production seamless and stress-free.</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="team-member-photo">
-              <img src="staff-adam.jpg" alt="Adam" style="object-position:center top;">
-            </div>
-            <div class="team-member-info">
-              <div class="team-member-name">Adam</div>
-              <div class="team-member-role">Vendor &amp; Partnership Manager</div>
-              <div class="team-member-divider"></div>
-              <p class="team-member-quote">"Great weddings are built on great relationships — with vendors, with venues,
-                and above all, with the couples we serve."</p>
-              <p class="team-member-bio">Adam manages Bali Top Wedding's extensive network of trusted vendors and venue
-                partners, ensuring every supplier meets the team's exacting standards of quality and reliability.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- 5. CTA -->
-    <div class="about-cta reveal">
-      <h2>Let's Create Something<br>Beautiful Together</h2>
-      <p>Tell us about your vision — we would love to begin the conversation.</p>
-      <a href="#contact" class="btn-ghost btn-ghost-light">Get in Touch</a>
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
   <footer id="contact">
-    <div style="text-align:center;margin-bottom:16px;">
-      <img src="logo-btw.png" alt="Bali Top Wedding"
-        style="height:64px;width:auto;filter:brightness(0) saturate(100%) invert(27%) sepia(40%) saturate(600%) hue-rotate(330deg) brightness(110%);display:inline-block;">
+    <div class="footer-heading-block reveal">
+      <span class="section-label" style="color:var(--accent);">Hubungi Kami</span>
+      <h2 style="color:var(--cream); margin-bottom:12px;">Hubungi Kami</h2>
+      <p>Percayalah, momen-momen indah yang Anda lihat tidaklah terjadi begitu saja, tetapi ada tangan-tangan kreatif
+        dan professional Bali Top Wedding dibaliknya. Hubungi kami sekarang juga dan mari wujudkan pernikahan impian
+        Anda di Bali dengan lebih mudah, indah, dan bebas stres.</p>
     </div>
-    <span class="footer-tagline">Crafting timeless celebrations in the Island of the Gods</span>
+
     <div class="max-w">
       <div class="footer-grid">
         <div class="footer-col">
-          <span class="footer-col-head">Our Services</span>
-          <a href="#">Ceremony</a>
-          <a href="#">Dinner &amp; Lunch Receptions</a>
-          <a href="#">After Party</a>
-          <a href="#">Elopement</a>
-          <a href="#">Engagement</a>
-          <a href="#">Full Planning</a>
+          <span class="footer-col-head">Alamat Kantor</span>
+          <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
         </div>
         <div class="footer-col">
-          <span class="footer-col-head">Portfolio</span>
-          <a href="#">All Weddings</a>
-          <a href="#">Ceremonies</a>
-          <a href="#">Receptions</a>
-          <a href="#">Elopements</a>
+          <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+          <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+          <a href="https://wa.me/6281237495930" target="_blank" rel="noopener">081237495930 (Ika)</a>
+          <a href="https://wa.me/6282266316766" target="_blank" rel="noopener">082266316766 (Suci)</a>
+          <a href="https://wa.me/6281238490222" target="_blank" rel="noopener">081238490222 (Yoga)</a>
         </div>
         <div class="footer-col">
-          <span class="footer-col-head">Bali Wedding Guidance</span>
-          <a href="#">Promo</a>
-          <a href="#">Venue Guide</a>
-          <a href="#">Edu Tips</a>
-          <a href="#">Planning</a>
-          <a href="#">Trends</a>
+          <span class="footer-col-head">Media &amp; Digital</span>
+          <a href="mailto:wedding.bth@gmail.com">wedding.bth@gmail.com</a>
+          <a href="http://www.balitopwedding.com" target="_blank" rel="noopener">www.balitopwedding.com</a>
+          <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+          <a href="#" style="display:inline; margin-right:12px;">Instagram: @balitopwedding</a>
+          <a href="#" style="display:inline;">Tiktok: @balitopwedding</a>
         </div>
         <div class="footer-col">
-          <span class="footer-col-head">Connect</span>
-          <a href="#">Contact Us</a>
-          <a href="#">About BTW</a>
-          <a href="#">WhatsApp</a>
-          <a href="#">hello@balitopwedding.com</a>
-          <a href="#">Bali, Indonesia</a>
+          <span class="footer-col-head">Office Hours</span>
+          <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+          <p>Sabtu - Minggu:<br>by appointment only</p>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <span class="footer-copy">© 2025 Bali Top Wedding · All Rights Reserved</span>
-        <div class="footer-socials">
-          <a href="#" title="YouTube">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-              <path d="m10 15 5-3-5-3z" />
-            </svg>
-          </a>
-          <a href="#" title="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-            </svg>
-          </a>
-          <a href="#" title="TikTok">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-            </svg>
-          </a>
-        </div>
+        <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+        <span class="footer-copy" style="color: var(--accent); font-weight: 500;">Powered by PT Bali Top Holiday</span>
       </div>
     </div>
   </footer>
 
   <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
+    /* 1. SCROLL REVEAL (Animasi Fade Up saat di-scroll) */
+    const revealElements = document.querySelectorAll('.reveal');
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    }, observerOptions);
+
+    revealElements.forEach(element => { revealObserver.observe(element); });
+
+    /* 2. STAFF SLIDER (Autoplay & Navigasi) */
+    let currentSlide = 0;
+    const sliderTrack = document.getElementById('staffSlider');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = dots.length;
+
+    function goToSlide(n) {
+      currentSlide = n;
+      // Menggeser kontainer ke kiri berdasarkan indeks gambar
+      sliderTrack.style.transform = `translateX(-${n * 100}%)`;
+      // Memperbarui titik (dots) yang aktif
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[n].classList.add('active');
+    }
+
+    function autoPlaySlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    // Interval ganti gambar otomatis setiap 4 detik
+    let slideInterval = setInterval(autoPlaySlide, 4000);
+
+    // Hentikan autoplay saat cursor diarahkan ke gambar/slider, lalu mulai lagi saat cursor keluar
+    const sliderContainer = document.querySelector('.staff-slider-container');
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+      sliderContainer.addEventListener('mouseleave', () => slideInterval = setInterval(autoPlaySlide, 4000));
+    }
+
+
+    /* 3. INTRO SLIDER (Efek Fade) */
+      let introCurrentSlide = 0;
+      const introSlides = document.querySelectorAll('.intro-slide');
+      const introTotalSlides = introSlides.length;
+
+      function autoPlayIntroFade() {
+        if (introTotalSlides === 0) return;
+
+        // 1. Hilangkan class 'active-slide' dari foto saat ini (membuatnya pudar)
+        introSlides[introCurrentSlide].classList.remove('active-slide');
+
+        // 2. Lanjut ke indeks foto berikutnya (kembali ke 0 jika sudah di akhir)
+        introCurrentSlide = (introCurrentSlide + 1) % introTotalSlides;
+
+        // 3. Tambahkan class 'active-slide' ke foto baru (membuatnya muncul)
+        introSlides[introCurrentSlide].classList.add('active-slide');
+      }
+
+      // Jeda antar foto diset 2500 milidetik (2,5 detik)
+      let introSlideInterval = setInterval(autoPlayIntroFade, 1000);
+
+      // Hentikan saat kursor masuk area foto
+      const introContainer = document.querySelector('.intro-slider-container');
+      if (introContainer) {
+        introContainer.addEventListener('mouseenter', () => clearInterval(introSlideInterval));
+        introContainer.addEventListener('mouseleave', () => introSlideInterval = setInterval(autoPlayIntroFade, 2500));
+      }
+
+      /* 4. INTERACTIVE TABS FUNCTION (UNTUK SEKSI LAYANAN) */
+        function switchTab(event, tabId) {
+          // Ambil seluruh elemen panel konten
+          const panels = document.querySelectorAll('.tab-panel');
+          panels.forEach(panel => {
+            panel.classList.remove('active');
+          });
+
+          // Ambil seluruh tombol menu tab
+          const buttons = document.querySelectorAll('.tab-btn');
+          buttons.forEach(button => {
+            button.classList.remove('active');
+          });
+
+          // Aktifkan panel yang dipilih
+          const targetPanel = document.getElementById(tabId);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+
+          // Aktifkan tombol yang diklik oleh pengguna
+          event.currentTarget.classList.add('active');
+        }
+
   </script>
 </body>
 

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eka & Shanon — Bali Top Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF8F5;
+            --nude: #F0EBE3;
+            --linen: #EDE5DA;
+            --dark: #1E1916;
+            --muted: #7A6C62;
+            --accent: #C4B09A;
+            --hover: #D9CFC3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--dark);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.85;
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER & NAVIGATION ── */
+        .top-bar {
+            background: var(--dark);
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .top-bar-socials {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .top-bar-socials a {
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .top-bar-socials a:hover {
+            color: var(--cream);
+        }
+
+        .top-bar-cta {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 0.5px solid var(--accent);
+            padding: 5px 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .top-bar-cta:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .navbar {
+            background: var(--cream);
+            border-bottom: 0.5px solid var(--accent);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            position: fixed;
+            top: 42px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-item {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--dark);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* ── NAVBAR DROPDOWN & ACCORDION ── */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+            padding: 24px 0;
+            margin: -24px 0;
+        }
+
+        .dropdown-panel {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            background: var(--nude);
+            border: 0.5px solid var(--accent);
+            padding: 24px 28px;
+            min-width: 260px;
+            z-index: 200;
+            box-shadow: 0 10px 30px rgba(30, 25, 22, 0.05);
+        }
+
+        .nav-dropdown:hover .dropdown-panel {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-group-title {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 12px 0 6px;
+            border-bottom: 0.5px solid var(--accent);
+            padding-bottom: 3px;
+        }
+
+        .dropdown-group-title:first-child {
+            margin-top: 0;
+        }
+
+        .dropdown-panel a {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: var(--dark);
+            text-decoration: none;
+            padding: 6px 0;
+            transition: padding-left 0.2s, color 0.2s;
+        }
+
+        .dropdown-panel a:hover {
+            padding-left: 8px;
+            color: var(--muted);
+        }
+
+        /* ── DROPDOWN SUBMENU ACCORDION ── */
+        .submenu-trigger {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: color 0.3s ease;
+        }
+
+        .submenu-trigger:hover {
+            color: var(--dark);
+        }
+
+        .submenu-details {
+            display: none;
+            padding-left: 12px;
+            margin-top: 4px;
+            border-left: 0.5px solid var(--accent);
+        }
+
+        .dropdown-submenu.active .submenu-details {
+            display: block;
+            animation: fadeInSubmenu 0.2s ease forwards;
+        }
+
+        @keyframes fadeInSubmenu {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .submenu-arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .dropdown-submenu.active .submenu-arrow {
+            transform: rotate(90deg);
+        }
+
+        .header-spacer {
+            height: 106px;
+        }
+
+        /* ── INNER HERO ── */
+        .inner-hero {
+            position: relative;
+            height: 45vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 106px;
+            background: linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)),
+                url('https://i.ibb.co.com/SLjPcxy/SAE-137-2-jpg.webp') center/cover no-repeat;
+        }
+
+        .inner-hero h1 {
+            font-size: clamp(42px, 5vw, 64px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            margin-bottom: 10px;
+        }
+
+        .inner-hero span {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* ── UTILITIES ── */
+        .section {
+            padding: 110px 48px;
+        }
+
+        .max-w {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: clamp(36px, 4vw, 52px);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 28px;
+        }
+
+        /* ── CLIENT DETAIL LAYOUT ── */
+        .client-detail-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .back-link {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+            border-bottom: 0.5px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--dark);
+            border-color: var(--dark);
+        }
+
+        .portfolio-meta {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: block;
+            margin-top: 8px;
+        }
+
+        /* ── GALLERY GRID ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--nude);
+            border: 0.5px solid rgba(196, 176, 154, 0.15);
+            aspect-ratio: 4 / 5;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Grid Spans for Luxury Collage Layout */
+        .gi-span-12 { grid-column: span 12; aspect-ratio: 16 / 9; }
+        .gi-span-8  { grid-column: span 8;  aspect-ratio: 4 / 3;  }
+        .gi-span-6  { grid-column: span 6;  aspect-ratio: 1 / 1;  }
+        .gi-span-4  { grid-column: span 4;  aspect-ratio: 3 / 4;  }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+            .gallery-item {
+                grid-column: span 2 !important;
+                aspect-ratio: 1 !important;
+            }
+            .gi-span-12 {
+                grid-column: span 4 !important;
+                aspect-ratio: 1.5 !important;
+            }
+        }
+
+        /* ── REVIEW SECTION ── */
+        .review-section {
+            position: relative;
+            background: linear-gradient(rgba(30, 25, 22, 0.85), rgba(30, 25, 22, 0.85)),
+                url('https://i.ibb.co.com/Kp0tv9Vs/SAE-231.webp') center/cover no-repeat fixed;
+            padding: 120px 48px;
+            text-align: center;
+            color: var(--cream);
+            overflow: hidden;
+        }
+
+        .review-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 0.5px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .stars-container {
+            color: #fbbc04;
+            font-size: 22px;
+            letter-spacing: 4px;
+            margin-bottom: 24px;
+        }
+
+        .review-title {
+            font-size: clamp(32px, 3.5vw, 48px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            margin-bottom: 28px;
+        }
+
+        .review-quote-text {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.65;
+            max-width: 850px;
+            margin: 0 auto;
+            color: var(--cream);
+        }
+
+        .review-author {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 24px;
+        }
+
+        /* ── REVEAL EFFECT ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            padding: 80px 48px 40px;
+            color: var(--cream);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            padding-bottom: 48px;
+            border-bottom: 0.5px solid #3A3330;
+            margin-bottom: 32px;
+        }
+
+        .footer-col-head {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .navbar { overflow-x: auto; padding: 0 24px; }
+            .section { padding: 60px 24px; }
+            .review-section { padding: 80px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-socials">
+            <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <path d="m10 15 5-3-5-3z" />
+            </svg></a>
+            <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg></a>
+            <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+            </svg></a>
+        </div>
+        <a href="contact.html" class="top-bar-cta">Hubungi Kami</a>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
+        <div class="navbar-links">
+            <div class="nav-dropdown">
+                <a href="services.html" class="nav-item">Our Services ▾</a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-submenu">
+                        <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
+                        <div class="submenu-details">
+                            <a href="services.html">Ceremony</a>
+                            <a href="services.html">Dinner or Lunch Reception</a>
+                            <a href="services.html">After Party</a>
+                            <a href="services.html">Elopement</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu" style="margin-top: 12px;">
+                        <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
+                        <div class="submenu-details">
+                            <a href="services.html">Gala Dinner &amp; Awarding Night</a>
+                            <a href="services.html">Group Tour &amp; Fun Games</a>
+                            <a href="services.html">Group Tour</a>
+                            <a href="services.html">Fun Games &amp; Gala Dinner</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="portfolio.html" class="nav-item">Portfolio</a>
+            <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+            <a href="contact.html" class="nav-item">Contact Us</a>
+            <a href="about.html" class="nav-item">About BTW</a>
+            <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
+        </div>
+    </nav>
+
+    <!-- ── HERO BANNER ── -->
+    <header class="inner-hero">
+    </header>
+
+    <!-- ── CLIENT DETAIL SECTION ── -->
+    <section class="section" style="padding-bottom: 80px;">
+        <div class="max-w">
+
+            <div class="reveal visible">
+                <a href="portfolio.html" class="back-link">← Kembali ke Portofolio</a>
+
+                <div class="client-detail-header">
+                    <h2>Eka &amp; Shanon</h2>
+                    <span class="portfolio-meta">Uluwatu | 2023</span>
+                    <p style="color:var(--muted); font-size: 18px; max-width: 760px; margin: 20px auto 0; line-height: 1.8; text-align: center;">
+                        Sebuah janji suci di atas tebing Uluwatu yang memukau, diiringi suara deburan ombak dan pendar keemasan matahari terbenam Bali yang romantis. Perayaan intim ini memadukan kemegahan alam laut lepas dengan detail dekorasi yang elegan dan hangat, menciptakan malam perayaan cinta yang tak terlupakan bagi kedua mempelai dan para tamu terdekat.
+                    </p>
+                </div>
+
+                <!-- ── PHOTO GALLERY ── -->
+                <div class="gallery-grid">
+                    <div class="gallery-item gi-span-8">
+                        <img src="https://i.ibb.co.com/zW3Yv3hL/SAE-3.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/2Y5rVh0J/SAE-10.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/FLg2WgnG/SAE-53.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/b5XMMdZd/SAE-78.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/TD5mXWY7/SAE-85.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-6">
+                        <img src="https://i.ibb.co.com/ccnfz1Sv/SAE-112.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-6">
+                        <img src="https://i.ibb.co.com/TMNy7VKs/SAE-132.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/B2mBnSbW/SAE-137-2-jpg.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/N2cw6tjB/SAE-158.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/nNBxBkVv/SAE-163.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-4">
+                        <img src="https://i.ibb.co.com/prRzgSBF/SAE-178.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-8">
+                        <img src="https://i.ibb.co.com/j9vK6w8W/SAE-191.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                    <div class="gallery-item gi-span-12">
+                        <img src="https://i.ibb.co.com/JjxtxSGh/SAE-231-1.webp" alt="Eka & Shanon wedding photo" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── TESTIMONY / REVIEW SECTION ── -->
+    <section class="review-section reveal">
+        <div class="max-w">
+            <div class="review-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:#ffffff; margin-bottom:-1px;">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--cream);">Client Review</span>
+            </div>
+            <div class="stars-container">★★★★★</div>
+            <h2 class="review-title">Kebahagiaan yang Sempurna</h2>
+            <p class="review-quote-text">"Dari email korespondensi pertama kami hingga alur tarian dan lagu terakhir berdendang di lantai dansa, Bali Top Wedding melampaui semua ekspektasi kami. Mereka memahami visi kami yang abstrak jauh lebih baik daripada kami sendiri, mengelolanya tanpa cela, dan mengubahnya menjadi perayaan magis yang tulus, sakral, dan sepenuhnya bebas dari stres."</p>
+            <div class="review-author">— Eka &amp; Shanon (Verified Review)</div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer id="contact">
+        <div class="max-w">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-col-head">Alamat Kantor</span>
+                    <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-head">Kontak Utama</span>
+                    <p>Telepon: 0361 464 623</p>
+                    <p>WhatsApp: 081238490222</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-head">Koneksi Digital</span>
+                    <p>wedding.bth@gmail.com</p>
+                    <p>www.balitopwedding.com</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-head">Jam Operasional</span>
+                    <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+                    <p>Sabtu - Minggu:<br>By Appointment Only</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+                <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ── SCROLL REVEAL ── */
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        /* ── SUBMENU TOGGLE ── */
+        document.querySelectorAll('.submenu-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+                parent.parentElement.querySelectorAll('.dropdown-submenu').forEach(sibling => {
+                    if (sibling !== parent) sibling.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

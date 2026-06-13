@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Bali Top Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ── CORE STYLES & VARIABLES ── */
+        :root {
+            --cream: #FAF8F5;
+            --nude: #F0EBE3;
+            --linen: #EDE5DA;
+            --dark: #1E1916;
+            --muted: #7A6C62;
+            --accent: #C4B09A;
+            --hover: #D9CFC3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--dark);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.85;
+            overflow-x: hidden;
+        }
+
+        /* ── UTILITIES ── */
+        .section {
+            padding: 110px 48px;
+        }
+
+        .max-w {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .section-rule {
+            width: 48px;
+            height: 0.5px;
+            background: var(--accent);
+            margin: 14px 0 22px;
+        }
+
+        h2 {
+            font-size: clamp(36px, 4vw, 52px);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 28px;
+        }
+
+        /* ── MASTER NAVBAR & DROPDOWN ── */
+        .top-bar {
+            background: var(--dark);
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .top-bar-socials {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .top-bar-socials a {
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .top-bar-socials a:hover {
+            color: var(--cream);
+        }
+
+        .top-bar-cta {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 0.5px solid var(--accent);
+            padding: 5px 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .top-bar-cta:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .navbar {
+            background: var(--cream);
+            border-bottom: 0.5px solid var(--accent);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            position: fixed;
+            top: 42px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            transition: top 0.3s;
+        }
+
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-item {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--dark);
+            text-decoration: none;
+            position: relative;
+            padding: 22px 0;
+            cursor: pointer;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+            padding: 24px 0;
+            margin: -24px 0;
+        }
+
+        .dropdown-panel {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            background: var(--nude);
+            border: 0.5px solid var(--accent);
+            padding: 24px 28px;
+            min-width: 260px;
+            z-index: 200;
+            box-shadow: 0 10px 30px rgba(30, 25, 22, 0.05);
+        }
+
+        .nav-dropdown:hover .dropdown-panel {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-group-title {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 12px 0 6px;
+            border-bottom: 0.5px solid var(--accent);
+            padding-bottom: 3px;
+        }
+
+        .dropdown-group-title:first-child {
+            margin-top: 0;
+        }
+
+        .dropdown-panel a {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: var(--dark);
+            text-decoration: none;
+            padding: 6px 0;
+            transition: padding-left 0.2s, color 0.2s;
+        }
+
+        .dropdown-panel a:hover {
+            padding-left: 8px;
+            color: var(--muted);
+        }
+
+        /* ── DROPDOWN SUBMENU ACCORDION ── */
+        .submenu-trigger {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: color 0.3s ease;
+        }
+
+        .submenu-trigger:hover {
+            color: var(--dark);
+        }
+
+        .submenu-details {
+            display: none;
+            padding-left: 12px;
+            margin-top: 4px;
+            border-left: 0.5px solid var(--accent);
+        }
+
+        .dropdown-submenu.active .submenu-details {
+            display: block;
+            animation: fadeInSubmenu 0.2s ease forwards;
+        }
+
+        @keyframes fadeInSubmenu {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .submenu-arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+            font-size: 9px;
+            color: var(--muted);
+        }
+
+        .dropdown-submenu.active .submenu-arrow {
+            transform: rotate(90deg);
+        }
+
+        /* ── INNER HERO ── */
+        .inner-hero {
+            position: relative;
+            height: 40vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 106px;
+            background: linear-gradient(rgba(30, 25, 22, 0.4), rgba(30, 25, 22, 0.4)), url('https://images.unsplash.com/photo-1510076857177-7470076d4098?w=1600&q=80') center/cover no-repeat;
+        }
+
+        .inner-hero h1 {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            margin-bottom: 10px;
+        }
+
+        .inner-hero span {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* ── CONTACT SPLIT SECTION ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Left Side: Info & Map */
+        .contact-info-wrap p {
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        .contact-detail-box {
+            margin-bottom: 24px;
+        }
+
+        .contact-detail-title {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--dark);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .contact-detail-text {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 48px;
+            border: 0.5px solid var(--accent);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Right Side: Form */
+        .contact-form {
+            background: var(--nude);
+            padding: 56px 48px;
+            border: 0.5px solid rgba(196, 176, 154, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .form-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 0.5px solid var(--muted);
+            padding: 12px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: var(--dark);
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom-color: var(--dark);
+        }
+
+        .form-control::placeholder {
+            color: rgba(122, 108, 98, 0.5);
+            font-style: italic;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Tombol Submit */
+        .btn-submit {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 16px 40px;
+            background-color: var(--dark);
+            color: var(--cream);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        /* ── REVEAL EFFECT ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            padding: 80px 48px 40px;
+            color: var(--cream);
+            margin-top: 64px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            padding-bottom: 48px;
+            border-bottom: 0.5px solid #3A3330;
+            margin-bottom: 32px;
+        }
+
+        .footer-col-head {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .contact-form {
+                padding: 40px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .navbar {
+                overflow-x: auto;
+                padding: 0 24px;
+            }
+
+            .section {
+                padding: 60px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-socials">
+            <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <path d="m10 15 5-3-5-3z" />
+            </svg></a>
+            <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg></a>
+            <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+            </svg></a>
+        </div>
+        <a href="contact.html" class="top-bar-cta">Hubungi Kami</a>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
+        <div class="navbar-links">
+            <div class="nav-dropdown">
+                <a href="services.html" class="nav-item">Our Services ▾</a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-submenu">
+                        <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
+                        <div class="submenu-details">
+                            <a href="services.html">Ceremony</a>
+                            <a href="services.html">Dinner or Lunch Reception</a>
+                            <a href="services.html">After Party</a>
+                            <a href="services.html">Elopement</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu" style="margin-top: 12px;">
+                        <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
+                        <div class="submenu-details">
+                            <a href="services.html">Gala Dinner &amp; Awarding Night</a>
+                            <a href="services.html">Group Tour &amp; Fun Games</a>
+                            <a href="services.html">Group Tour</a>
+                            <a href="services.html">Fun Games &amp; Gala Dinner</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="portfolio.html" class="nav-item">Portfolio</a>
+            <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+            <a href="contact.html" class="nav-item">Contact Us</a>
+            <a href="about.html" class="nav-item">About BTW</a>
+            <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
+        </div>
+    </nav>
+
+    <header class="inner-hero">
+        <div>
+            <span class="section-label">Let's Connect</span>
+            <h1>Get In Touch</h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="max-w">
+            <div class="contact-grid reveal">
+
+                <div class="contact-info-wrap">
+                    <span class="section-label">Say Hello</span>
+                    <h2>Mari Rencanakan Hari Magis Anda</h2>
+                    <div class="section-rule"></div>
+                    <p>Setiap pernikahan yang menakjubkan selalu berawal dari sebuah obrolan sederhana. Beri tahu kami
+                        tentang impian, rencana tanggal, dan detail acara yang Anda inginkan. Tim perencana kami akan
+                        merespons secepat mungkin.</p>
+
+                    <div class="contact-detail-box">
+                        <span class="contact-detail-title">Kunjungi Kami</span>
+                        <span class="contact-detail-text">Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar
+                            Selatan,<br>Bali 80224</span>
+                    </div>
+
+                    <div class="contact-detail-box">
+                        <span class="contact-detail-title">Telepon & WhatsApp</span>
+                        <span class="contact-detail-text">0361 464 623<br>0812 3849 0222</span>
+                    </div>
+
+                    <div class="contact-detail-box">
+                        <span class="contact-detail-title">Email</span>
+                        <span class="contact-detail-text">wedding.bth@gmail.com</span>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.8340386762395!2d115.2343999!3d-8.6923485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241a87e5b1df5%3A0xc61f3be06fcaeb!2sJl.%20Tukad%20Balian%20No.99a%2C%20Sidakarya%2C%20Denpasar%20Selatan%2C%20Kota%20Denpasar%2C%20Bali%2080224!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nama Lengkap Mempelai</label>
+                            <input type="text" id="name" name="name" class="form-control"
+                                placeholder="Tuliskan nama Anda berdua..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Alamat Email</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="email@contoh.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Nomor WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+62 812..."
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="date">Estimasi Tanggal Acara</label>
+                            <input type="date" id="date" name="date" class="form-control" style="font-style:normal;">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="guests">Perkiraan Jumlah Tamu</label>
+                            <input type="number" id="guests" name="guests" class="form-control"
+                                placeholder="Contoh: 100 pax">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Ceritakan Impian Anda</label>
+                            <textarea id="message" name="message" class="form-control"
+                                placeholder="Apakah Anda membayangkan pernikahan tebing yang elegan, atau perayaan kebun tropis yang intim?..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Kirim Pesan</button>
+                        <p
+                            style="font-family:'Jost'; font-size:10px; text-transform:uppercase; text-align:center; margin-top:24px; color:var(--muted); letter-spacing:0.1em;">
+                            Data Anda aman bersama kami.</p>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="max-w">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-col-head">Alamat Kantor</span>
+                    <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-head">Kontak & WhatsApp</span>
+                    <p>0361 464 623</p>
+                    <p>081238490222</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-head">Koneksi Digital</span>
+                    <p>wedding.bth@gmail.com</p>
+                    <p>www.balitopwedding.com</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-head">Jam Operasional</span>
+                    <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+                <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, observerOptions);
+        revealElements.forEach(element => { revealObserver.observe(element); });
+
+        /* ── SUBMENU TOGGLE IN NAVBAR DROPDOWN ── */
+        document.querySelectorAll('.submenu-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+                
+                // Tutup submenu lainnya yang sedang terbuka di dropdown yang sama
+                const siblings = parent.parentElement.querySelectorAll('.dropdown-submenu');
+                siblings.forEach(sibling => {
+                    if (sibling !== parent) {
+                        sibling.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

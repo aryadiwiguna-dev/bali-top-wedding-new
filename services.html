@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services — Bali Top Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF8F5; --nude: #F0EBE3; --linen: #EDE5DA; --dark: #1E1916;
+      --muted: #7A6C62; --accent: #C4B09A; --hover: #D9CFC3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.85; overflow-x: hidden; }
+
+    /* ── HEADER (Sama dengan Index) ── */
+    .top-bar { background: var(--dark); height: 42px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    .top-bar-socials { display: flex; gap: 18px; align-items: center; }
+    .top-bar-socials a { color: var(--accent); text-decoration: none; display: flex; align-items: center; transition: color 0.2s; }
+    .top-bar-socials a:hover { color: var(--cream); }
+    .top-bar-cta { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 0.5px solid var(--accent); padding: 5px 14px; text-decoration: none; transition: all 0.2s; }
+    .top-bar-cta:hover { background: var(--accent); color: var(--dark); }
+
+    .navbar { background: var(--cream); border-bottom: 0.5px solid var(--accent); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; position: fixed; top: 42px; left: 0; right: 0; z-index: 99; transition: top 0.3s; }
+    .navbar-logo img { height: 36px; width: auto; display: block; }
+    .navbar-links { display: flex; align-items: center; gap: 32px; }
+    .nav-item { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark); text-decoration: none; position: relative; padding-bottom: 2px; cursor: pointer; }
+    .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 0.5px; background: var(--accent); transition: width 0.3s; }
+    .nav-item:hover::after { width: 100%; }
+
+    /* ── NAVBAR DROPDOWN & ACCORDION ── */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+      padding: 24px 0;
+      margin: -24px 0;
+    }
+
+    .dropdown-panel {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 100%;
+      left: -20px;
+      background: var(--nude);
+      border: 0.5px solid var(--accent);
+      padding: 24px 28px;
+      min-width: 260px;
+      z-index: 200;
+      box-shadow: 0 10px 30px rgba(30, 25, 22, 0.05);
+    }
+
+    .nav-dropdown:hover .dropdown-panel {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-group-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 12px 0 6px;
+      border-bottom: 0.5px solid var(--accent);
+      padding-bottom: 3px;
+    }
+
+    .dropdown-group-title:first-child {
+      margin-top: 0;
+    }
+
+    .dropdown-panel a {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 6px 0;
+      transition: padding-left 0.2s, color 0.2s;
+    }
+
+    .dropdown-panel a:hover {
+      padding-left: 8px;
+      color: var(--muted);
+    }
+
+    /* ── DROPDOWN SUBMENU ACCORDION ── */
+    .submenu-trigger {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .submenu-trigger:hover {
+      color: var(--dark);
+    }
+
+    .submenu-details {
+      display: none;
+      padding-left: 12px;
+      margin-top: 4px;
+      border-left: 0.5px solid var(--accent);
+    }
+
+    .dropdown-submenu.active .submenu-details {
+      display: block;
+      animation: fadeInSubmenu 0.2s ease forwards;
+    }
+
+    @keyframes fadeInSubmenu {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .submenu-arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 9px;
+      color: var(--muted);
+    }
+
+    .dropdown-submenu.active .submenu-arrow {
+      transform: rotate(90deg);
+    }
+
+    /* ── INNER HERO ── */
+    .inner-hero {
+      position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80') center/cover no-repeat;
+    }
+    .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
+    .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+
+    /* ── UTILITIES ── */
+    .section { padding: 110px 48px; }
+    .max-w { max-width: 1280px; margin: 0 auto; }
+    .section-label { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px; }
+    .section-rule { width: 48px; height: 0.5px; background: var(--accent); margin: 14px 0 22px; }
+
+    /* ── ZIG-ZAG EDITORIAL LAYOUT ── */
+    .service-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; margin-bottom: 80px; background: var(--cream); }
+    .service-row:nth-child(even) { direction: rtl; background: var(--nude); }
+    .service-row:nth-child(even) > * { direction: ltr; }
+    
+    .service-photo { position: relative; overflow: hidden; }
+    .service-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .service-info { padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
+    .service-info h2 { font-size: clamp(32px, 3.5vw, 44px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 20px; line-height: 1.2; }
+    .service-info p { color: var(--muted); margin-bottom: 20px; text-align: justify; }
+
+    /* ── ADDITIONAL SERVICES GRID ── */
+    .additional-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .add-service-card { background: var(--nude); padding: 40px 32px; text-align: center; border: 0.5px solid transparent; transition: border 0.3s; }
+    .add-service-card:hover { border-color: var(--accent); }
+    .add-service-card h4 { font-size: 24px; font-weight: 400; font-style: italic; margin-bottom: 12px; }
+    .add-service-card p { font-size: 15px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 80px 48px 40px; color: var(--cream); margin-top: 64px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; padding-bottom: 48px; border-bottom: 0.5px solid #3A3330; margin-bottom: 32px; }
+    .footer-col-head { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 18px; }
+    .footer-col p { font-size: 16px; font-weight: 300; color: var(--accent); margin-bottom: 10px; line-height: 1.6; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .service-row, .service-row:nth-child(even) { grid-template-columns: 1fr; direction: ltr; margin-bottom: 40px; }
+      .service-photo { min-height: 300px; }
+      .service-info { padding: 48px 24px; }
+      .additional-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .navbar { overflow-x: auto; padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-socials">
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+          <path d="m10 15 5-3-5-3z" />
+        </svg></a>
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+        </svg></a>
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+        </svg></a>
+    </div>
+    <a href="contact.html" class="top-bar-cta">Hubungi Kami</a>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
+    <div class="navbar-links">
+      <div class="nav-dropdown">
+        <a href="services.html" class="nav-item">Our Services ▾</a>
+        <div class="dropdown-panel">
+          <div class="dropdown-submenu">
+            <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
+            <div class="submenu-details">
+              <a href="services.html">Ceremony</a>
+              <a href="services.html">Dinner or Lunch Reception</a>
+              <a href="services.html">After Party</a>
+              <a href="services.html">Elopement</a>
+            </div>
+          </div>
+          <div class="dropdown-submenu" style="margin-top: 12px;">
+            <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
+            <div class="submenu-details">
+              <a href="services.html">Gala Dinner &amp; Awarding Night</a>
+              <a href="services.html">Group Tour &amp; Fun Games</a>
+              <a href="services.html">Group Tour</a>
+              <a href="services.html">Fun Games &amp; Gala Dinner</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="portfolio.html" class="nav-item">Portfolio</a>
+      <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+      <a href="contact.html" class="nav-item">Contact Us</a>
+      <a href="about.html" class="nav-item">About BTW</a>
+      <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
+    </div>
+  </nav>
+
+  <header class="inner-hero">
+    <div>
+      <h1>Our Services</h1>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: 80px;">
+    <div class="max-w">
+      
+      <div class="section-rule" style="text-align:center; max-width: 800px; margin: 0 auto 80px;"></div>
+  
+      <!-- ELOPEMENT -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/dwRVWcXf/elopement.jpg" alt="Elopement"></div>
+        <div class="service-info">
+          <span class="section-label">Main Service</span>
+          <h2>Ceremony</h2>
+          <p>Memimpikan pernikahan privat hanya Anda dan kisah cinta Anda berdua saja? Bali elopement adalah jawaban yang sempurna.</p>
+          <p>Lupakan segala kerumitan pernikahan umum dan rasakan keajaiban cinta di Pulau Dewata. Bali menawarkan latar terbaik untuk pernikahan privat yang tak terlupakan. Mengikrarkan janji suci di pantai berpasir putih, di tengah pepohonan hijau yang asri, atau di depan air terjun yang luar biasa indah, semua dapat diwujudkan oleh Bali Top Wedding.</p>
+          <p>Di Bali Top Wedding, kami menyediakan berbagai pilihan paket elopement yang dirancang untuk memastikan hari istimewa Anda berjalan hangat, mulus, dan tak lekang oleh waktu. Rencanakan Bali elopement Anda sekarang juga dan ciptakan kenangan kebersamaan yang abadi selamanya.</p>
+          <p style="font-style: italic; font-weight: 500;">Bersama Bali Top Wedding, semua jadi praktis.</p>
+        </div>
+      </div>
+
+      <!-- RELIGIOUS WEDDING -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/rRmCPN0G/Reception.jpg" alt="Religious Ceremony"></div>
+        <div class="service-info">
+          <span class="section-label">Main Service</span>
+          <h2>Dinner or Lunch Reception</h2>
+          <p>Menikah sah secara agama di Bali? Tentu saja bisa!</p>
+          <p>Bali Top Wedding memahami bahwa pernikahan bukan hanya tentang perayaan yang indah, tapi juga tentang sebuah awal yang penuh berkah dan janji suci yang tulus di hadapan Tuhan. Untuk itu, kami siap membantu mewujudkan upacara pernikahan Anda sesuai tata cara agama resmi yang berlaku di Indonesia.</p>
+          <p>Kami sadar bahwa setiap detail dalam prosesi keagamaan memiliki makna yang sangat mendalam. Itulah mengapa tim Bali Top Wedding akan memastikan seluruh pengurusan berkas, koordinasi dengan pemuka agama, hingga jalannya prosesi diurus dengan penuh kehati-hatian, profesional, dan bebas stres.</p>
+          <p style="font-style: italic; font-weight: 500;">Tugas anda hanyalah hadir dengan hati yang bahagia, karena bersama Bali Top Wedding, momen sakral anda jadi lebih praktis.</p>
+        </div>
+      </div>
+
+      <!-- COMMITMENT CEREMONY -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/FqN4cS3d/after-party.jpg" alt="Commitment Ceremony"></div>
+        <div class="service-info">
+          <span class="section-label">Main Service</span>
+          <h2>After Party</h2>
+          <p>Bertukar janji setia seumur hidup dengan latar belakang keindahan alam Bali. Merayakan momen itu bersama orang-orang terdekat dengan penuh kebahagiaan, tanpa perlu pusing dengan urusan dokumen yang rumit. Jika ini adalah apa yang Anda impikan, Bali Top Wedding siap menjadi yang terdepan untuk membantu mewujudkannya.</p>
+          <p>Di Bali Top Wedding, kami percaya “your love is your rules”—tidak ada aturan kaku dalam mengikrarkan cinta. Mau bertukar janji suci yang Anda tulis sendiri di tepi pantai, bersulang manis di atas tebing saat sunset, ataupun membuat acara unik ala Anda berdua, apa pun itu kami siap mewujudkannya dengan indah tanpa menyisakan stres dan keluh kesah.</p>
+          <p>Mulai dari konsep yang simpel dan intim hingga yang elegan, tim kami akan menyiapkan segala detailnya di balik layar dengan seksama hingga hari bahagia tiba. Anda dan pasangan tinggal duduk manis dan menikmati setiap detiknya.</p>
+        </div>
+      </div>
+
+      <!-- RENEWAL OF VOWS -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/JFvYrdtP/Renewal-Vows-2-1.jpg" alt="Renewal of Vows"></div>
+        <div class="service-info">
+          <span class="section-label">Main Service</span>
+          <h2>Elopement</h2>
+          <p style="font-style: italic; font-weight: 500; margin-bottom: 20px;">Waktu berlalu dan babak berganti, aku akan tetap memilihmu lagi dan lagi.</p>
+          <p>Pembaruan Janji Suci (Renewal of Vows) adalah cara paling indah untuk merayakan perjalanan cinta Anda yang telah teruji oleh waktu. Tanpa perlu pusing dengan urusan ini itu, Bali Top Wedding akan memastikan momen ini sepenuhnya menjadi milik Anda berdua.</p>
+          <p>Di Bali Top Wedding, kami memahami bahwa setiap tahun yang telah Anda lewati bersama memiliki cerita yang berharga. Baik Anda ingin merayakannya secara intim berdua saja, atau berbagi kebahagiaan bersama anak-anak dan keluarga tercinta, kami siap mewujudkannya dengan penuh kehangatan.</p>
+          <p>Anda hanya perlu membawa rasa syukur dan cinta yang semakin mendalam, karena sisanya akan dikerjakan dari belakang layar oleh tangan-tangan kreatif Bali Top Wedding.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--linen); padding-top: 80px;">
+    <div class="max-w">
+      <div style="text-align:center;">
+        <span class="section-label">Beyond</span>
+        <h2>Additional Services</h2>
+      </div>
+      
+      <div class="additional-grid">
+        <div class="add-service-card">
+          <h4>Engagement</h4>
+          <p>Ciptakan momen lamaran kejutan yang romantis dan tak terlupakan dengan setting dekorasi eksklusif dari tim kami.</p>
+        </div>
+        <div class="add-service-card">
+          <h4>Gala Dinner</h4>
+          <p>Layanan paripurna untuk acara jamuan makan malam resmi, malam penghargaan (Awarding Night), dan korporat.</p>
+        </div>
+        <div class="add-service-card">
+          <h4>Group Tour</h4>
+          <p>Fasilitasi liburan keluarga atau rombongan tamu pernikahan Anda untuk menjelajahi destinasi terbaik di Bali.</p>
+        </div>
+        <div class="add-service-card">
+          <h4>Fun Games</h4>
+          <p>Cairkan suasana sebelum hari H dengan aktivitas outbound dan fun games interaktif bersama para tamu undangan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" style="margin-top:0;">
+    <div class="max-w">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="footer-col-head">Alamat Kantor</span>
+          <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-head">Kontak & WhatsApp</span>
+          <p>0361 464 623</p>
+          <p>081238490222 (Yoga)</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-head">Media & Digital</span>
+          <p>wedding.bth@gmail.com</p>
+          <p>@balitopwedding</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-head">Office Hours</span>
+          <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+        <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── SUBMENU TOGGLE IN NAVBAR DROPDOWN ── */
+    document.querySelectorAll('.submenu-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const parent = this.parentElement;
+        parent.classList.toggle('active');
+        
+        // Tutup submenu lainnya yang sedang terbuka di dropdown yang sama
+        const siblings = parent.parentElement.querySelectorAll('.dropdown-submenu');
+        siblings.forEach(sibling => {
+          if (sibling !== parent) {
+            sibling.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

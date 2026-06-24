@@ -184,8 +184,21 @@
 
         .nav-dropdown {
             position: relative;
+            display: inline-flex;
+            align-items: center;
             padding: 24px 0;
             margin: -24px 0;
+        }
+
+        .nav-caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 4px solid currentColor;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         .dropdown-panel {
@@ -664,31 +677,31 @@
     <nav class="navbar" id="navbar">
         <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
         <div class="navbar-links">
+            <a href="index.html" class="nav-item">Home</a>
             <div class="nav-dropdown">
-                <a href="services.html" class="nav-item">Our Services ▾</a>
+                <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
                 <div class="dropdown-panel">
                     <div class="dropdown-submenu">
                         <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Ceremony</a>
-                            <a href="services.html">Dinner or Lunch Reception</a>
-                            <a href="services.html">After Party</a>
-                            <a href="services.html">Elopement</a>
+                            <a href="service-ceremony.html">Ceremony</a>
+                            <a href="service-receptions.html">Receptions</a>
+                            <a href="service-after-party.html">After Party</a>
+                            <a href="service-elopement.html">Elopement</a>
                         </div>
                     </div>
                     <div class="dropdown-submenu" style="margin-top: 12px;">
                         <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Gala Dinner &amp; Awarding Night</a>
-                            <a href="services.html">Group Tour &amp; Fun Games</a>
-                            <a href="services.html">Group Tour</a>
-                            <a href="services.html">Fun Games &amp; Gala Dinner</a>
+                            <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+                            <a href="service-group-tour.html">Group Tour</a>
+                            <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
                         </div>
                     </div>
                 </div>
             </div>
             <a href="portfolio.html" class="nav-item">Portfolio</a>
-            <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+            <a href="special-offer.html" class="nav-item">Special Offer</a>
             <a href="contact.html" class="nav-item">Contact Us</a>
             <a href="about.html" class="nav-item">About BTW</a>
             <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
@@ -728,79 +741,10 @@
                     </svg>
                 </div>
 
-                <!-- ── CATEGORY FILTERS ── -->
-                <div class="blog-filters">
-                    <button class="filter-chip active" data-category="all" onclick="setFilter(this, 'all')">Semua</button>
-                    <button class="filter-chip" data-category="preparation" onclick="setFilter(this, 'preparation')">Preparation</button>
-                    <button class="filter-chip" data-category="venues" onclick="setFilter(this, 'venues')">Venues</button>
-                    <button class="filter-chip" data-category="inspiration" onclick="setFilter(this, 'inspiration')">Inspiration</button>
-                    <button class="filter-chip" data-category="ceremony" onclick="setFilter(this, 'ceremony')">Ceremony</button>
-                </div>
+                <!-- Category filters removed -->
 
                 <div class="blog-grid" id="blog-grid">
-                    <div class="blog-card" data-category="preparation" data-title="Panduan Lengkap Mengurus Dokumen Pernikahan Sah Secara Agama di Bali" onclick="window.location.href='blog-detail.html'">
-                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80"
-                            alt="Panduan Dokumen" class="blog-card-img">
-                        <div class="blog-card-meta"><span>Preparation</span> <span>•</span> <span>Juni 2026</span></div>
-                        <h3 class="blog-card-title">Panduan Lengkap Mengurus Dokumen Pernikahan Sah Secara Agama di Bali
-                        </h3>
-                        <p class="blog-card-excerpt">Menikah sah secara hukum dan agama di Indonesia memerlukan
-                            persiapan dokumen yang teliti. Simak panduan langkah demi langkah beserta dokumen apa saja
-                            yang harus disiapkan untuk WNI maupun WNA.</p>
-                    </div>
-
-                    <div class="blog-card" data-category="venues" data-title="Tebing Pantai vs Kebun Tropis: Memilih Venue yang Tepat untuk Tema Acara Anda" onclick="window.location.href='blog-detail.html'">
-                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80"
-                            alt="Venue Bali" class="blog-card-img">
-                        <div class="blog-card-meta"><span>Venues</span> <span>•</span> <span>Mei 2026</span></div>
-                        <h3 class="blog-card-title">Tebing Pantai vs Kebun Tropis: Memilih Venue yang Tepat untuk Tema
-                            Acara Anda</h3>
-                        <p class="blog-card-excerpt">Bali menawarkan dua landscape unggulan untuk pernikahan: tebing
-                            dengan pemandangan lautan Hindia yang magis, atau kebun tropis Ubud yang menenangkan. Mana
-                            yang lebih cocok dengan kepribadian Anda?</p>
-                    </div>
-
-                    <div class="blog-card" data-category="inspiration" data-title="5 Ide Midnight Snacks untuk Menjaga Energi Tamu di Sesi After Party" onclick="window.location.href='blog-detail.html'">
-                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
-                            alt="After Party" class="blog-card-img">
-                        <div class="blog-card-meta"><span>Inspiration</span> <span>•</span> <span>April 2026</span>
-                        </div>
-                        <h3 class="blog-card-title">5 Ide Midnight Snacks untuk Menjaga Energi Tamu di Sesi After Party
-                        </h3>
-                        <p class="blog-card-excerpt">Pesta belum berakhir sebelum lampu dimatikan. Pastikan tamu-tamu
-                            Anda tetap bersemangat di lantai dansa dengan menyajikan camilan tengah malam yang
-                            mengejutkan ini.</p>
-                    </div>
-
-                    <div class="blog-card" data-category="ceremony" data-title="Makna Sakral di Balik Ritual Melukat: Penyucian Diri Sebelum Hari Pernikahan" onclick="window.location.href='blog-detail.html'">
-                        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80"
-                            alt="Melukat Ceremony" class="blog-card-img">
-                        <div class="blog-card-meta"><span>Ceremony</span> <span>•</span> <span>Maret 2026</span>
-                        </div>
-                        <h3 class="blog-card-title">Makna Sakral di Balik Ritual Melukat: Penyucian Diri Sebelum Hari Pernikahan
-                        </h3>
-                        <p class="blog-card-excerpt">Melukat adalah ritual penyucian Hindu Bali yang kini banyak dipilih pasangan sebagai bagian dari rangkaian pranikah mereka. Temukan makna mendalam dan lokasi terbaik untuk melangsungkannya.</p>
-                    </div>
-
-                    <div class="blog-card" data-category="preparation" data-title="Checklist 12 Bulan Sebelum Hari H: Apa Saja yang Harus Sudah Beres?" onclick="window.location.href='blog-detail.html'">
-                        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=600&q=80"
-                            alt="Wedding Checklist" class="blog-card-img">
-                        <div class="blog-card-meta"><span>Preparation</span> <span>•</span> <span>Februari 2026</span>
-                        </div>
-                        <h3 class="blog-card-title">Checklist 12 Bulan Sebelum Hari H: Apa Saja yang Harus Sudah Beres?
-                        </h3>
-                        <p class="blog-card-excerpt">Satu tahun mungkin terdengar lama, tetapi dalam dunia perencanaan pernikahan mewah di Bali, waktu berjalan sangat cepat. Gunakan panduan komprehensif ini sebagai kompas persiapan Anda.</p>
-                    </div>
-
-                    <div class="blog-card" data-category="venues" data-title="The Ungasan, Ayana, hingga Tirtha Uluwatu: Perbandingan 5 Venue Eksklusif di Bali Selatan" onclick="window.location.href='blog-detail.html'">
-                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80"
-                            alt="Bali Venue" class="blog-card-img">
-                        <div class="blog-card-meta"><span>Venues</span> <span>•</span> <span>Januari 2026</span>
-                        </div>
-                        <h3 class="blog-card-title">The Ungasan, Ayana, hingga Tirtha Uluwatu: Perbandingan 5 Venue Eksklusif di Bali Selatan
-                        </h3>
-                        <p class="blog-card-excerpt">Bali Selatan menyimpan deretan venue pernikahan kelas dunia. Kami membandingkan kapasitas, keindahan pemandangan, fasilitas, dan keunikan masing-masing venue untuk membantu pilihan Anda.</p>
-                    </div>
+                    <!-- Cards will be dynamically loaded from blog-data.js -->
                 </div>
 
                 <!-- No results message -->
@@ -887,27 +831,34 @@
                     <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Kontak & WhatsApp</span>
-                    <p>0361 464 623</p>
-                    <p>081238490222</p>
+                    <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+                    <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+                    <a href="#" data-wa="ika" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081237495930 (Ika)</a>
+                    <a href="#" data-wa="suci" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">082266316766 (Suci)</a>
+                    <a href="#" data-wa="yoga" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081238490222 (Yoga)</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Koneksi Digital</span>
-                    <p>wedding.bth@gmail.com</p>
-                    <p>www.balitopwedding.com</p>
+                    <span class="footer-col-head">Media &amp; Digital</span>
+                    <a href="mailto:wedding.bth@gmail.com" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">wedding.bth@gmail.com</a>
+                    <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">www.balitopwedding.com</a>
+                    <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+                    <a href="#" style="display:inline; margin-right:12px; color: var(--accent); text-decoration: none;">Instagram: @balitopwedding</a>
+                    <a href="#" style="display:inline; color: var(--accent); text-decoration: none;">Tiktok: @balitopwedding</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Jam Operasional</span>
+                    <span class="footer-col-head">Office Hours</span>
                     <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+                    <p>Sabtu - Minggu:<br>by appointment only</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-                <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+                <span class="footer-copy" style="color:var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
             </div>
         </div>
     </footer>
 
+    <script src="blog-data.js"></script>
     <script>
         // Reveal Animations
         const revealElements = document.querySelectorAll('.reveal');
@@ -919,9 +870,33 @@
         }, observerOptions);
         revealElements.forEach(element => { revealObserver.observe(element); });
 
-        // ── SEARCH & FILTER LOGIC ──
-        let activeCategory = 'all';
+        // ── RENDER BLOG CARDS ──
+        function renderBlogs() {
+            const grid = document.getElementById('blog-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            
+            if (!window.BLOG_DATA) return;
+            
+            Object.values(window.BLOG_DATA).forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'blog-card';
+                card.dataset.title = post.title;
+                card.onclick = () => {
+                    window.location.href = `blog-detail.html?post=${post.slug}`;
+                };
+                
+                card.innerHTML = `
+                    <img src="${post.featuredImage}" alt="${post.title}" class="blog-card-img">
+                    <div class="blog-card-meta">${post.date}</div>
+                    <h3 class="blog-card-title">${post.title}</h3>
+                    <p class="blog-card-excerpt">${post.excerpt}</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
 
+        // ── SEARCH LOGIC ──
         function filterBlog() {
             const query = document.getElementById('blog-search').value.toLowerCase().trim();
             const cards = document.querySelectorAll('#blog-grid .blog-card');
@@ -929,13 +904,11 @@
 
             cards.forEach(card => {
                 const title = (card.dataset.title || '').toLowerCase();
-                const category = (card.dataset.category || '').toLowerCase();
                 const excerpt = (card.querySelector('.blog-card-excerpt')?.textContent || '').toLowerCase();
 
                 const matchesQuery = query === '' || title.includes(query) || excerpt.includes(query);
-                const matchesCategory = activeCategory === 'all' || category === activeCategory;
 
-                if (matchesQuery && matchesCategory) {
+                if (matchesQuery) {
                     card.classList.remove('hidden');
                     visibleCount++;
                 } else {
@@ -944,13 +917,6 @@
             });
 
             document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-
-        function setFilter(btn, category) {
-            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            activeCategory = category;
-            filterBlog();
         }
 
         /* ── SUBMENU TOGGLE IN NAVBAR DROPDOWN ── */
@@ -969,7 +935,13 @@
                 });
             });
         });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBlogs();
+        });
     </script>
+    <script src="config.js"></script>
 </body>
 
 </html>

@@ -147,7 +147,33 @@
 
     /* Dropdown Panel */
     .nav-dropdown {
-      position: relative;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 24px 0;
+        margin: -24px 0;
+    }
+
+    .nav-caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 4px solid currentColor;
+        margin-left: 6px;
+        vertical-align: middle;
+    }
+
+    .nav-caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 4px solid currentColor;
+      margin-left: 6px;
+      vertical-align: middle;
     }
 
     .dropdown-panel {
@@ -471,9 +497,17 @@
     }
 
     /* ── INTRO FADE SLIDESHOW ── */
+    .intro-slider-wrapper {
+      padding: 60px 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
     .intro-slider-container {
       position: relative;
-      height: 100%;
+      flex: 1;
       width: 100%;
       overflow: hidden;
       background: var(--dark);
@@ -573,9 +607,11 @@
 
     /* ── ABOUT TIM HERO & JS SLIDER (YANG BARU DIPERBAIKI) ── */
     .about-tim-hero {
-      height: 40vh;
+      width: 100%;
+      aspect-ratio: 2160 / 1440;
+      max-height: 60vh;
       min-height: 280px;
-      background: linear-gradient(rgba(30, 25, 22, 0.4), rgba(30, 25, 22, 0.6)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.4), rgba(30, 25, 22, 0.6)), url('https://i.ibb.co.com/5xB47W4k/Hero-di-section-our-team-landing-page.webp') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -601,6 +637,10 @@
       width: 100%;
       background: var(--dark);
       overflow: hidden;
+      aspect-ratio: 1.7 / 1;
+      max-width: 720px;
+      border: 0.5px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(30, 25, 22, 0.08);
     }
 
     .staff-slider-track {
@@ -613,28 +653,33 @@
       min-width: 100%;
       height: 100%;
       position: relative;
+      display: flex;
+      flex-direction: row;
+      background: var(--dark);
     }
 
     .staff-slide img {
-      width: 100%;
+      width: 42%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .staff-info-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(30, 25, 22, 0.95));
-      padding: 60px 40px 40px;
+    .staff-info-right {
+      width: 58%;
+      height: 100%;
+      padding: 40px 32px 48px;
       color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      background: #25201D;
     }
 
     .staff-name {
       font-family: 'Jost', sans-serif;
-      font-size: 18px;
+      font-size: clamp(16px, 1.8vw, 20px);
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -644,11 +689,11 @@
 
     .staff-role {
       font-family: 'Jost', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--cream);
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       display: block;
       opacity: 0.8;
     }
@@ -656,15 +701,18 @@
     .staff-quote {
       font-style: italic;
       font-weight: 300;
-      font-size: 18px;
-      line-height: 1.6;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: rgba(250, 248, 245, 0.85);
+      border-top: 0.5px solid rgba(196, 176, 154, 0.3);
+      padding-top: 12px;
+      margin-top: 6px;
     }
 
     .slideshow-dots {
       position: absolute;
       bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 32px;
       display: flex;
       gap: 10px;
       z-index: 5;
@@ -877,23 +925,199 @@
       margin-bottom: 24px;
     }
 
-    .review-quote-text {
-      font-size: clamp(20px, 2.5vw, 30px);
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.65;
-      max-width: 850px;
+    /* Google Review Card Style */
+    .google-review-card {
+      background: var(--cream);
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 36px 40px;
+      text-align: left;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      max-width: 640px;
       margin: 0 auto;
-      color: var(--cream);
+      border: 0.5px solid var(--accent);
+      position: relative;
     }
 
-    .review-author {
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      justify-content: space-between;
+    }
+
+    .reviewer-profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--linen);
+      color: var(--dark);
       font-family: 'Jost', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-weight: 500;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--accent);
+    }
+
+    .reviewer-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reviewer-name {
+      font-family: 'Jost', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--dark);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .reviewer-status {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .google-icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      padding: 6px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .card-stars {
+      color: #FBBC04;
+      font-size: 16px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .card-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17.5px;
+      line-height: 1.7;
+      color: var(--dark);
+      margin-bottom: 0;
+      font-style: italic;
+    }
+
+    .card-footer {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid rgba(122, 108, 98, 0.15);
+      padding-top: 12px;
+    }
+
+    .google-verified-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px;
+      color: #34A853;
+      font-weight: 500;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .google-verified-tag svg {
+      fill: #34A853;
+    }
+
+    .review-date {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Google Reviews Carousel Styles */
+    .reviews-carousel {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--cream);
+      font-size: 36px;
+      cursor: pointer;
+      padding: 10px;
+      transition: color 0.3s, transform 0.3s;
+      z-index: 10;
+      opacity: 0.6;
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .carousel-btn:hover {
       color: var(--accent);
-      margin-top: 24px;
+      opacity: 1;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      .reviews-carousel {
+        padding: 0;
+      }
+      .carousel-btn {
+        display: none;
+      }
     }
 
     /* ── SPECIAL OFFER ── */
@@ -914,6 +1138,57 @@
       font-style: italic;
       max-width: 640px;
       margin: 0 auto 32px;
+    }
+
+    /* ── CORE VALUES GRID ── */
+    .values-section {
+      background: var(--nude);
+      padding: 110px 48px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 64px;
+    }
+
+    .value-card {
+      background: var(--cream);
+      padding: 48px 40px;
+      text-align: center;
+      border: 0.5px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(30, 25, 22, 0.05);
+    }
+
+    .value-number {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .value-card h3 {
+      font-size: 28px;
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .value-card p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     /* ── SCROLL REVEAL EFFECT ── */
@@ -994,6 +1269,21 @@
       color: var(--muted);
     }
 
+    /* ── LUXURY SEPARATOR ── */
+    .luxury-separator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 60px auto;
+      opacity: 0.85;
+      width: 100%;
+    }
+    .luxury-separator svg {
+      width: 240px;
+      height: auto;
+      max-width: 90%;
+    }
+
     /* ── RESPONSIVE MEDIA QUERIES ── */
     @media (max-width: 900px) {
       .hero-logo-desktop {
@@ -1014,9 +1304,36 @@
         padding: 48px 24px;
       }
 
-      .intro-slideshow,
-      .staff-slider-container {
+      .intro-slider-container {
         min-height: 420px;
+      }
+      .staff-slider-container {
+        aspect-ratio: auto;
+        min-height: 520px !important;
+        max-width: 400px;
+      }
+      .staff-slide {
+        flex-direction: column;
+      }
+      .staff-slide img {
+        width: 100%;
+        height: 45%;
+      }
+      .staff-info-right {
+        width: 100%;
+        height: 55%;
+        padding: 24px 20px 42px;
+      }
+      .slideshow-dots {
+        bottom: 12px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .intro-slider-wrapper {
+        padding: 0 24px 48px 24px;
+        height: auto;
       }
 
       .services-tiles {
@@ -1055,6 +1372,14 @@
       .google-reviews-section {
         background-attachment: scroll;
         padding: 80px 24px;
+      }
+
+      .google-review-card {
+        padding: 24px 28px;
+      }
+
+      .card-text {
+        font-size: 16px;
       }
     }
 
@@ -1193,33 +1518,32 @@
       <img src="https://i.ibb.co.com/rKzKwY3K/logo-btw.png" alt="Bali Top Wedding Logo">
     </a>
     <div class="navbar-links">
-
+      <a href="index.html" class="nav-item">Home</a>
       <div class="nav-dropdown">
-        <a href="services.html" class="nav-item">Our Services ▾</a>
+        <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
         <div class="dropdown-panel">
           <div class="dropdown-submenu">
             <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
             <div class="submenu-details">
-              <a href="services.html">Ceremony</a>
-              <a href="services.html">Dinner or Lunch Reception</a>
-              <a href="services.html">After Party</a>
-              <a href="services.html">Elopement</a>
+              <a href="service-ceremony.html">Ceremony</a>
+              <a href="service-receptions.html">Receptions</a>
+              <a href="service-after-party.html">After Party</a>
+              <a href="service-elopement.html">Elopement</a>
             </div>
           </div>
           <div class="dropdown-submenu" style="margin-top: 12px;">
             <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
             <div class="submenu-details">
-              <a href="services.html">Gala Dinner &amp; Awarding Night</a>
-              <a href="services.html">Group Tour &amp; Fun Games</a>
-              <a href="services.html">Group Tour</a>
-              <a href="services.html">Fun Games &amp; Gala Dinner</a>
+              <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+              <a href="service-group-tour.html">Group Tour</a>
+              <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
             </div>
           </div>
         </div>
       </div>
 
       <a href="portfolio.html" class="nav-item">Portfolio</a>
-      <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+      <a href="special-offer.html" class="nav-item">Special Offer</a>
       <a href="contact.html" class="nav-item">Contact Us</a>
       <a href="about.html" class="nav-item">About BTW</a>
       <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
@@ -1229,7 +1553,7 @@
   <div class="header-spacer"></div>
 
  <section class="hero">
-    <img src="https://i.ibb.co.com/zVc3nsBT/ANDIREGENPHOTO-28989.jpg" alt="Hero Background" class="hero-bg-img">
+    <img src="https://i.ibb.co.com/99FgSBbf/ANDIREGENPHOTO-28989-1.webp" alt="Hero Background" class="hero-bg-img">
     <div class="hero-content-wrapper">
       <div class="hero-content">
         <img src="https://i.ibb.co.com/PZLfsYJK/logo-btw-white.png" alt="Bali Top Wedding Logo" class="hero-logo-desktop">
@@ -1240,7 +1564,18 @@
     </div>
   </section>
 
-  <section class="section" style="background:var(--cream); padding-top:0; padding-bottom:0;">
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
+
+  <section class="section" style="background:var(--cream); padding-top:80px; padding-bottom:80px;">
     <div class="max-w split">
       <div class="split-text">
         <div class="section-rule"></div>
@@ -1253,26 +1588,44 @@
           Dari sketsa pertama hingga dansa terakhir, kami menangani segalanya dengan cermat agar Anda bebas bersantai,
           tersenyum, dan menikmati setiap momen berharga di bawah indahnya langit Bali. Lupakan pernikahan jadul yang
           kaku, wujudkan pernikahan impian yang mencerminkan diri Anda sepenuhnya bersama Bali Top Wedding.</p>
-        <div style="margin-top: 36px;">
-          <a href="#contact" class="btn-bubble">Wujudkan Impian Anda</a>
+        <div class="intro-cta-block" style="margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px; border: 0.5px solid var(--accent); padding: 24px; background: var(--nude); width: 100%;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; font-weight: 500; color: var(--dark); text-align: center; display: block; margin-bottom: 4px;">Wujudkan Impian Anda</span>
+          <div style="display: flex; gap: 16px; width: 100%; justify-content: center; flex-wrap: wrap;">
+            <a href="#" data-wa="suci" class="btn-bubble" style="margin: 0; padding: 10px 24px; text-align: center; font-size: 11px; flex: 1; min-width: 140px;">WhatsApp Sales</a>
+            <a href="mailto:wedding.bth@gmail.com" class="btn-bubble" style="margin: 0; padding: 10px 24px; text-align: center; font-size: 11px; background-color: transparent; color: var(--dark); border: 0.5px solid var(--dark); flex: 1; min-width: 140px;">Email Us</a>
+          </div>
         </div>
       </div>
 
-      <div class="intro-slider-container reveal">
-        <div class="intro-slide active-slide"><img src="https://i.ibb.co.com/6R8RmrWM/W-Hotel-Seminyak-Bali-152.jpg"
-            alt="Client 1"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/wN52cTnk/SAE-118.jpg" alt="Client 2"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/Xv1LNb3/LMR21090.jpg" alt="Client 3"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/ynK3BMK8/ganti.jpg" alt="Client 4"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/60BZGq34/ganti-2.jpg" alt="Client 5"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/zTLZFQ2f/EDI06934.jpg" alt="Client 6"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/chsggmkJ/DK1-4853.jpg" alt="Client 7"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/gKgfR0q/AST-9388.jpg" alt="Client 8"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/XZ7QB9zn/AST-8734.jpg" alt="Client 9"></div>
-        <div class="intro-slide"><img src="https://i.ibb.co.com/0jqW1zcx/10.jpg" alt="Client 10"></div>
+      <div class="intro-slider-wrapper reveal">
+        <div class="intro-slider-container">
+          <div class="intro-slide active-slide"><img src="https://i.ibb.co.com/9mr2fQQZ/AST-8734-copy.webp"
+              alt="Client 1"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/TqnTchsz/AST-9388-copy.webp" alt="Client 2"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/qY18hXyD/DK1-4853-copy.webp" alt="Client 3"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/1JTLGxdr/EDI06934-copy.webp" alt="Client 4"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/C3hw0f1t/ganti-2-copy.webp" alt="Client 5"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/ccZWLnD9/ganti-copy.webp" alt="Client 6"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/zH856y5J/LMR21090-copy.webp" alt="Client 7"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/xtzv1hSL/SAE-118-copy.webp" alt="Client 8"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/4RKKbVqM/W-Hotel-Seminyak-Bali-152-copy.webp" alt="Client 9"></div>
+        </div>
       </div>
     </div>
   </section>
+
+  
+
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
 
   <section id="services" class="section" style="background:var(--nude); padding-top: 70px; padding-bottom: 70px;">
     <div class="max-w">
@@ -1281,127 +1634,283 @@
       </div>
 
       <div class="reveal">
-        <h3 class="services-group-title">Main Services</h3>
+        <h3 class="services-group-title">Main Services ⭐⭐⭐⭐⭐</h3>
         <div class="services-tiles" style="grid-template-columns: repeat(4, 1fr);">
           
-          <div class="service-tile">
-            <img src="https://i.ibb.co.com/JFvYrdtP/Renewal-Vows-2-1.jpg" alt="Ceremony">
+          <a href="service-ceremony.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/fd1MW60c/ceremony-1.webp" alt="Ceremony">
             <div class="service-tile-overlay"><span class="service-tile-name">Ceremony</span></div>
-          </div>
+          </a>
           
-          <div class="service-tile">
-            <img src="https://i.ibb.co.com/rRmCPN0G/Reception.jpg" alt="Dinner or Lunch Reception">
+          <a href="service-receptions.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/dskxL32q/Reception-2.webp" alt="Dinner or Lunch Reception">
             <div class="service-tile-overlay"><span class="service-tile-name">Reception</span></div>
-          </div>
+          </a>
           
-          <div class="service-tile">
-            <img src="https://i.ibb.co.com/FqN4cS3d/after-party.jpg" alt="After Party">
-            <div class="service-tile-overlay"><span class="service-tile-name">After Party</span></div>
-          </div>
-          
-          <div class="service-tile">
-            <img src="https://i.ibb.co.com/dwRVWcXf/elopement.jpg" alt="Elopement">
+          <a href="service-elopement.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/RGFWXv98/Elopement-3.webp" alt="Elopement" style="object-position: center 75%;">
             <div class="service-tile-overlay"><span class="service-tile-name">Elopement</span></div>
-          </div>
+          </a>
+          
+          <a href="service-after-party.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/qLWnT0kW/after-party-4.webp" alt="After Party">
+            <div class="service-tile-overlay"><span class="service-tile-name">After Party</span></div>
+          </a>
 
         </div>
       </div>
 
-      <div class="reveal" style="margin-top: 24px;">
-        <h3 class="services-group-title">Additional Services</h3>
-        <div class="services-tiles" style="grid-template-columns: repeat(4, 1fr);">
-          <div class="service-tile">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Gala Dinner and Awarding Night">
-            <div class="service-tile-overlay"><span class="service-tile-name">Gala Dinner &amp;<br>Awarding Night</span></div>
-          </div>
-          <div class="service-tile">
-            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&q=80" alt="Group Tour &amp; Fun Games">
+      <div class="reveal" style="margin-top: 40px;">
+        <h3 class="services-group-title">Additional Services ⭐⭐⭐⭐</h3>
+        <div class="services-tiles" style="grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto;">
+          
+          <a href="service-group-tour-fun-games.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/PsGqsQ1N/Group-Tour-Fun-Games.webp" alt="Group Tour &amp; Fun Games">
             <div class="service-tile-overlay"><span class="service-tile-name">Group Tour &amp;<br>Fun Games</span></div>
-          </div>
-          <div class="service-tile">
-            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=400&q=80" alt="Group Tour">
+          </a>
+
+          <a href="service-group-tour.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/gXDsTz2/Group-Tour.webp" alt="Group Tour">
             <div class="service-tile-overlay"><span class="service-tile-name">Group Tour</span></div>
-          </div>
-          <div class="service-tile">
-            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=80" alt="Fun Games &amp; Gala Dinner">
+          </a>
+          
+          <a href="service-fun-games-gala-dinner.html" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/HTfZJtTt/Fun-Games-Gala-Dinner.webp" alt="Fun Games &amp; Gala Dinner">
             <div class="service-tile-overlay"><span class="service-tile-name">Fun Games &amp;<br>Gala Dinner</span></div>
-          </div>
+          </a>
+
+          <a href="#" class="service-tile" style="text-decoration: none; display: block;">
+            <img src="https://i.ibb.co.com/v4Wctx5w/gala-dinner-awarding-night.webp" alt="Gala Dinner &amp; Awarding Night">
+            <div class="service-tile-overlay"><span class="service-tile-name">Gala Dinner &amp;<br>Awarding Night</span></div>
+          </a>
+
         </div>
       </div>
     </div>
   </section>
+
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
 
   <section id="about">
     <div class="about-tim-hero">
       <div class="max-w">
         <h2>About Bali Top Wedding</h2>
-        <p
-          style="font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-top:8px;">
-          Foto Bersama Bali Top Wedding</p>
       </div>
     </div>
 
-    <div class="split" style="background:var(--linen);">
-      <div class="split-right-pad">
+    <div class="split" style="background:var(--linen); align-items: center;">
+      <div class="split-right-pad" style="padding: 80px 72px;">
         <div class="section-rule"></div>
-        <h3 style="margin-bottom: 14px;">Tentang Kami</h3>
+        <h3 style="margin-bottom: 24px; font-size: clamp(32px, 3.5vw, 44px); font-weight: 300; font-style: italic;">Tentang Kami</h3>
         <p>Berdiri sejak 2014, Bali Top Wedding adalah wedding planner dan organizer resmi serta berizin hukum yang
           berbasis di Bali. Sebagai anggota resmi dari Bali Wedding Association (BWA) sejak 2016, kami berfokus dalam
           menangani Domestik dan Mix Nationality Weddings (antarnegara).</p>
         <p>Bali Top Wedding menawarkan paket pernikahan dari kelas basic hingga yang dirancang khusus (Customized
           Wedding Packages) sesuai dengan kebutuhan dan impian tiap pasangan. Mari jadikan pernikahan impian Anda sebuah
-          momen yang sakral dan penuh makna, namun tetap praktis serta bebas stres bersama Bali Top Wedding.</p>
-
-        <h3 style="margin-top: 40px; margin-bottom: 14px;">Filosofi</h3>
-        <p><strong>CREATE:</strong> Mulai dari awal hingga hari bahagia anda terwujud, Bali Top Wedding akan mendampingi
-          anda di semua tahapannya termasuk pembuatan konsep acara (concepting), pengelolaan anggaran (budgeting),
-          rekomendasi tempat (venue), dan hal – hal terkait lainnya.</p>
-        <p><strong>CARE:</strong> Bali Top Wedding memberikan perhatian penuh terhadap detail sekecil apa pun untuk
-          memastikan hari istimewa anda menjadi refleksi yang tulus dan murni dari kisah cinta anda yang luar biasa.</p>
-        <p><strong>COMMIT:</strong> Bali Top Wedding berkomitmen penuh untuk memberikan anda layanan yang professional,
-          serta pengalaman sebuah wedding yang sakral, penuh makna, dan bebas stres baik sebelum, selama, hingga setelah
-          hari bahagia anda terlaksana.</p>
+          momen yang sakral and penuh makna, namun tetap praktis serta bebas stres bersama Bali Top Wedding.</p>
       </div>
 
-      <div class="staff-slider-container">
-        <div class="staff-slider-track" id="staffSlider">
-          <div class="staff-slide">
-            <img src="https://i.ibb.co.com/tPpwYKs9/staff-yoga.jpg" alt="Om Yoga - Founder & Director">
-            <div class="staff-info-overlay">
-              <h4 class="staff-name">Om Yoga</h4>
-              <span class="staff-role">Founder &amp; Director</span>
-              <p class="staff-quote">"Every wedding we create is a love letter — to the couple, to Bali, and to the art
-                of celebration itself."</p>
+      <div style="display: flex; align-items: center; justify-content: center; padding: 48px 24px; background: var(--linen); height: 100%; width: 100%; overflow: hidden;">
+        <div class="staff-slider-container">
+          <div class="staff-slider-track" id="staffSliderTrack">
+            <!-- Yoga Wiweka -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/pBKx1tWL/Yoga-Wiweka.webp" alt="Yoga Wiweka">
+              <div class="staff-info-right">
+                <span class="staff-name">Yoga Wiweka</span>
+                <span class="staff-role">Wedding Planner</span>
+                <p class="staff-quote">"Some work Monday to Friday, others work Monday to Sunday. But a wedding planner? We live for your special day"</p>
+              </div>
+            </div>
+            <!-- Suci -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/NgmhVJmF/Suci.webp" alt="Suci">
+              <div class="staff-info-right">
+                <span class="staff-name">Suci</span>
+                <span class="staff-role">Wedding Planner</span>
+                <p class="staff-quote">"Sebagai seorang sales, Membangun kepercayaan calon pengantin dimulai dengan transparansi biaya, memberikan solusi sesuai anggaran, serta selalu responsif dan komunikatif selama proses persiapan."</p>
+              </div>
+            </div>
+            <!-- Ika -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/gZvg5Zwj/Ika.webp" alt="Ika">
+              <div class="staff-info-right">
+                <span class="staff-name">Ika</span>
+                <span class="staff-role">Wedding Planner</span>
+                <p class="staff-quote">"Di balik setiap penjualan, ada sebuah cerita cinta yang kami jaga kepercayaannya. Tugas kami adalah mendengarkan impian Anda, meredam kekhawatiran Anda, dan memastikan hari bahagia Anda berjalan dengan BAHAGIA."</p>
+              </div>
+            </div>
+            <!-- Aliani -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/1thKCTv4/Aliani.webp" alt="Aliani">
+              <div class="staff-info-right">
+                <span class="staff-name">Aliani</span>
+                <span class="staff-role">Wedding Coordinator</span>
+                <p class="staff-quote">"Sebagai team Operational, Proses persiapan wedding menjadi menyenangkan melalui kolaborasi ide dan komunikasi yang baik bersama couple, Dengan perhatian pada setiap detail, kami membantu mewujudkan pernikahan yang berkesan dan sesuai impian mereka"</p>
+              </div>
+            </div>
+            <!-- Dita -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/v600NSVf/Dita.webp" alt="Dita">
+              <div class="staff-info-right">
+                <span class="staff-name">Dita</span>
+                <span class="staff-role">Wedding Coordinator</span>
+                <p class="staff-quote">"Momen favorit saya adalah saat acara dimulai dengan lancar dan melihat pasangan menikmati hari spesial mereka. Semua persiapan yang dilakukan terasa sangat berarti."</p>
+              </div>
+            </div>
+            <!-- Widya -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/M5y3SPYv/Widya.webp" alt="Widya">
+              <div class="staff-info-right">
+                <span class="staff-name">Widya</span>
+                <span class="staff-role">Wedding Coordinator</span>
+                <p class="staff-quote">"Dunia wedding event menarik bagi saya karena dinamis, tidak monoton, dan memberi kesempatan untuk bertemu banyak orang serta membangun relasi baru."</p>
+              </div>
+            </div>
+            <!-- Iin -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/Kc0Lw4Qt/Iin.webp" alt="Iin">
+              <div class="staff-info-right">
+                <span class="staff-name">Iin</span>
+                <span class="staff-role">Wedding Coordinator</span>
+                <p class="staff-quote">"Melihat acara berjalan lancar dan pasangan merasa bahagia di hari pernikahan mereka adalah hal yang paling membanggakan bagi saya."</p>
+              </div>
+            </div>
+            <!-- Priska -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/nsDzynKT/Priska.webp" alt="Priska">
+              <div class="staff-info-right">
+                <span class="staff-name">Priska</span>
+                <span class="staff-role">Wedding Coordinator</span>
+                <p class="staff-quote">"Saya menyukai dunia wedding karena sesuai dengan latar belakang Event Management saya. Selain itu, saya senang bisa bertemu banyak orang, mengenal karakter yang beragam, dan menjalani pekerjaan yang selalu berbeda."</p>
+              </div>
+            </div>
+            <!-- Wahyu -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/6RH61QFs/Wahyu.webp" alt="Wahyu">
+              <div class="staff-info-right">
+                <span class="staff-name">Wahyu</span>
+                <span class="staff-role">Design & Creative</span>
+                <p class="staff-quote">"Saya menyukai dunia wedding karena sejak awal terlibat di bidang dokumentasi pernikahan. Bagi saya, wedding bukan sekadar video, tetapi cara menghidupkan kembali sebuah momen."</p>
+              </div>
+            </div>
+            <!-- Made -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/QvbdmhFc/Made.webp" alt="Made">
+              <div class="staff-info-right">
+                <span class="staff-name">Made</span>
+                <span class="staff-role">Design & Creative</span>
+                <p class="staff-quote">"Sebagai desainer grafis karena saya senang menciptakan visual yang indah dan bermakna. Setiap wedding memiliki cerita yang berbeda, sehingga membuat saya terus tertantang untuk berkreasi dan berkembang."</p>
+              </div>
+            </div>
+            <!-- Adam -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/9KSL4cf/Adam.webp" alt="Adam">
+              <div class="staff-info-right">
+                <span class="staff-name">Adam</span>
+                <span class="staff-role">Design & Creative</span>
+                <p class="staff-quote">"Saya suka dunia wedding karena penuh dengan estetika dan keindahan yang memang saya sukai. Selain itu, saya juga bisa bertemu banyak orang baru, menambah relasi, and mendapatkan pengalaman baru."</p>
+              </div>
+            </div>
+            <!-- Ayu Candra -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/zT13G61f/Ayu-Candra.webp" alt="Ayu Candra">
+              <div class="staff-info-right">
+                <span class="staff-name">Ayu Candra</span>
+                <span class="staff-role">HR & Finance</span>
+                <p class="staff-quote">"Walaupun bekerja di balik layar sebagai accounting, saya senang bisa ikut berkontribusi dalam mendukung kelancaran hari istimewa para klien."</p>
+              </div>
+            </div>
+            <!-- Triza -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/Kjn008Df/Triza-2.webp" alt="Triza">
+              <div class="staff-info-right">
+                <span class="staff-name">Triza</span>
+                <span class="staff-role">HR & Finance</span>
+                <p class="staff-quote">"Karena bisa menjadi bagian dari momen bahagia seseorang dan bekerja di lingkungan yang kreatif, dinamis, serta penuh teamwork."</p>
+              </div>
+            </div>
+            <!-- Trisni -->
+            <div class="staff-slide">
+              <img src="https://i.ibb.co.com/NgZs7nwk/Trisni.webp" alt="Trisni">
+              <div class="staff-info-right">
+                <span class="staff-name">Trisni</span>
+                <span class="staff-role">HR & Finance</span>
+                <p class="staff-quote">"Attention to detail and smooth execution ensure your day is as perfect as you imagined."</p>
+              </div>
             </div>
           </div>
-          <div class="staff-slide">
-            <img src="https://i.ibb.co.com/hF07pdM9/staff-made.jpg" alt="Made - Senior Wedding Coordinator">
-            <div class="staff-info-overlay">
-              <h4 class="staff-name">Made</h4>
-              <span class="staff-role">Senior Wedding Coordinator</span>
-              <p class="staff-quote">"On the day itself, calm is the most important thing I can offer. Everything else
-                follows from there."</p>
-            </div>
+          <!-- Slideshow Dots -->
+          <div class="slideshow-dots" id="staffSliderDots">
+            <div class="dot active" onclick="showStaff(0)"></div>
+            <div class="dot" onclick="showStaff(1)"></div>
+            <div class="dot" onclick="showStaff(2)"></div>
+            <div class="dot" onclick="showStaff(3)"></div>
+            <div class="dot" onclick="showStaff(4)"></div>
+            <div class="dot" onclick="showStaff(5)"></div>
+            <div class="dot" onclick="showStaff(6)"></div>
+            <div class="dot" onclick="showStaff(7)"></div>
+            <div class="dot" onclick="showStaff(8)"></div>
+            <div class="dot" onclick="showStaff(9)"></div>
+            <div class="dot" onclick="showStaff(10)"></div>
+            <div class="dot" onclick="showStaff(11)"></div>
+            <div class="dot" onclick="showStaff(12)"></div>
+            <div class="dot" onclick="showStaff(13)"></div>
           </div>
-          <div class="staff-slide">
-            <img src="https://i.ibb.co.com/kVZdS61j/staff-dita.jpg" alt="Dita - Creative Director & Stylist">
-            <div class="staff-info-overlay">
-              <h4 class="staff-name">Dita</h4>
-              <span class="staff-role">Creative Director &amp; Stylist</span>
-              <p class="staff-quote">"Design is not decoration — it is the language through which your story is told
-                without words."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slideshow-dots" id="dotNav">
-          <div class="dot active" onclick="goToSlide(0)"></div>
-          <div class="dot" onclick="goToSlide(1)"></div>
-          <div class="dot" onclick="goToSlide(2)"></div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ── FILOSOFI KAMI ── -->
+  <section class="values-section reveal">
+    <div class="max-w">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <!-- <span class="section-label">Our Philosophy</span> -->
+        <h2 style="font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px;">Filosofi</h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-number">CREATE</span>
+          <h3>Menciptakan</h3>
+          <p>Mulai dari awal hingga hari bahagia Anda terwujud, Bali Top Wedding akan mendampingi Anda di semua tahapannya termasuk pembuatan konsep acara (concepting), pengelolaan anggaran (budgeting), rekomendasi tempat (venue), dan hal–hal terkait lainnya.</p>
+        </div>
+
+        <div class="value-card">
+          <span class="value-number">CARE</span>
+          <h3>Memperhatikan</h3>
+          <p>Bali Top Wedding memberikan perhatian penuh terhadap detail sekecil apa pun untuk memastikan hari istimewa Anda menjadi refleksi yang tulus dan murni dari kisah cinta Anda yang luar biasa.</p>
+        </div>
+
+        <div class="value-card">
+          <span class="value-number">COMMIT</span>
+          <h3>Berkomitmen</h3>
+          <p>Bali Top Wedding berkomitmen penuh untuk memberikan Anda layanan yang professional, serta pengalaman sebuah wedding yang sakral, penuh makna, dan bebas stres baik sebelum, selama, hingga setelah hari bahagia Anda terlaksana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
 
   <section id="portfolio" style="background:var(--cream); padding-top:110px;">
     <div class="max-w" style="padding:0 48px; margin-bottom:48px;">
@@ -1450,16 +1959,41 @@
       </div>
 
     </div>
+
+    <div style="text-align: center; margin-top: 56px; margin-bottom: 20px;" class="reveal">
+      <a href="portfolio.html" class="btn-ghost btn-ghost-dark">Lihat Portofolio Selengkapnya</a>
+    </div>
   </section>
+
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
 
   <section id="special-offer" class="special-offer-banner reveal">
     <div class="max-w">
-      <h2>Special Offer</h2>
-      <p>Rencanakan pernikahan impian Anda bersama kami bulan ini dan dapatkan penawaran khusus untuk paket kustomisasi
-        upacara dan resepsi.</p>
-      <a href="#contact" class="btn-ghost btn-ghost-dark">Selengkapnya</a>
+      <h2>Special Offers</h2>
+      <p>Temukan rangkaian paket pernikahan kustomisasi dan promo eksklusif bulan ini. Mulai dari paket elopement romantis hingga perayaan resepsi megah di Bali, semua dikemas secara profesional untuk menyempurnakan hari bahagia Anda.</p>
+      <a href="special-offer.html" class="btn-ghost btn-ghost-dark">selengkapnya</a>
     </div>
   </section>
+
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
 
   <section id="blog" class="section" style="background:var(--linen);">
     <div class="max-w">
@@ -1468,50 +2002,140 @@
         <h2>Bali Wedding Guidance</h2>
       </div>
 
-      <div class="blog-grid reveal">
-        <div class="blog-card">
-          <div class="blog-card-image"><img
-              src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Panduan Iklim Bali">
-          </div>
-          <span class="blog-card-tag">Wednesday, 8 Jun 2024</span>
-          <h4 class="blog-card-title">Musim Terbaik Menikah di Bali</h4>
-          <p style="font-size:15px; color:var(--muted);">Iklim tropis Bali membuat setiap bulan menawarkan keunikannya
-            sendiri. Berikut panduan lengkapnya...</p>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-image"><img
-              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
-              alt="Rekomendasi Cliff Venue"></div>
-          <span class="blog-card-tag">Venue Guide</span>
-          <h4 class="blog-card-title">Lokasi Pernikahan Paling Memukau</h4>
-          <p style="font-size:15px; color:var(--muted);">Dari tebing tanpa batas hingga hutan tropis hijau — jelajahi
-            tempat-tempat standar kemewahan di Bali...</p>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-image"><img
-              src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=600&q=80"
-              alt="Tips Intimate Elopement"></div>
-          <span class="blog-card-tag">Planning</span>
-          <h4 class="blog-card-title">Mengapa Memilih Intimate Elopements</h4>
-          <p style="font-size:15px; color:var(--muted);">Tren elopement meredefinisi pernikahan mewah. Alasan mengapa
-            pasangan memilih momen intim...</p>
-        </div>
+      <div class="blog-grid reveal" style="grid-template-columns: repeat(2, 1fr); max-width: 860px; margin: 0 auto;">
+        <a href="blog-detail.html?post=legal-wedding-bali-wni" class="blog-card" style="text-decoration: none; color: inherit; display: block;">
+          <div class="blog-card-image"><img src="bali_wedding_guidance/legal-wedding-bali-wni/w-hotel-seminyak-bali-126.webp" alt="Legal Wedding Bali WNI"></div>
+          <span class="blog-card-tag">Rabu, 24 Jun 2026</span>
+          <h4 class="blog-card-title">Legal Wedding di Bali untuk WNI</h4>
+          <p style="font-size:15px; color:var(--muted);">Selama mendampingi ratusan pasangan, kami sering menemukan dua pemahaman berbeda mengenai arti legal wedding di Bali. Simak panduan langkah demi langkah agar hari bahagia Anda berjalan dengan tenang...</p>
+        </a>
+        <a href="blog-detail.html?post=mix-nationality-wedding-bali" class="blog-card" style="text-decoration: none; color: inherit; display: block;">
+          <div class="blog-card-image"><img src="bali_wedding_guidance/legal-wedding-bali-wni/erc09824.webp" alt="Mix Nationality Wedding Bali"></div>
+          <span class="blog-card-tag">Kamis, 25 Jun 2026</span>
+          <h4 class="blog-card-title">Pasanganmu WNA? You Need to Know This!</h4>
+          <p style="font-size:15px; color:var(--muted);">Selain pasangan sesama WNI, Bali Top Wedding juga sering menangani pernikahan pasangan beda negara (WNI & WNA). Simak rangkuman pertanyaan paling sering diajukan beserta jawaban solutifnya...</p>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 56px;" class="reveal">
+        <a href="blog.html" class="btn-ghost btn-ghost-dark">Lihat Artikel Selengkapnya</a>
       </div>
     </div>
   </section>
 
   <section class="google-reviews-section reveal">
     <div class="max-w">
-      <div class="google-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
-          <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.555 0-6.44-2.885-6.44-6.44s2.885-6.44 6.44-6.44c1.627 0 3.102.61 4.237 1.62l3.052-3.052C19.23 2.38 15.97 1 12.24 1 5.48 1 0 6.48 0 13.24s5.48 12.24 12.24 12.24c6.76 0 12.24-5.48 12.24-12.24 0-.96-.104-1.89-.3-2.785H12.24z"/>
-        </svg>
-        <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream);">Google Review</span>
+      <h2 style="color:var(--cream); margin-bottom:48px;">Dipercaya oleh Pasangan di Seluruh Dunia</h2>
+      
+      <div class="reviews-carousel">
+        <button class="carousel-btn prev" onclick="prevReview()">&#8249;</button>
+        <div class="reviews-viewport" style="overflow: hidden; width: 100%;">
+          <div class="reviews-track" id="reviewsTrack" style="display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); width: 100%;">
+            <div class="review-slide" style="min-width: 100%; box-sizing: border-box; padding: 20px 10px;">
+              <div class="google-review-card">
+                <div class="card-header">
+                  <div class="reviewer-profile">
+                    <div class="reviewer-avatar" style="background: #E8F0FE; color: #1A73E8;">EJ</div>
+                    <div class="reviewer-details">
+                      <h4 class="reviewer-name">Emily &amp; Jonathan</h4>
+                      <span class="reviewer-status">Local Guide</span>
+                    </div>
+                  </div>
+                  <div class="google-icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-stars">★★★★★</div>
+                <p class="card-text">"Dari email pertama hingga tarian terakhir, Bali Top Wedding melampaui semua ekspektasi kami. Mereka memahami visi kami dan menjadikannya kenyataan."</p>
+                <div class="card-footer">
+                  <span class="google-verified-tag">
+                    <svg width="10" height="10" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Verified Review
+                  </span>
+                  <span class="review-date">June 2024</span>
+                </div>
+              </div>
+            </div>
+            <div class="review-slide" style="min-width: 100%; box-sizing: border-box; padding: 20px 10px;">
+              <div class="google-review-card">
+                <div class="card-header">
+                  <div class="reviewer-profile">
+                    <div class="reviewer-avatar" style="background: #E6F4EA; color: #137333;">AR</div>
+                    <div class="reviewer-details">
+                      <h4 class="reviewer-name">Andi &amp; Regen</h4>
+                      <span class="reviewer-status">Local Guide</span>
+                    </div>
+                  </div>
+                  <div class="google-icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-stars">★★★★★</div>
+                <p class="card-text">"Pernikahan impian kami di Ubud berjalan sangat sempurna! Tim Bali Top Wedding sangat detail, sabar, dan profesional membantu setiap prosesnya."</p>
+                <div class="card-footer">
+                  <span class="google-verified-tag">
+                    <svg width="10" height="10" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Verified Review
+                  </span>
+                  <span class="review-date">May 2023</span>
+                </div>
+              </div>
+            </div>
+            <div class="review-slide" style="min-width: 100%; box-sizing: border-box; padding: 20px 10px;">
+              <div class="google-review-card">
+                <div class="card-header">
+                  <div class="reviewer-profile">
+                    <div class="reviewer-avatar" style="background: #FCE8E6; color: #C5221F;">SE</div>
+                    <div class="reviewer-details">
+                      <h4 class="reviewer-name">Sarah &amp; Eric</h4>
+                      <span class="reviewer-status">Local Guide</span>
+                    </div>
+                  </div>
+                  <div class="google-icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-stars">★★★★★</div>
+                <p class="card-text">"Sangat merekomendasikan Bali Top Wedding untuk siapa saja yang ingin menikah di Bali. Koordinasi mereka luar biasa dan bebas stres bagi kami."</p>
+                <div class="card-footer">
+                  <span class="google-verified-tag">
+                    <svg width="10" height="10" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Verified Review
+                  </span>
+                  <span class="review-date">October 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next" onclick="nextReview()">&#8250;</button>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" onclick="currentReview(0)"></button>
+          <button class="carousel-dot" onclick="currentReview(1)"></button>
+          <button class="carousel-dot" onclick="currentReview(2)"></button>
+        </div>
       </div>
-      <div class="stars-container">★★★★★</div>
-      <h2 style="color:var(--cream); margin-bottom:28px;">Dipercaya oleh Pasangan di Seluruh Dunia</h2>
-      <p class="review-quote-text">"Dari email pertama hingga tarian terakhir, Bali Top Wedding melampaui semua ekspektasi kami. Mereka memahami visi kami dan menjadikannya kenyataan."</p>
-      <div class="review-author">— Emily &amp; Jonathan (Google Verified Review)</div>
     </div>
   </section>
 
@@ -1533,9 +2157,9 @@
         <div class="footer-col">
           <span class="footer-col-head">Telpon &amp; WhatsApp</span>
           <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
-          <a href="https://wa.me/6281237495930" target="_blank" rel="noopener">081237495930 (Ika)</a>
-          <a href="https://wa.me/6282266316766" target="_blank" rel="noopener">082266316766 (Suci)</a>
-          <a href="https://wa.me/6281238490222" target="_blank" rel="noopener">081238490222 (Yoga)</a>
+          <a href="#" data-wa="ika" target="_blank" rel="noopener">081237495930 (Ika)</a>
+          <a href="#" data-wa="suci" target="_blank" rel="noopener">082266316766 (Suci)</a>
+          <a href="#" data-wa="yoga" target="_blank" rel="noopener">081238490222 (Yoga)</a>
         </div>
         <div class="footer-col">
           <span class="footer-col-head">Media &amp; Digital</span>
@@ -1574,36 +2198,6 @@
     }, observerOptions);
 
     revealElements.forEach(element => { revealObserver.observe(element); });
-
-    /* 2. STAFF SLIDER (Autoplay & Navigasi) */
-    let currentSlide = 0;
-    const sliderTrack = document.getElementById('staffSlider');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = dots.length;
-
-    function goToSlide(n) {
-      currentSlide = n;
-      // Menggeser kontainer ke kiri berdasarkan indeks gambar
-      sliderTrack.style.transform = `translateX(-${n * 100}%)`;
-      // Memperbarui titik (dots) yang aktif
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[n].classList.add('active');
-    }
-
-    function autoPlaySlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(currentSlide);
-    }
-
-    // Interval ganti gambar otomatis setiap 4 detik
-    let slideInterval = setInterval(autoPlaySlide, 4000);
-
-    // Hentikan autoplay saat cursor diarahkan ke gambar/slider, lalu mulai lagi saat cursor keluar
-    const sliderContainer = document.querySelector('.staff-slider-container');
-    if (sliderContainer) {
-      sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
-      sliderContainer.addEventListener('mouseleave', () => slideInterval = setInterval(autoPlaySlide, 4000));
-    }
 
 
     /* 3. INTRO SLIDER (Efek Fade) */
@@ -1675,7 +2269,101 @@
       });
     });
 
+    /* 6. GOOGLE REVIEWS CAROUSEL */
+    let reviewIndex = 0;
+    const reviewSlides = document.querySelectorAll('.review-slide');
+    const reviewDots = document.querySelectorAll('.carousel-dot');
+    const reviewsTrack = document.getElementById('reviewsTrack');
+    const totalReviews = reviewSlides.length;
+
+    function showReview(index) {
+      if (index < 0) {
+        reviewIndex = totalReviews - 1;
+      } else if (index >= totalReviews) {
+        reviewIndex = 0;
+      } else {
+        reviewIndex = index;
+      }
+      
+      // Move track
+      if (reviewsTrack) {
+        reviewsTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
+      }
+      
+      // Update dots
+      reviewDots.forEach((dot, idx) => {
+        if (idx === reviewIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function nextReview() {
+      showReview(reviewIndex + 1);
+    }
+
+    function prevReview() {
+      showReview(reviewIndex - 1);
+    }
+
+    function currentReview(index) {
+      showReview(index);
+    }
+
+    // Auto play every 6 seconds
+    let reviewInterval = setInterval(nextReview, 6000);
+
+    // Stop auto play on hover
+    const carouselContainer = document.querySelector('.reviews-carousel');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', () => clearInterval(reviewInterval));
+      carouselContainer.addEventListener('mouseleave', () => reviewInterval = setInterval(nextReview, 6000));
+    }
+
+    /* 7. STAFF SLIDER CAROUSEL */
+    let staffIndex = 0;
+    const staffSlides = document.querySelectorAll('#staffSliderTrack .staff-slide');
+    const staffDots = document.querySelectorAll('#staffSliderDots .dot');
+    const staffTrack = document.getElementById('staffSliderTrack');
+    const totalStaff = staffSlides.length;
+
+    function showStaff(index) {
+      if (index < 0) {
+        staffIndex = totalStaff - 1;
+      } else if (index >= totalStaff) {
+        staffIndex = 0;
+      } else {
+        staffIndex = index;
+      }
+      
+      if (staffTrack) {
+        staffTrack.style.transform = `translateX(-${staffIndex * 100}%)`;
+      }
+      
+      staffDots.forEach((dot, idx) => {
+        if (idx === staffIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function nextStaff() {
+      showStaff(staffIndex + 1);
+    }
+
+    let staffInterval = setInterval(nextStaff, 3000);
+
+    const staffSliderContainer = document.querySelector('.staff-slider-container');
+    if (staffSliderContainer) {
+      staffSliderContainer.addEventListener('mouseenter', () => clearInterval(staffInterval));
+      staffSliderContainer.addEventListener('mouseleave', () => staffInterval = setInterval(nextStaff, 3000));
+    }
   </script>
+  <script src="config.js"></script>
 </body>
 
 </html>

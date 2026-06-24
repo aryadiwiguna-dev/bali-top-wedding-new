@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Tour — Bali Top Wedding</title>
+  <meta name="description" content="Layanan Perjalanan Wisata Kelompok Bali Top Wedding. Nikmati tamasya keliling Bali bersama rombongan keluarga atau rekan kerja dengan transportasi prima dan pemandu profesional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF8F5; --nude: #F0EBE3; --linen: #EDE5DA; --dark: #1E1916;
+      --muted: #7A6C62; --accent: #C4B09A; --hover: #D9CFC3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.85; overflow-x: hidden; }
+
+    /* ── HEADER & NAVIGATION ── */
+    .top-bar { background: var(--dark); height: 42px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    .top-bar-socials { display: flex; gap: 18px; align-items: center; }
+    .top-bar-socials a { color: var(--accent); text-decoration: none; display: flex; align-items: center; transition: color 0.2s; }
+    .top-bar-socials a:hover { color: var(--cream); }
+    .top-bar-cta { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 0.5px solid var(--accent); padding: 5px 14px; text-decoration: none; transition: all 0.2s; }
+    .top-bar-cta:hover { background: var(--accent); color: var(--dark); }
+
+    .navbar { background: var(--cream); border-bottom: 0.5px solid var(--accent); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; position: fixed; top: 42px; left: 0; right: 0; z-index: 99; transition: top 0.3s; }
+    .navbar-logo img { height: 36px; width: auto; display: block; }
+    .navbar-links { display: flex; align-items: center; gap: 32px; }
+    .nav-item { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark); text-decoration: none; position: relative; padding-bottom: 2px; cursor: pointer; }
+    .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 0.5px; background: var(--accent); transition: width 0.3s; }
+    .nav-item:hover::after { width: 100%; }
+
+    /* ── NAVBAR DROPDOWN ── */
+    .nav-dropdown {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 24px 0;
+        margin: -24px 0;
+    }
+
+    .nav-caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 4px solid currentColor;
+        margin-left: 6px;
+        vertical-align: middle;
+    }
+    .dropdown-panel { visibility: hidden; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; position: absolute; top: 100%; left: -20px; background: var(--nude); border: 0.5px solid var(--accent); padding: 24px 28px; min-width: 260px; z-index: 200; box-shadow: 0 10px 30px rgba(30, 25, 22, 0.05); }
+    .nav-dropdown:hover .dropdown-panel { visibility: visible; opacity: 1; transform: translateY(0); }
+    .dropdown-group-title { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 12px 0 6px; border-bottom: 0.5px solid var(--accent); padding-bottom: 3px; }
+    .dropdown-group-title:first-child { margin-top: 0; }
+    .dropdown-panel a { display: block; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--dark); text-decoration: none; padding: 6px 0; transition: padding-left 0.2s, color 0.2s; }
+    .dropdown-panel a:hover { padding-left: 8px; color: var(--muted); }
+
+    /* ── DROPDOWN SUBMENU ACCORDION ── */
+    .submenu-trigger { cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: color 0.3s ease; }
+    .submenu-trigger:hover { color: var(--dark); }
+    .submenu-details { display: none; padding-left: 12px; margin-top: 4px; border-left: 0.5px solid var(--accent); }
+    .dropdown-submenu.active .submenu-details { display: block; animation: fadeInSubmenu 0.2s ease forwards; }
+    @keyframes fadeInSubmenu { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+    .submenu-arrow { display: inline-block; transition: transform 0.2s ease; font-size: 9px; color: var(--muted); }
+    .dropdown-submenu.active .submenu-arrow { transform: rotate(90deg); }
+
+    /* ── INNER HERO ── */
+    .inner-hero {
+      position: relative; height: 40vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80') center/cover no-repeat;
+    }
+    .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
+    .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+
+    /* ── UTILITIES & BREADCRUMBS ── */
+    .section { padding: 90px 48px; }
+    .max-w { max-width: 1000px; margin: 0 auto; }
+    .section-label { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px; }
+    .section-rule { width: 48px; height: 0.5px; background: var(--accent); margin: 14px 0 22px; }
+    
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 32px; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--dark); }
+    .breadcrumb-sep { color: var(--accent); }
+    .breadcrumb span { color: var(--accent); }
+
+    /* ── LUXURY SEPARATOR ── */
+    .luxury-separator { display: flex; justify-content: center; align-items: center; margin: 40px auto; opacity: 0.85; width: 100%; }
+    .luxury-separator svg { width: 240px; height: auto; max-width: 90%; }
+
+    /* ── PHOTO SLIDESHOW / CAROUSEL ── */
+    .slideshow-container { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; margin-bottom: 56px; border: 0.5px solid var(--accent); background: var(--dark); }
+    .slideshow-track { display: flex; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
+    .slide-item { min-width: 100%; height: 100%; }
+    .slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .slide-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(30, 25, 22, 0.4); color: var(--cream); border: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 50%; z-index: 10; transition: background 0.25s, color 0.25s; backdrop-filter: blur(4px); margin: 0 16px; font-family: monospace; font-size: 18px; font-weight: bold; }
+    .slide-arrow:hover { background: var(--accent); color: var(--dark); }
+    .arrow-left { left: 0; }
+    .arrow-right { right: 0; }
+    
+    .slide-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
+    .slide-dot { width: 8px; height: 8px; border: 1px solid var(--accent); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
+    .slide-dot.active { background: var(--accent); width: 20px; border-radius: 10px; }
+
+    /* ── CONTENT LAYOUT ── */
+    h2 { font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px; line-height: 1.25; }
+    h3 { font-size: 26px; font-weight: 400; font-style: italic; color: var(--dark); margin: 40px 0 16px; border-bottom: 0.5px solid var(--accent); padding-bottom: 8px; }
+    p { margin-bottom: 24px; text-align: justify; color: var(--dark); }
+    ul { margin: 0 0 24px 32px; }
+    li { margin-bottom: 8px; }
+
+    /* ── CTA SECTION ── */
+    .cta-block { background: var(--nude); border: 0.5px solid rgba(196, 176, 154, 0.3); padding: 48px; text-align: center; margin-top: 56px; }
+    .cta-block h4 { font-size: 28px; font-style: italic; font-weight: 300; margin-bottom: 12px; }
+    .cta-block p { text-align: center; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 16.5px; color: var(--muted); }
+    .btn-bubble { display: inline-flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 36px; border-radius: 50px; background-color: var(--dark); color: var(--cream); text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(30, 25, 22, 0.15); }
+    .btn-bubble:hover { background-color: var(--accent); color: var(--dark); box-shadow: 0 6px 20px rgba(196, 176, 154, 0.3); transform: translateY(-2px); }
+
+    /* ── REVEAL EFFECT ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 80px 48px 40px; color: var(--cream); margin-top: 64px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; padding-bottom: 48px; border-bottom: 0.5px solid #3A3330; margin-bottom: 32px; }
+    .footer-col-head { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 18px; }
+    .footer-col a, .footer-col p { display: block; font-size: 16px; font-weight: 300; color: var(--accent); text-decoration: none; margin-bottom: 10px; line-height: 1.6; }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .navbar { overflow-x: auto; padding: 0 24px; }
+      .section { padding: 60px 24px; }
+      .cta-block { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-socials">
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg></a>
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg></a>
+      <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg></a>
+    </div>
+    <a href="contact.html" class="top-bar-cta">Hubungi Kami</a>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
+    <div class="navbar-links">
+      <a href="index.html" class="nav-item">Home</a>
+      <div class="nav-dropdown">
+        <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
+        <div class="dropdown-panel">
+          <div class="dropdown-submenu">
+            <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
+            <div class="submenu-details">
+              <a href="service-ceremony.html">Ceremony</a>
+              <a href="service-receptions.html">Receptions</a>
+              <a href="service-after-party.html">After Party</a>
+              <a href="service-elopement.html">Elopement</a>
+            </div>
+          </div>
+          <div class="dropdown-submenu" style="margin-top: 12px;">
+            <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
+            <div class="submenu-details">
+              <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+              <a href="service-group-tour.html">Group Tour</a>
+              <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="portfolio.html" class="nav-item">Portfolio</a>
+      <a href="special-offer.html" class="nav-item">Special Offer</a>
+      <a href="contact.html" class="nav-item">Contact Us</a>
+      <a href="about.html" class="nav-item">About BTW</a>
+      <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
+    </div>
+  </nav>
+
+  <header class="inner-hero">
+    <div>
+      <span>Additional Service</span>
+      <h1>Group Tour</h1>
+    </div>
+  </header>
+
+  <div class="luxury-separator reveal">
+    <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+      <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+      <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+      <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+      <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+    </svg>
+  </div>
+
+  <section class="section" style="padding-top: 20px;">
+    <div class="max-w">
+      
+      <!-- BREADCRUMB -->
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="services.html">Services</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Group Tour</span>
+      </nav>
+
+      <!-- SLIDESHOW -->
+      <div class="slideshow-container reveal">
+        <div class="slideshow-track" id="slideTrack">
+          <div class="slide-item"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80" alt="Beautiful Bali Temple"></div>
+          <div class="slide-item"><img src="https://images.unsplash.com/photo-1501179691627-eeaa65ea017c?w=1200&q=80" alt="Scenic Bali Beach"></div>
+          <div class="slide-item"><img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&q=80" alt="Relaxing Coastal View"></div>
+          <div class="slide-item"><img src="https://images.unsplash.com/photo-1518548419070-2c5103072753?w=1200&q=80" alt="Lush Bali Nature"></div>
+        </div>
+        <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
+        <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
+        <div class="slide-dots">
+          <div class="slide-dot active" onclick="setSlide(0)"></div>
+          <div class="slide-dot" onclick="setSlide(1)"></div>
+          <div class="slide-dot" onclick="setSlide(2)"></div>
+          <div class="slide-dot" onclick="setSlide(3)"></div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="reveal">
+        <h2>Layanan Perjalanan Wisata Rombongan (Group Tour)</h2>
+        <p>Memanjakan tamu pernikahan, keluarga besar, atau kolega perusahaan Anda selama berada di Bali adalah spesialisasi kami. Bali Top Wedding menyediakan layanan Group Tour premium yang dirancang untuk memberikan kenyamanan maksimal, keamanan, serta pengalaman wisata budaya dan alam Bali yang autentik.</p>
+
+        <h3>1. Destinasi Pilihan &amp; Rute Fleksibel (Tailored Itinerary)</h3>
+        <p>Setiap rombongan memiliki minat yang berbeda. Oleh karena itu, kami menyusun rencana perjalanan (itinerary) yang sepenuhnya dapat disesuaikan. Apakah Anda ingin menjelajahi spiritualitas Ubud dengan pemandangan sawah teraseringnya, menikmati tebing Uluwatu yang megah saat matahari terbenam, merasakan udara sejuk Kintamani, atau bersenang-senang di pantai pasir putih tersembunyi—kami mengemas semuanya secara apik.</p>
+
+        <h3>2. Armada Transportasi Prima &amp; Driver Profesional</h3>
+        <p>Kenyamanan rombongan adalah prioritas utama. Kami menyediakan berbagai kelas kendaraan, mulai dari Toyota HiAce yang mewah untuk rombongan kecil, medium bus yang gesit, hingga big bus berkapasitas besar. Semua armada kami dilengkapi dengan AC dingin, kursi yang nyaman, sistem hiburan, serta dikemudikan oleh sopir berpengalaman yang ramah dan mengenal seluk-beluk rute jalanan Bali dengan sangat baik.</p>
+
+        <h3>3. Pemandu Wisata &amp; Manajemen Logistik Terpadu</h3>
+        <p>Agar perjalanan berjalan mulus tanpa hambatan, kami menyediakan pemandu wisata lokal (tour guide) berlisensi resmi yang komunikatif dan kaya informasi tentang sejarah dan keunikan budaya Bali. Selain itu, kami menangani seluruh aspek logistik termasuk pemesanan restoran untuk makan siang/malam kelompok, tiket masuk objek wisata, hingga pengaturan waktu penjemputan bandara yang tepat waktu.</p>
+      </div>
+
+      <!-- CTA BLOCK -->
+      <div class="cta-block reveal">
+        <h4>Buat Liburan Rombongan Anda Berkesan</h4>
+        <p>Konsultasikan kebutuhan rencana perjalanan wisata kelompok Anda bersama tim kami secara gratis. Dapatkan penawaran harga terbaik dan itinerary khusus untuk acara Anda.</p>
+        <a href="#" data-wa="suci" class="btn-bubble">Konsultasi Tur Sekarang</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="max-w">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="footer-col-head">Alamat Kantor</span>
+          <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+          <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+          <a href="#" data-wa="ika" target="_blank" rel="noopener">081237495930 (Ika)</a>
+          <a href="#" data-wa="suci" target="_blank" rel="noopener">082266316766 (Suci)</a>
+          <a href="#" data-wa="yoga" target="_blank" rel="noopener">081238490222 (Yoga)</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-head">Media &amp; Digital</span>
+          <a href="mailto:wedding.bth@gmail.com">wedding.bth@gmail.com</a>
+          <a href="http://www.balitopwedding.com" target="_blank" rel="noopener">www.balitopwedding.com</a>
+          <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+          <a href="#" style="display:inline; margin-right:12px;">Instagram: @balitopwedding</a>
+          <a href="#" style="display:inline;">Tiktok: @balitopwedding</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-head">Office Hours</span>
+          <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+          <p>Sabtu - Minggu:<br>by appointment only</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+        <span class="footer-copy" style="color: var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal Animations
+    const revealElements = document.querySelectorAll('.reveal');
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, observerOptions);
+    revealElements.forEach(element => { revealObserver.observe(element); });
+
+    /* ── SUBMENU TOGGLE IN NAVBAR DROPDOWN ── */
+    document.querySelectorAll('.submenu-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const parent = this.parentElement;
+        parent.classList.toggle('active');
+        const siblings = parent.parentElement.querySelectorAll('.dropdown-submenu');
+        siblings.forEach(sibling => {
+          if (sibling !== parent) {
+            sibling.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    /* ── SLIDESHOW LOGIC ── */
+    let activeSlide = 0;
+    const track = document.getElementById('slideTrack');
+    const slideItems = document.querySelectorAll('.slide-item');
+    const slideDots = document.querySelectorAll('.slide-dot');
+    const totalItems = slideItems.length;
+
+    function setSlide(n) {
+      activeSlide = (n + totalItems) % totalItems;
+      track.style.transform = `translateX(-${activeSlide * 100}%)`;
+      slideDots.forEach(dot => dot.classList.remove('active'));
+      if (slideDots[activeSlide]) {
+        slideDots[activeSlide].classList.add('active');
+      }
+    }
+
+    function moveSlide(step) {
+      setSlide(activeSlide + step);
+    }
+
+    // Auto play
+    let autoInterval = setInterval(() => moveSlide(1), 5000);
+    const container = document.querySelector('.slideshow-container');
+    if (container) {
+      container.addEventListener('mouseenter', () => clearInterval(autoInterval));
+      container.addEventListener('mouseleave', () => autoInterval = setInterval(() => moveSlide(1), 5000));
+    }
+  </script>
+  <script src="config.js"></script>
+</body>
+</html>

@@ -130,9 +130,21 @@
         /* ── NAVBAR DROPDOWN & ACCORDION ── */
         .nav-dropdown {
             position: relative;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 24px 0;
             margin: -24px 0;
+        }
+
+        .nav-caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 4px solid currentColor;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         .dropdown-panel {
@@ -332,52 +344,197 @@
             margin-top: 8px;
         }
 
-        /* ── GALLERY GRID ── */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
+        /* ── GALLERY MASONRY (Aspect Ratio Preserved) ── */
+        .gallery-masonry {
+            column-count: 2;
+            column-gap: 24px;
             margin-top: 60px;
         }
 
-        .gallery-item {
+        .gallery-masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
             position: relative;
             overflow: hidden;
             background: var(--nude);
             border: 0.5px solid rgba(196, 176, 154, 0.15);
-            aspect-ratio: 4 / 5;
+            cursor: pointer;
         }
 
-        .gallery-item img {
+        .gallery-masonry-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .gallery-item:hover img {
+        .gallery-masonry-item:hover img {
             transform: scale(1.03);
         }
 
-        /* Grid Spans for Luxury Collage Layout */
-        .gi-span-12 { grid-column: span 12; aspect-ratio: 16 / 9; }
-        .gi-span-8  { grid-column: span 8;  aspect-ratio: 4 / 3;  }
-        .gi-span-6  { grid-column: span 6;  aspect-ratio: 1 / 1;  }
-        .gi-span-4  { grid-column: span 4;  aspect-ratio: 3 / 4;  }
+        @media (max-width: 768px) {
+            .gallery-masonry {
+                column-count: 1;
+                column-gap: 0;
+            }
+            .gallery-masonry-item {
+                margin-bottom: 16px;
+            }
+        }
+
+        /* ── LIGHTBOX MODAL ── */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 25, 22, 0.95);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content-wrapper {
+            position: relative;
+            max-width: 85%;
+            max-height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 0.5px solid var(--accent);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            user-select: none;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: var(--cream);
+            font-size: 32px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cream);
+            font-size: 48px;
+            font-weight: 300;
+            cursor: pointer;
+            padding: 10px 20px;
+            user-select: none;
+            transition: color 0.2s, transform 0.2s;
+            background: transparent;
+            border: none;
+            font-family: serif;
+        }
+
+        .lightbox-nav:hover {
+            color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
 
         @media (max-width: 900px) {
-            .gallery-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 12px;
+            .lightbox-nav {
+                font-size: 36px;
+                padding: 10px;
             }
-            .gallery-item {
-                grid-column: span 2 !important;
-                aspect-ratio: 1 !important;
+            .lightbox-prev {
+                left: -40px;
             }
-            .gi-span-12 {
-                grid-column: span 4 !important;
-                aspect-ratio: 1.5 !important;
+            .lightbox-next {
+                right: -40px;
+            }
+            .lightbox-close {
+                top: -40px;
+                right: 10px;
+            }
+        }
+
+        /* ── SPLIT REVIEW LAYOUT ── */
+        .review-content-container {
+            width: 100%;
+        }
+
+        .review-layout-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            text-align: left;
+            width: 100%;
+        }
+
+        .review-text-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .review-video-block {
+            width: 100%;
+        }
+
+        .review-video-container {
+            position: relative;
+            max-width: 320px;
+            margin: 0 auto;
+            border: 0.5px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            aspect-ratio: 9 / 16;
+            overflow: hidden;
+            background: var(--dark);
+        }
+
+        .review-video-container video,
+        .review-video-container iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
+        }
+
+        @media (max-width: 900px) {
+            .review-layout-split {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            .review-text-block {
+                align-items: center;
             }
         }
 
@@ -533,31 +690,31 @@
     <nav class="navbar" id="navbar">
         <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
         <div class="navbar-links">
+            <a href="index.html" class="nav-item">Home</a>
             <div class="nav-dropdown">
-                <a href="services.html" class="nav-item">Our Services ▾</a>
+                <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
                 <div class="dropdown-panel">
                     <div class="dropdown-submenu">
                         <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Ceremony</a>
-                            <a href="services.html">Dinner or Lunch Reception</a>
-                            <a href="services.html">After Party</a>
-                            <a href="services.html">Elopement</a>
+                            <a href="service-ceremony.html">Ceremony</a>
+                            <a href="service-receptions.html">Receptions</a>
+                            <a href="service-after-party.html">After Party</a>
+                            <a href="service-elopement.html">Elopement</a>
                         </div>
                     </div>
                     <div class="dropdown-submenu" style="margin-top: 12px;">
                         <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Gala Dinner &amp; Awarding Night</a>
-                            <a href="services.html">Group Tour &amp; Fun Games</a>
-                            <a href="services.html">Group Tour</a>
-                            <a href="services.html">Fun Games &amp; Gala Dinner</a>
+                            <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+                            <a href="service-group-tour.html">Group Tour</a>
+                            <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
                         </div>
                     </div>
                 </div>
             </div>
             <a href="portfolio.html" class="nav-item">Portfolio</a>
-            <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+            <a href="special-offer.html" class="nav-item">Special Offer</a>
             <a href="contact.html" class="nav-item">Contact Us</a>
             <a href="about.html" class="nav-item">About BTW</a>
             <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
@@ -576,54 +733,16 @@
                 <a href="portfolio.html" class="back-link">← Kembali ke Portofolio</a>
 
                 <div class="client-detail-header">
-                    <h2>Eka &amp; Shanon</h2>
-                    <span class="portfolio-meta">Uluwatu | 2023</span>
-                    <p style="color:var(--muted); font-size: 18px; max-width: 760px; margin: 20px auto 0; line-height: 1.8; text-align: center;">
+                    <h2 id="client-name">Eka &amp; Shanon</h2>
+                    <span class="portfolio-meta" id="client-meta">Uluwatu | 2023</span>
+                    <p id="client-description" style="color:var(--muted); font-size: 18px; max-width: 760px; margin: 20px auto 0; line-height: 1.8; text-align: center;">
                         Sebuah janji suci di atas tebing Uluwatu yang memukau, diiringi suara deburan ombak dan pendar keemasan matahari terbenam Bali yang romantis. Perayaan intim ini memadukan kemegahan alam laut lepas dengan detail dekorasi yang elegan dan hangat, menciptakan malam perayaan cinta yang tak terlupakan bagi kedua mempelai dan para tamu terdekat.
                     </p>
                 </div>
 
                 <!-- ── PHOTO GALLERY ── -->
-                <div class="gallery-grid">
-                    <div class="gallery-item gi-span-8">
-                        <img src="https://i.ibb.co.com/zW3Yv3hL/SAE-3.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/2Y5rVh0J/SAE-10.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/FLg2WgnG/SAE-53.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/b5XMMdZd/SAE-78.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/TD5mXWY7/SAE-85.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-6">
-                        <img src="https://i.ibb.co.com/ccnfz1Sv/SAE-112.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-6">
-                        <img src="https://i.ibb.co.com/TMNy7VKs/SAE-132.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/B2mBnSbW/SAE-137-2-jpg.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/N2cw6tjB/SAE-158.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/nNBxBkVv/SAE-163.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-4">
-                        <img src="https://i.ibb.co.com/prRzgSBF/SAE-178.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-8">
-                        <img src="https://i.ibb.co.com/j9vK6w8W/SAE-191.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
-                    <div class="gallery-item gi-span-12">
-                        <img src="https://i.ibb.co.com/JjxtxSGh/SAE-231-1.webp" alt="Eka & Shanon wedding photo" loading="lazy">
-                    </div>
+                <div class="gallery-masonry" id="galleryContainer">
+                    <!-- populated dynamically -->
                 </div>
             </div>
 
@@ -631,7 +750,7 @@
     </section>
 
     <!-- ── TESTIMONY / REVIEW SECTION ── -->
-    <section class="review-section reveal">
+    <section class="review-section reveal" id="reviewSection">
         <div class="max-w">
             <div class="review-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:#ffffff; margin-bottom:-1px;">
@@ -640,11 +759,22 @@
                 <span style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--cream);">Client Review</span>
             </div>
             <div class="stars-container">★★★★★</div>
-            <h2 class="review-title">Kebahagiaan yang Sempurna</h2>
-            <p class="review-quote-text">"Dari email korespondensi pertama kami hingga alur tarian dan lagu terakhir berdendang di lantai dansa, Bali Top Wedding melampaui semua ekspektasi kami. Mereka memahami visi kami yang abstrak jauh lebih baik daripada kami sendiri, mengelolanya tanpa cela, dan mengubahnya menjadi perayaan magis yang tulus, sakral, dan sepenuhnya bebas dari stres."</p>
-            <div class="review-author">— Eka &amp; Shanon (Verified Review)</div>
+            
+            <div class="review-content-container" id="reviewContentContainer">
+                <!-- populated dynamically -->
+            </div>
         </div>
     </section>
+
+    <!-- ── LIGHTBOX MODAL HTML ── -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <div class="lightbox-content-wrapper">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed wedding photo">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+        </div>
+    </div>
 
     <!-- ── FOOTER ── -->
     <footer id="contact">
@@ -655,28 +785,34 @@
                     <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Kontak Utama</span>
-                    <p>Telepon: 0361 464 623</p>
-                    <p>WhatsApp: 081238490222</p>
+                    <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+                    <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+                    <a href="#" data-wa="ika" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081237495930 (Ika)</a>
+                    <a href="#" data-wa="suci" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">082266316766 (Suci)</a>
+                    <a href="#" data-wa="yoga" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081238490222 (Yoga)</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Koneksi Digital</span>
-                    <p>wedding.bth@gmail.com</p>
-                    <p>www.balitopwedding.com</p>
+                    <span class="footer-col-head">Media &amp; Digital</span>
+                    <a href="mailto:wedding.bth@gmail.com" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">wedding.bth@gmail.com</a>
+                    <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">www.balitopwedding.com</a>
+                    <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+                    <a href="#" style="display:inline; margin-right:12px; color: var(--accent); text-decoration: none;">Instagram: @balitopwedding</a>
+                    <a href="#" style="display:inline; color: var(--accent); text-decoration: none;">Tiktok: @balitopwedding</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Jam Operasional</span>
+                    <span class="footer-col-head">Office Hours</span>
                     <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
-                    <p>Sabtu - Minggu:<br>By Appointment Only</p>
+                    <p>Sabtu - Minggu:<br>by appointment only</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-                <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+                <span class="footer-copy" style="color:var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
             </div>
         </div>
     </footer>
 
+    <script src="portfolio-data.js"></script>
     <script>
         /* ── SCROLL REVEAL ── */
         const revealElements = document.querySelectorAll('.reveal');
@@ -702,7 +838,165 @@
                 });
             });
         });
+
+        // Load Client Data
+        const params = new URLSearchParams(window.location.search);
+        let clientKey = params.get('client') || 'claudia';
+        if (!window.PORTFOLIO_DATA || !window.PORTFOLIO_DATA[clientKey]) {
+            clientKey = Object.keys(window.PORTFOLIO_DATA || {})[0] || 'claudia';
+        }
+
+        const data = window.PORTFOLIO_DATA[clientKey];
+
+        // 1. Set Title and Hero background
+        document.title = data.name + " — Bali Top Wedding";
+        
+        // Dynamically select background images based on photos
+        const heroBgImg = data.photos && data.photos.length > 0 ? data.photos[0] : 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80';
+        const reviewBgImg = data.photos && data.photos.length > 0 ? data.photos[data.photos.length - 1] : 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80';
+
+        const innerHero = document.querySelector('.inner-hero');
+        innerHero.style.backgroundImage = `linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)), url('${heroBgImg}')`;
+        innerHero.innerHTML = `<div><span class="section-label">Stories of Love</span><h1>${data.name}</h1></div>`;
+
+        // 2. Set Client Details
+        document.getElementById('client-name').innerText = data.name;
+        document.getElementById('client-meta').innerText = `${data.location} | ${data.year}`;
+        document.getElementById('client-description').innerText = data.description;
+
+        // 3. Populate Gallery
+        const galleryContainer = document.getElementById('galleryContainer');
+        galleryContainer.innerHTML = '';
+        
+        if (data.photos && data.photos.length > 0) {
+            galleryContainer.style.display = '';
+            data.photos.forEach((photoUrl, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-masonry-item';
+                item.onclick = () => openLightbox(index);
+                item.innerHTML = `<img src="${photoUrl}" alt="${data.name} Wedding Photo ${index + 1}" loading="lazy">`;
+                galleryContainer.appendChild(item);
+            });
+        } else {
+            galleryContainer.style.display = 'block';
+            galleryContainer.innerHTML = `
+                <div style="text-align: center; padding: 80px 24px; background: var(--nude); border: 0.5px dashed var(--accent);">
+                    <p style="font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 0;">Galeri foto akan segera hadir</p>
+                </div>
+            `;
+        }
+
+        // 4. Set Review Section
+        const reviewSection = document.getElementById('reviewSection');
+        const reviewContentContainer = document.getElementById('reviewContentContainer');
+        
+        if (!data.reviewText && !data.videoUrl) {
+            // Hide the entire review section if both are empty
+            reviewSection.style.display = 'none';
+        } else {
+            reviewSection.style.display = 'block';
+            reviewSection.style.backgroundImage = `linear-gradient(rgba(30, 25, 22, 0.85), rgba(30, 25, 22, 0.85)), url('${reviewBgImg}')`;
+
+            if (data.hasVideo && data.videoUrl) {
+                let videoElementHTML = '';
+                if (data.videoUrl.includes('drive.google.com')) {
+                    let driveId = '';
+                    const idMatch = data.videoUrl.match(/[?&]id=([^&]+)/) || data.videoUrl.match(/\/d\/([^/]+)/);
+                    if (idMatch) {
+                        driveId = idMatch[1];
+                    }
+                    videoElementHTML = `
+                        <iframe src="https://drive.google.com/file/d/${driveId}/preview" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen" 
+                                allowfullscreen>
+                        </iframe>
+                    `;
+                } else {
+                    videoElementHTML = `
+                        <video controls preload="metadata">
+                            <source src="${data.videoUrl}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
+
+                // Split layout: text left, video right
+                reviewContentContainer.className = "review-layout-split";
+                reviewContentContainer.innerHTML = `
+                    <div class="review-text-block">
+                        <h2 class="review-title" style="text-align: left;">${data.reviewTitle}</h2>
+                        <p class="review-quote-text" style="text-align: left; font-size: clamp(18px, 2vw, 24px); max-width: 100%; font-style: italic;">"${data.reviewText}"</p>
+                        <div class="review-author" style="text-align: left;">— ${data.reviewAuthor}</div>
+                    </div>
+                    <div class="review-video-block">
+                        <div class="review-video-container">
+                            ${videoElementHTML}
+                        </div>
+                    </div>
+                `;
+            } else if (data.reviewText) {
+                // Centered layout
+                reviewContentContainer.className = "review-content-container";
+                reviewContentContainer.innerHTML = `
+                    <h2 class="review-title">${data.reviewTitle}</h2>
+                    <p class="review-quote-text">"${data.reviewText}"</p>
+                    <div class="review-author">— ${data.reviewAuthor}</div>
+                `;
+            } else {
+                reviewSection.style.display = 'none';
+            }
+        }
+
+        // 5. Lightbox implementation
+        let currentPhotoIndex = 0;
+        const lightbox = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+
+        function openLightbox(index) {
+            currentPhotoIndex = index;
+            lightboxImg.src = data.photos[currentPhotoIndex];
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+
+        function nextLightbox() {
+            if (data.photos.length === 0) return;
+            currentPhotoIndex = (currentPhotoIndex + 1) % data.photos.length;
+            lightboxImg.src = data.photos[currentPhotoIndex];
+        }
+
+        function prevLightbox() {
+            if (data.photos.length === 0) return;
+            currentPhotoIndex = (currentPhotoIndex - 1 + data.photos.length) % data.photos.length;
+            lightboxImg.src = data.photos[currentPhotoIndex];
+        }
+
+        // Event listeners for Lightbox
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxNext').addEventListener('click', nextLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', prevLightbox);
+
+        // Close when clicking overlay (outside image)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'ArrowRight') nextLightbox();
+                if (e.key === 'ArrowLeft') prevLightbox();
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
     </script>
+    <script src="config.js"></script>
 </body>
 
 </html>

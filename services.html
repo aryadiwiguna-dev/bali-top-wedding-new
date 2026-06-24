@@ -34,10 +34,22 @@
 
     /* ── NAVBAR DROPDOWN & ACCORDION ── */
     .nav-dropdown {
-      position: relative;
-      display: inline-block;
-      padding: 24px 0;
-      margin: -24px 0;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 24px 0;
+        margin: -24px 0;
+    }
+
+    .nav-caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 4px solid currentColor;
+        margin-left: 6px;
+        vertical-align: middle;
     }
 
     .dropdown-panel {
@@ -138,7 +150,7 @@
     /* ── INNER HERO ── */
     .inner-hero {
       position: relative; height: 50vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
-      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/zhd5Nxbw/1.webp') center/cover no-repeat;
     }
     .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
     .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
@@ -150,23 +162,27 @@
     .section-rule { width: 48px; height: 0.5px; background: var(--accent); margin: 14px 0 22px; }
 
     /* ── ZIG-ZAG EDITORIAL LAYOUT ── */
-    .service-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; margin-bottom: 80px; background: var(--cream); }
+    .service-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; margin-bottom: 80px; background: var(--cream); border: 0.5px solid var(--accent); }
     .service-row:nth-child(even) { direction: rtl; background: var(--nude); }
     .service-row:nth-child(even) > * { direction: ltr; }
     
-    .service-photo { position: relative; overflow: hidden; }
-    .service-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .service-photo { position: relative; overflow: hidden; background: inherit; display: flex; align-items: center; justify-content: center; }
+    .service-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
     
     .service-info { padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
     .service-info h2 { font-size: clamp(32px, 3.5vw, 44px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 20px; line-height: 1.2; }
     .service-info p { color: var(--muted); margin-bottom: 20px; text-align: justify; }
 
     /* ── ADDITIONAL SERVICES GRID ── */
-    .additional-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .additional-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
     .add-service-card { background: var(--nude); padding: 40px 32px; text-align: center; border: 0.5px solid transparent; transition: border 0.3s; }
     .add-service-card:hover { border-color: var(--accent); }
     .add-service-card h4 { font-size: 24px; font-weight: 400; font-style: italic; margin-bottom: 12px; }
     .add-service-card p { font-size: 15px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    /* ── BUTTON BUBBLE ── */
+    .btn-bubble { display: inline-flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 12px 30px; border-radius: 50px; background-color: var(--dark); color: var(--cream); text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(30, 25, 22, 0.1); }
+    .btn-bubble:hover { background-color: var(--accent); color: var(--dark); box-shadow: 0 6px 20px rgba(196, 176, 154, 0.2); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
     footer { background: var(--dark); padding: 80px 48px 40px; color: var(--cream); margin-top: 64px; }
@@ -180,7 +196,7 @@
       .service-row, .service-row:nth-child(even) { grid-template-columns: 1fr; direction: ltr; margin-bottom: 40px; }
       .service-photo { min-height: 300px; }
       .service-info { padding: 48px 24px; }
-      .additional-grid { grid-template-columns: 1fr 1fr; }
+      .additional-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .navbar { overflow-x: auto; padding: 0 24px; }
     }
@@ -213,31 +229,31 @@
   <nav class="navbar" id="navbar">
     <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
     <div class="navbar-links">
+      <a href="index.html" class="nav-item">Home</a>
       <div class="nav-dropdown">
-        <a href="services.html" class="nav-item">Our Services ▾</a>
+        <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
         <div class="dropdown-panel">
           <div class="dropdown-submenu">
             <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
             <div class="submenu-details">
-              <a href="services.html">Ceremony</a>
-              <a href="services.html">Dinner or Lunch Reception</a>
-              <a href="services.html">After Party</a>
-              <a href="services.html">Elopement</a>
+              <a href="service-ceremony.html">Ceremony</a>
+              <a href="service-receptions.html">Receptions</a>
+              <a href="service-after-party.html">After Party</a>
+              <a href="service-elopement.html">Elopement</a>
             </div>
           </div>
           <div class="dropdown-submenu" style="margin-top: 12px;">
             <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
             <div class="submenu-details">
-              <a href="services.html">Gala Dinner &amp; Awarding Night</a>
-              <a href="services.html">Group Tour &amp; Fun Games</a>
-              <a href="services.html">Group Tour</a>
-              <a href="services.html">Fun Games &amp; Gala Dinner</a>
+              <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+              <a href="service-group-tour.html">Group Tour</a>
+              <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
             </div>
           </div>
         </div>
       </div>
       <a href="portfolio.html" class="nav-item">Portfolio</a>
-      <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+      <a href="special-offer.html" class="nav-item">Special Offer</a>
       <a href="contact.html" class="nav-item">Contact Us</a>
       <a href="about.html" class="nav-item">About BTW</a>
       <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
@@ -253,56 +269,51 @@
   <section class="section" style="padding-top: 80px;">
     <div class="max-w">
       
-      <div class="section-rule" style="text-align:center; max-width: 800px; margin: 0 auto 80px;"></div>
-  
+      <!-- CEREMONY -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/zhd5Nxbw/1.webp" alt="Ceremony"></div>
+        <div class="service-info">
+          <h2>Ceremony</h2>
+          <p>Di Bali Top Wedding, kami percaya upacara pernikahan adalah pusat spiritual dan emosional dari hari istimewa Anda. Kami menawarkan layanan perencanaan upacara pernikahan yang komprehensif, mulai dari persiapan dokumen resmi keagamaan (sah secara hukum & agama), perayaan tukar janji (Commitment Ceremony) yang intim, hingga Pembaruan Janji Suci (Renewal of Vows) di lokasi terindah di Bali.</p>
+          <p>Tim profesional kami akan memastikan seluruh prosesi berjalan khidmat, berkelas, dan sepenuhnya mencerminkan komitmen tulus Anda berdua.</p>
+          <p style="font-style: italic; font-weight: 500;">Bersama Bali Top Wedding, momen sakral Anda terwujud dengan sempurna.</p>
+          <a href="service-ceremony.html" class="btn-bubble" style="margin-top: 16px; width: fit-content;">selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- RECEPTIONS -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/8gC0DLP9/1.webp" alt="Receptions"></div>
+        <div class="service-info">
+          <h2>Receptions</h2>
+          <p>Rayakan hari bahagia Anda bersama keluarga dan sahabat dalam pesta resepsi pernikahan yang memukau dan berkelas di Bali. Dari makan siang yang intim di taman tropis hingga makan malam gala mewah di tebing tepi samudra, kami merancang pesta perayaan yang tak terlupakan.</p>
+          <p>Kami menangani konsep dekorasi bunga segar yang elegan, pilihan katering premium, tata lampu romantis, hingga hiburan pertunjukan musik dan tarian tradisional.</p>
+          <p style="font-style: italic; font-weight: 500;">Tugas Anda hanyalah tersenyum dan merayakan cinta bersama para tamu undangan.</p>
+          <a href="service-receptions.html" class="btn-bubble" style="margin-top: 16px; width: fit-content;">selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- AFTER PARTY -->
+      <div class="service-row">
+        <div class="service-photo"><img src="https://i.ibb.co.com/CpyHsj8v/1.webp" alt="After Party"></div>
+        <div class="service-info">
+          <h2>After Party</h2>
+          <p>Malam belum berakhir ketika pesta formal usai. Hadirkan after party yang seru dan berenergi tinggi untuk menutup hari istimewa Anda dengan sukacita murni.</p>
+          <p>Kami menyediakan setup pesta after party yang spektakuler, lengkap dengan DJ profesional, bar kustom premium, tata lampu dansa yang dinamis, serta efek visual yang akan menghidupkan lantai dansa untuk Anda dan para sahabat terdekat.</p>
+          <p style="font-style: italic; font-weight: 500;">Ciptakan malam kegembiraan murni yang legendaris di bawah bintang-bintang Bali.</p>
+          <a href="service-after-party.html" class="btn-bubble" style="margin-top: 16px; width: fit-content;">selengkapnya</a>
+        </div>
+      </div>
+
       <!-- ELOPEMENT -->
       <div class="service-row">
-        <div class="service-photo"><img src="https://i.ibb.co.com/dwRVWcXf/elopement.jpg" alt="Elopement"></div>
+        <div class="service-photo"><img src="https://i.ibb.co.com/20wyjJ6W/1.webp" alt="Elopement"></div>
         <div class="service-info">
-          <span class="section-label">Main Service</span>
-          <h2>Ceremony</h2>
-          <p>Memimpikan pernikahan privat hanya Anda dan kisah cinta Anda berdua saja? Bali elopement adalah jawaban yang sempurna.</p>
-          <p>Lupakan segala kerumitan pernikahan umum dan rasakan keajaiban cinta di Pulau Dewata. Bali menawarkan latar terbaik untuk pernikahan privat yang tak terlupakan. Mengikrarkan janji suci di pantai berpasir putih, di tengah pepohonan hijau yang asri, atau di depan air terjun yang luar biasa indah, semua dapat diwujudkan oleh Bali Top Wedding.</p>
-          <p>Di Bali Top Wedding, kami menyediakan berbagai pilihan paket elopement yang dirancang untuk memastikan hari istimewa Anda berjalan hangat, mulus, dan tak lekang oleh waktu. Rencanakan Bali elopement Anda sekarang juga dan ciptakan kenangan kebersamaan yang abadi selamanya.</p>
-          <p style="font-style: italic; font-weight: 500;">Bersama Bali Top Wedding, semua jadi praktis.</p>
-        </div>
-      </div>
-
-      <!-- RELIGIOUS WEDDING -->
-      <div class="service-row">
-        <div class="service-photo"><img src="https://i.ibb.co.com/rRmCPN0G/Reception.jpg" alt="Religious Ceremony"></div>
-        <div class="service-info">
-          <span class="section-label">Main Service</span>
-          <h2>Dinner or Lunch Reception</h2>
-          <p>Menikah sah secara agama di Bali? Tentu saja bisa!</p>
-          <p>Bali Top Wedding memahami bahwa pernikahan bukan hanya tentang perayaan yang indah, tapi juga tentang sebuah awal yang penuh berkah dan janji suci yang tulus di hadapan Tuhan. Untuk itu, kami siap membantu mewujudkan upacara pernikahan Anda sesuai tata cara agama resmi yang berlaku di Indonesia.</p>
-          <p>Kami sadar bahwa setiap detail dalam prosesi keagamaan memiliki makna yang sangat mendalam. Itulah mengapa tim Bali Top Wedding akan memastikan seluruh pengurusan berkas, koordinasi dengan pemuka agama, hingga jalannya prosesi diurus dengan penuh kehati-hatian, profesional, dan bebas stres.</p>
-          <p style="font-style: italic; font-weight: 500;">Tugas anda hanyalah hadir dengan hati yang bahagia, karena bersama Bali Top Wedding, momen sakral anda jadi lebih praktis.</p>
-        </div>
-      </div>
-
-      <!-- COMMITMENT CEREMONY -->
-      <div class="service-row">
-        <div class="service-photo"><img src="https://i.ibb.co.com/FqN4cS3d/after-party.jpg" alt="Commitment Ceremony"></div>
-        <div class="service-info">
-          <span class="section-label">Main Service</span>
-          <h2>After Party</h2>
-          <p>Bertukar janji setia seumur hidup dengan latar belakang keindahan alam Bali. Merayakan momen itu bersama orang-orang terdekat dengan penuh kebahagiaan, tanpa perlu pusing dengan urusan dokumen yang rumit. Jika ini adalah apa yang Anda impikan, Bali Top Wedding siap menjadi yang terdepan untuk membantu mewujudkannya.</p>
-          <p>Di Bali Top Wedding, kami percaya “your love is your rules”—tidak ada aturan kaku dalam mengikrarkan cinta. Mau bertukar janji suci yang Anda tulis sendiri di tepi pantai, bersulang manis di atas tebing saat sunset, ataupun membuat acara unik ala Anda berdua, apa pun itu kami siap mewujudkannya dengan indah tanpa menyisakan stres dan keluh kesah.</p>
-          <p>Mulai dari konsep yang simpel dan intim hingga yang elegan, tim kami akan menyiapkan segala detailnya di balik layar dengan seksama hingga hari bahagia tiba. Anda dan pasangan tinggal duduk manis dan menikmati setiap detiknya.</p>
-        </div>
-      </div>
-
-      <!-- RENEWAL OF VOWS -->
-      <div class="service-row">
-        <div class="service-photo"><img src="https://i.ibb.co.com/JFvYrdtP/Renewal-Vows-2-1.jpg" alt="Renewal of Vows"></div>
-        <div class="service-info">
-          <span class="section-label">Main Service</span>
           <h2>Elopement</h2>
-          <p style="font-style: italic; font-weight: 500; margin-bottom: 20px;">Waktu berlalu dan babak berganti, aku akan tetap memilihmu lagi dan lagi.</p>
-          <p>Pembaruan Janji Suci (Renewal of Vows) adalah cara paling indah untuk merayakan perjalanan cinta Anda yang telah teruji oleh waktu. Tanpa perlu pusing dengan urusan ini itu, Bali Top Wedding akan memastikan momen ini sepenuhnya menjadi milik Anda berdua.</p>
-          <p>Di Bali Top Wedding, kami memahami bahwa setiap tahun yang telah Anda lewati bersama memiliki cerita yang berharga. Baik Anda ingin merayakannya secara intim berdua saja, atau berbagi kebahagiaan bersama anak-anak dan keluarga tercinta, kami siap mewujudkannya dengan penuh kehangatan.</p>
-          <p>Anda hanya perlu membawa rasa syukur dan cinta yang semakin mendalam, karena sisanya akan dikerjakan dari belakang layar oleh tangan-tangan kreatif Bali Top Wedding.</p>
+          <p>Memimpikan pernikahan privat hanya untuk Anda dan pasangan? Bali Elopement adalah pilihan yang sangat hangat dan romantis.</p>
+          <p>Lupakan kepanikan mengurus kerumitan pesta besar. Kami merancang pernikahan intim yang mewah dan penuh makna di tebing Uluwatu, pantai berpasir putih, atau ketenangan spiritual Ubud. Tim BTW menangani seluruh kebutuhan esensial elopement Anda agar berjalan lancar tanpa stres.</p>
+          <p style="font-style: italic; font-weight: 500;">Nikmati momen murni kebersamaan berdua yang hangat dan abadi.</p>
+          <a href="service-elopement.html" class="btn-bubble" style="margin-top: 16px; width: fit-content;">selengkapnya</a>
         </div>
       </div>
 
@@ -317,22 +328,33 @@
       </div>
       
       <div class="additional-grid">
-        <div class="add-service-card">
-          <h4>Engagement</h4>
-          <p>Ciptakan momen lamaran kejutan yang romantis dan tak terlupakan dengan setting dekorasi eksklusif dari tim kami.</p>
-        </div>
-        <div class="add-service-card">
-          <h4>Gala Dinner</h4>
-          <p>Layanan paripurna untuk acara jamuan makan malam resmi, malam penghargaan (Awarding Night), dan korporat.</p>
-        </div>
-        <div class="add-service-card">
+        <a href="service-group-tour-fun-games.html" class="add-service-card" style="text-decoration: none; color: inherit; display: block;">
+          <h4>Group Tour &amp; Fun Games</h4>
+          <div style="margin: 12px auto; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <div style="width: 24px; height: 0.5px; background: var(--accent);"></div>
+            <div style="width: 4px; height: 4px; background: var(--accent); transform: rotate(45deg);"></div>
+            <div style="width: 24px; height: 0.5px; background: var(--accent);"></div>
+          </div>
+          <p>Kombinasi liburan keliling Bali yang menyenangkan dan aktivitas outbound seru untuk mempererat kebersamaan rombongan Anda.</p>
+        </a>
+        <a href="service-group-tour.html" class="add-service-card" style="text-decoration: none; color: inherit; display: block;">
           <h4>Group Tour</h4>
-          <p>Fasilitasi liburan keluarga atau rombongan tamu pernikahan Anda untuk menjelajahi destinasi terbaik di Bali.</p>
-        </div>
-        <div class="add-service-card">
-          <h4>Fun Games</h4>
-          <p>Cairkan suasana sebelum hari H dengan aktivitas outbound dan fun games interaktif bersama para tamu undangan.</p>
-        </div>
+          <div style="margin: 12px auto; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <div style="width: 24px; height: 0.5px; background: var(--accent);"></div>
+            <div style="width: 4px; height: 4px; background: var(--accent); transform: rotate(45deg);"></div>
+            <div style="width: 24px; height: 0.5px; background: var(--accent);"></div>
+          </div>
+          <p>Layanan transportasi, pemandu wisata, dan penyusunan rencana perjalanan khusus untuk keluarga serta rombongan tamu pernikahan Anda.</p>
+        </a>
+        <a href="service-fun-games-gala-dinner.html" class="add-service-card" style="text-decoration: none; color: inherit; display: block;">
+          <h4>Fun Games &amp; Gala Dinner</h4>
+          <div style="margin: 12px auto; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <div style="width: 24px; height: 0.5px; background: var(--accent);"></div>
+            <div style="width: 4px; height: 4px; background: var(--accent); transform: rotate(45deg);"></div>
+            <div style="width: 24px; height: 0.5px; background: var(--accent);"></div>
+          </div>
+          <p>Rangkaian permainan pemecah suasana (ice breaking) yang menyenangkan di siang hari dan diakhiri makan malam formal eksklusif yang intim.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -345,27 +367,34 @@
           <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
         </div>
         <div class="footer-col">
-          <span class="footer-col-head">Kontak & WhatsApp</span>
-          <p>0361 464 623</p>
-          <p>081238490222 (Yoga)</p>
+          <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+          <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+          <a href="#" data-wa="ika" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081237495930 (Ika)</a>
+          <a href="#" data-wa="suci" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">082266316766 (Suci)</a>
+          <a href="#" data-wa="yoga" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081238490222 (Yoga)</a>
         </div>
         <div class="footer-col">
-          <span class="footer-col-head">Media & Digital</span>
-          <p>wedding.bth@gmail.com</p>
-          <p>@balitopwedding</p>
+          <span class="footer-col-head">Media &amp; Digital</span>
+          <a href="mailto:wedding.bth@gmail.com" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">wedding.bth@gmail.com</a>
+          <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">www.balitopwedding.com</a>
+          <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+          <a href="#" data-social="instagram" style="display:inline; margin-right:12px; color: var(--accent); text-decoration: none;">Instagram: @balitopwedding</a>
+          <a href="#" data-social="tiktok" style="display:inline; color: var(--accent); text-decoration: none;">Tiktok: @balitopwedding</a>
         </div>
         <div class="footer-col">
           <span class="footer-col-head">Office Hours</span>
           <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+          <p>Sabtu - Minggu:<br>by appointment only</p>
         </div>
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-        <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+        <span class="footer-copy" style="color:var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
       </div>
     </div>
   </footer>
 
+  <script src="config.js"></script>
   <script>
     /* ── SUBMENU TOGGLE IN NAVBAR DROPDOWN ── */
     document.querySelectorAll('.submenu-trigger').forEach(trigger => {

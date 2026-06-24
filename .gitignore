@@ -1,0 +1,9 @@
+# System files
+Thumbs.db
+thumbs.db
+.DS_Store
+
+# Ignore heavy video testimonials in Portofolio folder to stay under GitHub limits
+Portofolio/**/*.mp4
+Portofolio/**/*.mov
+Portofolio/**/*.MOV

@@ -170,9 +170,21 @@
 
         .nav-dropdown {
             position: relative;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 24px 0;
             margin: -24px 0;
+        }
+
+        .nav-caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 4px solid currentColor;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         .dropdown-panel {
@@ -273,14 +285,16 @@
         /* ── INNER HERO ── */
         .inner-hero {
             position: relative;
-            height: 50vh;
-            min-height: 400px;
+            width: 100%;
+            aspect-ratio: 2160 / 1440;
+            max-height: 65vh;
+            min-height: 320px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             margin-top: 106px;
-            background: linear-gradient(rgba(30, 25, 22, 0.4), rgba(30, 25, 22, 0.4)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(30, 25, 22, 0.4), rgba(30, 25, 22, 0.4)), url('https://i.ibb.co.com/5xB47W4k/Hero-di-section-our-team-landing-page.webp') center/cover no-repeat;
         }
 
         .inner-hero h1 {
@@ -307,26 +321,34 @@
             align-items: center;
         }
 
-        .about-story-img {
-            position: relative;
+        .about-story-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
-        .about-story-img img {
+        .about-gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 0.5px solid var(--accent);
+            aspect-ratio: 4 / 5;
+        }
+
+        .about-gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.6s ease;
         }
 
-        .about-story-img::after {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: 15px;
-            bottom: 15px;
-            border: 0.5px solid var(--accent);
-            z-index: -1;
+        .about-gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-gallery-item.span-2 {
+            grid-column: span 2;
+            aspect-ratio: 16 / 10;
         }
 
         .about-story-text p {
@@ -424,12 +446,20 @@
             margin-bottom: 18px;
         }
 
+        .footer-col a,
         .footer-col p {
+            display: block;
             font-size: 16px;
             font-weight: 300;
             color: var(--accent);
+            text-decoration: none;
             margin-bottom: 10px;
             line-height: 1.6;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--cream);
         }
 
         .footer-bottom {
@@ -522,7 +552,93 @@
             padding-top: 14px;
         }
 
+        /* ── STAFF SLIDER & WIDGET (Consistent with index.html) ── */
+        .staff-slider-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background: var(--dark);
+            overflow: hidden;
+        }
+
+        .staff-slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .staff-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .staff-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .staff-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(30, 25, 22, 0.95));
+            padding: 60px 40px 40px;
+            color: var(--cream);
+        }
+
+        .staff-name {
+            font-family: 'Jost', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            color: var(--accent);
+        }
+
+        .staff-role {
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--cream);
+            margin-bottom: 15px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+
         @media (max-width: 900px) {
+            .about-story-grid { grid-template-columns: 1fr; gap: 40px; }
             .team-grid { grid-template-columns: 1fr; }
             .team-card { aspect-ratio: 4 / 3; }
             .team-card-overlay { transform: translateY(0); }
@@ -557,31 +673,31 @@
     <nav class="navbar" id="navbar">
         <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
         <div class="navbar-links">
+            <a href="index.html" class="nav-item">Home</a>
             <div class="nav-dropdown">
-                <a href="services.html" class="nav-item">Our Services ▾</a>
+                <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
                 <div class="dropdown-panel">
                     <div class="dropdown-submenu">
                         <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Ceremony</a>
-                            <a href="services.html">Dinner or Lunch Reception</a>
-                            <a href="services.html">After Party</a>
-                            <a href="services.html">Elopement</a>
+                            <a href="service-ceremony.html">Ceremony</a>
+                            <a href="service-receptions.html">Receptions</a>
+                            <a href="service-after-party.html">After Party</a>
+                            <a href="service-elopement.html">Elopement</a>
                         </div>
                     </div>
                     <div class="dropdown-submenu" style="margin-top: 12px;">
                         <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Gala Dinner &amp; Awarding Night</a>
-                            <a href="services.html">Group Tour &amp; Fun Games</a>
-                            <a href="services.html">Group Tour</a>
-                            <a href="services.html">Fun Games &amp; Gala Dinner</a>
+                            <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+                            <a href="service-group-tour.html">Group Tour</a>
+                            <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
                         </div>
                     </div>
                 </div>
             </div>
             <a href="portfolio.html" class="nav-item">Portfolio</a>
-            <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+            <a href="special-offer.html" class="nav-item">Special Offer</a>
             <a href="contact.html" class="nav-item">Contact Us</a>
             <a href="about.html" class="nav-item">About BTW</a>
             <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
@@ -591,7 +707,6 @@
     <!-- ── HERO ── -->
     <header class="inner-hero">
         <div>
-            <span class="section-label">Behind The Magic</span>
             <h1>About Bali Top Wedding</h1>
         </div>
     </header>
@@ -602,15 +717,22 @@
             <div class="about-story-grid reveal">
 
                 <div class="about-story-text">
-                    <span class="section-label">Profil Perusahaan</span>
                     <h2>Tentang Bali Top Wedding</h2>
                     <div class="section-rule"></div>
                     <p>Berdiri sejak 2014, Bali Top Wedding adalah wedding planner dan organizer resmi serta berizin hukum yang berbasis di Bali. Sebagai anggota resmi dari <strong>Bali Wedding Association (BWA)</strong> sejak 2016, kami berfokus dalam menangani Domestik dan Mix Nationality Weddings (antarnegara).</p>
                     <p>Bali Top Wedding menawarkan paket pernikahan dari kelas basic hingga yang dirancang khusus (Customized Wedding Packages) sesuai dengan kebutuhan dan impian tiap pasangan. Mari jadikan pernikahan impian Anda sebuah momen yang sakral dan penuh makna, namun tetap praktis serta bebas stres bersama Bali Top Wedding.</p>
                 </div>
 
-                <div class="about-story-img">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Pernikahan mewah di Bali oleh Bali Top Wedding">
+                <div class="about-story-gallery">
+                    <div class="about-gallery-item span-2">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" alt="Tim BTW sedang bekerja di lapangan">
+                    </div>
+                    <div class="about-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600&q=80" alt="Wedding coordinator on-site">
+                    </div>
+                    <div class="about-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&q=80" alt="Setup wedding dekorasi">
+                    </div>
                 </div>
 
             </div>
@@ -621,7 +743,6 @@
     <section class="values-section">
         <div class="max-w">
             <div class="reveal" style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <span class="section-label">Our Philosophy</span>
                 <h2>Filosofi Kami</h2>
             </div>
 
@@ -656,35 +777,147 @@
             </div>
 
             <div class="team-grid reveal">
-
+                <!-- Yoga Wiweka -->
                 <div class="team-card">
-                    <img src="https://i.ibb.co.com/tPpwYKs9/staff-yoga.jpg" alt="Om Yoga — Founder &amp; Director">
+                    <img src="https://i.ibb.co.com/pBKx1tWL/Yoga-Wiweka.webp" alt="Yoga Wiweka — Wedding Planner">
                     <div class="team-card-overlay">
-                        <h3 class="team-card-name">Om Yoga</h3>
-                        <span class="team-card-role">Founder &amp; Director</span>
-                        <p class="team-card-quote">"Every wedding we create is a love letter — to the couple, to Bali, and to the art of celebration itself."</p>
+                        <h3 class="team-card-name">Yoga Wiweka</h3>
+                        <span class="team-card-role">Wedding Planner</span>
+                        <p class="team-card-quote">"Some work Monday to Friday, others work Monday to Sunday. But a wedding planner? We live for your special day"</p>
                     </div>
                 </div>
 
+                <!-- Suci -->
                 <div class="team-card">
-                    <img src="https://i.ibb.co.com/hF07pdM9/staff-made.jpg" alt="Made — Senior Wedding Coordinator">
+                    <img src="https://i.ibb.co.com/NgmhVJmF/Suci.webp" alt="Suci — Wedding Planner">
                     <div class="team-card-overlay">
-                        <h3 class="team-card-name">Made</h3>
-                        <span class="team-card-role">Senior Wedding Coordinator</span>
-                        <p class="team-card-quote">"On the day itself, calm is the most important thing I can offer. Everything else follows from there."</p>
+                        <h3 class="team-card-name">Suci</h3>
+                        <span class="team-card-role">Wedding Planner</span>
+                        <p class="team-card-quote">"Sebagai seorang sales, Membangun kepercayaan calon pengantin dimulai dengan transparansi biaya, memberikan solusi sesuai anggaran, serta selalu responsif dan komunikatif selama proses persiapan."</p>
                     </div>
                 </div>
 
+                <!-- Ika -->
                 <div class="team-card">
-                    <img src="https://i.ibb.co.com/kVZdS61j/staff-dita.jpg" alt="Dita — Creative Director &amp; Stylist">
+                    <img src="https://i.ibb.co.com/gZvg5Zwj/Ika.webp" alt="Ika — Wedding Planner">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Ika</h3>
+                        <span class="team-card-role">Wedding Planner</span>
+                        <p class="team-card-quote">"Di balik setiap penjualan, ada sebuah cerita cinta yang kami jaga kepercayaannya. Tugas kami adalah mendengarkan impian Anda, meredam kekhawatiran Anda, dan memastikan hari bahagia Anda berjalan dengan BAHAGIA."</p>
+                    </div>
+                </div>
+
+                <!-- Aliani -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/1thKCTv4/Aliani.webp" alt="Aliani — Wedding Coordinator">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Aliani</h3>
+                        <span class="team-card-role">Wedding Coordinator</span>
+                        <p class="team-card-quote">"Sebagai team Operational, Proses persiapan wedding menjadi menyenangkan melalui kolaborasi ide dan komunikasi yang baik bersama couple, Dengan perhatian pada setiap detail, kami membantu mewujudkan pernikahan yang berkesan dan sesuai impian mereka"</p>
+                    </div>
+                </div>
+
+                <!-- Dita -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/v600NSVf/Dita.webp" alt="Dita — Wedding Coordinator">
                     <div class="team-card-overlay">
                         <h3 class="team-card-name">Dita</h3>
-                        <span class="team-card-role">Creative Director &amp; Stylist</span>
-                        <p class="team-card-quote">"Design is not decoration — it is the language through which your story is told without words."</p>
+                        <span class="team-card-role">Wedding Coordinator</span>
+                        <p class="team-card-quote">"Momen favorit saya adalah saat acara dimulai dengan lancar dan melihat pasangan menikmati hari spesial mereka. Semua persiapan yang dilakukan terasa sangat berarti."</p>
                     </div>
                 </div>
 
+                <!-- Widya -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/M5y3SPYv/Widya.webp" alt="Widya — Wedding Coordinator">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Widya</h3>
+                        <span class="team-card-role">Wedding Coordinator</span>
+                        <p class="team-card-quote">"Dunia wedding event menarik bagi saya karena dinamis, tidak monoton, dan memberi kesempatan untuk bertemu banyak orang serta membangun relasi baru."</p>
+                    </div>
+                </div>
+
+                <!-- Iin -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/Kc0Lw4Qt/Iin.webp" alt="Iin — Wedding Coordinator">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Iin</h3>
+                        <span class="team-card-role">Wedding Coordinator</span>
+                        <p class="team-card-quote">"Melihat acara berjalan lancar dan pasangan merasa bahagia di hari pernikahan mereka adalah hal yang paling membanggakan bagi saya."</p>
+                    </div>
+                </div>
+
+                <!-- Priska -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/nsDzynKT/Priska.webp" alt="Priska — Wedding Coordinator">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Priska</h3>
+                        <span class="team-card-role">Wedding Coordinator</span>
+                        <p class="team-card-quote">"Saya menyukai dunia wedding karena sesuai dengan latar belakang Event Management saya. Selain itu, saya senang bisa bertemu banyak orang, mengenal karakter yang beragam, dan menjalani pekerjaan yang selalu berbeda."</p>
+                    </div>
+                </div>
+
+                <!-- Wahyu -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/6RH61QFs/Wahyu.webp" alt="Wahyu — Design &amp; Creative">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Wahyu</h3>
+                        <span class="team-card-role">Design &amp; Creative</span>
+                        <p class="team-card-quote">"Saya menyukai dunia wedding karena sejak awal terlibat di bidang dokumentasi pernikahan. Bagi saya, wedding bukan sekadar video, tetapi cara menghidupkan kembali sebuah momen."</p>
+                    </div>
+                </div>
+
+                <!-- Made -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/QvbdmhFc/Made.webp" alt="Made — Design &amp; Creative">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Made</h3>
+                        <span class="team-card-role">Design &amp; Creative</span>
+                        <p class="team-card-quote">"Sebagai desainer grafis karena saya senang menciptakan visual yang indah dan bermakna. Setiap wedding memiliki cerita yang berbeda, sehingga membuat saya terus tertantang untuk berkreasi dan berkembang."</p>
+                    </div>
+                </div>
+
+                <!-- Adam -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/9KSL4cf/Adam.webp" alt="Adam — Design &amp; Creative">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Adam</h3>
+                        <span class="team-card-role">Design &amp; Creative</span>
+                        <p class="team-card-quote">"Saya suka dunia wedding karena penuh dengan estetika dan keindahan yang memang saya sukai. Selain itu, saya juga bisa bertemu banyak orang baru, menambah relasi, dan mendapatkan pengalaman baru."</p>
+                    </div>
+                </div>
+
+                <!-- Ayu Candra -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/zT13G61f/Ayu-Candra.webp" alt="Ayu Candra — HR &amp; Finance">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Ayu Candra</h3>
+                        <span class="team-card-role">HR &amp; Finance</span>
+                        <p class="team-card-quote">"Walaupun bekerja di balik layar sebagai accounting, saya senang bisa ikut berkontribusi dalam mendukung kelancaran hari istimewa para klien."</p>
+                    </div>
+                </div>
+
+                <!-- Triza -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/Kjn008Df/Triza-2.webp" alt="Triza — HR &amp; Finance">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Triza</h3>
+                        <span class="team-card-role">HR &amp; Finance</span>
+                        <p class="team-card-quote">"Karena bisa menjadi bagian dari momen bahagia seseorang dan bekerja di lingkungan yang kreatif, dinamis, serta penuh teamwork."</p>
+                    </div>
+                </div>
+
+                <!-- Trisni -->
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/NgZs7nwk/Trisni.webp" alt="Trisni — HR &amp; Finance">
+                    <div class="team-card-overlay">
+                        <h3 class="team-card-name">Trisni</h3>
+                        <span class="team-card-role">HR &amp; Finance</span>
+                        <p class="team-card-quote">"Attention to detail and smooth execution ensure your day is as perfect as you imagined."</p>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -697,23 +930,29 @@
                     <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Kontak &amp; WhatsApp</span>
-                    <p>0361 464 623</p>
-                    <p>081238490222 (Yoga)</p>
+                    <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+                    <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+                    <a href="#" data-wa="ika" target="_blank" rel="noopener">081237495930 (Ika)</a>
+                    <a href="#" data-wa="suci" target="_blank" rel="noopener">082266316766 (Suci)</a>
+                    <a href="#" data-wa="yoga" target="_blank" rel="noopener">081238490222 (Yoga)</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Koneksi Digital</span>
-                    <p>wedding.bth@gmail.com</p>
-                    <p>www.balitopwedding.com</p>
+                    <span class="footer-col-head">Media &amp; Digital</span>
+                    <a href="mailto:wedding.bth@gmail.com" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">wedding.bth@gmail.com</a>
+                    <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">www.balitopwedding.com</a>
+                    <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+                    <a href="#" style="display:inline; margin-right:12px; color: var(--accent); text-decoration: none;">Instagram: @balitopwedding</a>
+                    <a href="#" style="display:inline; color: var(--accent); text-decoration: none;">Tiktok: @balitopwedding</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Jam Operasional</span>
+                    <span class="footer-col-head">Office Hours</span>
                     <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+                    <p>Sabtu - Minggu:<br>by appointment only</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-                <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+                <span class="footer-copy" style="color:var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
             </div>
         </div>
     </footer>
@@ -743,7 +982,9 @@
                 });
             });
         });
+
     </script>
+    <script src="config.js"></script>
 </body>
 
 </html>

@@ -132,8 +132,21 @@
         /* ── DROPDOWN ── */
         .nav-dropdown {
             position: relative;
+            display: inline-flex;
+            align-items: center;
             padding: 24px 0;
             margin: -24px 0;
+        }
+
+        .nav-caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 4px solid currentColor;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         .dropdown-panel {
@@ -769,51 +782,48 @@
     <nav class="navbar" id="navbar">
         <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
         <div class="navbar-links">
+            <a href="index.html" class="nav-item">Home</a>
             <div class="nav-dropdown">
-                <a href="services.html" class="nav-item">Our Services ▾</a>
+                <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
                 <div class="dropdown-panel">
                     <div class="dropdown-submenu">
                         <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Ceremony</a>
-                            <a href="services.html">Dinner or Lunch Reception</a>
-                            <a href="services.html">After Party</a>
-                            <a href="services.html">Elopement</a>
+                            <a href="service-ceremony.html">Ceremony</a>
+                            <a href="service-receptions.html">Receptions</a>
+                            <a href="service-after-party.html">After Party</a>
+                            <a href="service-elopement.html">Elopement</a>
                         </div>
                     </div>
                     <div class="dropdown-submenu" style="margin-top:12px;">
                         <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="services.html">Gala Dinner &amp; Awarding Night</a>
-                            <a href="services.html">Group Tour &amp; Fun Games</a>
-                            <a href="services.html">Group Tour</a>
-                            <a href="services.html">Fun Games &amp; Gala Dinner</a>
+                            <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
+                            <a href="service-group-tour.html">Group Tour</a>
+                            <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
                         </div>
                     </div>
                 </div>
             </div>
             <a href="portfolio.html" class="nav-item">Portfolio</a>
-            <a href="index.html#special-offer" class="nav-item">Special Offer</a>
+            <a href="special-offer.html" class="nav-item">Special Offer</a>
             <a href="contact.html" class="nav-item">Contact Us</a>
             <a href="about.html" class="nav-item">About BTW</a>
             <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
         </div>
-    </nav>
-
-    <!-- ── ARTICLE HERO ── -->
+    </nav>    <!-- ── ARTICLE HERO ── -->
     <header class="article-hero">
         <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=85"
-            alt="Panduan Dokumen Pernikahan Bali"
+            src=""
+            alt=""
             class="article-hero-img"
+            id="article-hero-img"
         >
         <div class="article-hero-overlay"></div>
         <div class="article-hero-content">
-            <span class="article-category-badge">Preparation</span>
-            <h1 class="article-hero-title">Panduan Lengkap Mengurus Dokumen Pernikahan Sah Secara Agama di Bali</h1>
-            <div class="article-hero-meta">
-                <span>Tim Bali Top Wedding</span>
-                <span class="meta-dot"></span>
+            <span class="article-category-badge" id="article-category">Preparation</span>
+            <h1 class="article-hero-title" id="article-title">Panduan</h1>
+            <div class="article-hero-meta" id="article-meta">
                 <span>04 Juni 2026</span>
                 <span class="meta-dot"></span>
                 <span>8 menit baca</span>
@@ -833,117 +843,17 @@
                     <span class="breadcrumb-sep">›</span>
                     <a href="blog.html">Bali Wedding Guidance</a>
                     <span class="breadcrumb-sep">›</span>
-                    <span>Dokumen Pernikahan</span>
+                    <span id="article-breadcrumb-current">Dokumen Pernikahan</span>
                 </nav>
 
-                <article class="article-content reveal">
-
-                    <p>Mewujudkan pernikahan impian di Bali adalah keinginan banyak pasangan dari seluruh penjuru dunia. Namun, keindahan dekorasi dan lokasi rasanya tidak lengkap tanpa adanya keabsahan ikatan di mata hukum dan agama. Berbeda dengan pernikahan catatan sipil biasa, melangsungkan <strong>Religious Wedding Ceremony</strong> (pernikahan sah secara agama) di Indonesia memerlukan serangkaian dokumen administrasi yang wajib dipersiapkan jauh-jauh hari.</p>
-
-                    <p>Banyak pasangan merasa terintimidasi oleh birokrasi, namun jangan khawatir! Tim Bali Top Wedding telah menyusun panduan dasar ini agar Anda memiliki gambaran yang jelas mengenai apa saja yang perlu disiapkan. Ingat, saat Anda menggunakan layanan kami, seluruh koordinasi dokumen yang memusingkan ini akan menjadi tugas kami.</p>
-
-                    <blockquote>"Cinta adalah urusan hati, tetapi pencatatan pernikahan adalah urusan administrasi yang menjamin masa depan keluarga Anda."</blockquote>
-
-                    <h2 id="dokumen-wni">Persyaratan Dokumen Dasar (Bagi WNI)</h2>
-
-                    <p>Bagi Warga Negara Indonesia yang melangsungkan pernikahan sesama WNI, berikut adalah dokumen krusial yang umumnya diminta oleh pemuka agama (KUA/Gereja/Vihara/Parisada) maupun Dinas Kependudukan dan Catatan Sipil:</p>
-
-                    <ul>
-                        <li>Fotokopi Kartu Tanda Penduduk (KTP) kedua mempelai.</li>
-                        <li>Fotokopi Kartu Keluarga (KK) calon mempelai.</li>
-                        <li>Kutipan Akta Kelahiran.</li>
-                        <li>Surat Pengantar Nikah dari kelurahan atau desa asal (Formulir N1, N2, N4).</li>
-                        <li>Surat Rekomendasi Nikah (jika melangsungkan pernikahan di luar kecamatan domisili).</li>
-                        <li>Pas foto berwarna berdampingan (ukuran biasanya 4×6, jumlah bervariasi).</li>
-                    </ul>
-
-                    <h3>Tahapan Pengajuan ke KUA</h3>
-                    <p>Khusus bagi pasangan Muslim, pernikahan dicatatkan melalui Kantor Urusan Agama (KUA) setempat. Pendaftaran dilakukan minimal <strong>10 hari kerja</strong> sebelum akad nikah dilangsungkan. Jika pernikahan diadakan di luar wilayah KUA domisili, diperlukan surat rekomendasi antar-KUA (disebut Surat Numpang Nikah).</p>
-
-                    <div class="article-divider">
-                        <span class="article-divider-icon">✦</span>
-                    </div>
-
-                    <h2 id="dokumen-wna">Bagi Pasangan Beda Kewarganegaraan (Mixed Marriage)</h2>
-
-                    <p>Jika salah satu mempelai adalah Warga Negara Asing (WNA), prosesnya sedikit lebih berlapis karena melibatkan kedutaan atau konsulat dari negara asal sang WNA. Dokumen utama yang mutlak diperlukan adalah <strong>Certificate of No Impediment to Marriage (CNI)</strong>.</p>
-
-                    <p>CNI adalah surat keterangan izin menikah dari kedutaan negara asal di Indonesia yang menyatakan bahwa WNA tersebut berstatus lajang dan tidak memiliki halangan hukum untuk menikah. Proses pengurusan CNI ini bervariasi untuk tiap kedutaan, jadi pastikan berkonsultasi dengan tim Bali Top Wedding paling lambat <strong>3 bulan sebelum hari H</strong> agar kami dapat membantu mengarahkan Anda ke konsulat yang tepat di Bali.</p>
-
-                    <h3>Dokumen Tambahan untuk WNA</h3>
-                    <ol>
-                        <li>Paspor yang masih berlaku (minimal 6 bulan dari tanggal pernikahan).</li>
-                        <li>Visa atau izin tinggal yang sah di Indonesia.</li>
-                        <li>Certificate of No Impediment (CNI) dari Kedutaan Besar negara asal.</li>
-                        <li>Akta Kelahiran yang sudah diterjemahkan ke Bahasa Indonesia oleh penerjemah tersumpah.</li>
-                        <li>Surat keterangan status (lajang/cerai/duda/janda) yang dilegalisir.</li>
-                    </ol>
-
-                    <div class="article-divider">
-                        <span class="article-divider-icon">✦</span>
-                    </div>
-
-                    <h2 id="timeline">Timeline Persiapan Dokumen yang Ideal</h2>
-
-                    <p>Berdasarkan pengalaman kami mendampingi ratusan pasangan dari berbagai penjuru dunia, berikut adalah timeline persiapan dokumen yang kami rekomendasikan agar semua berjalan lancar:</p>
-
-                    <h3>6 Bulan Sebelum Hari H</h3>
-                    <p>Mulailah berkonsultasi dengan tim Bali Top Wedding mengenai status kewarganegaraan dan agama kedua mempelai. Untuk WNA, ini adalah waktu yang tepat untuk mulai proses CNI ke kedutaan negara asal karena proses ini bisa memakan waktu 1–3 bulan.</p>
-
-                    <h3>3 Bulan Sebelum Hari H</h3>
-                    <p>Kumpulkan seluruh dokumen administratif WNI: KTP, KK, akta kelahiran, dan surat-surat pengantar dari kelurahan. Jika pernikahan beda kecamatan, urus Surat Numpang Nikah di KUA domisili Anda.</p>
-
-                    <h3>1 Bulan Sebelum Hari H</h3>
-                    <p>Serahkan seluruh berkas kepada tim BTW untuk diverifikasi dan dikoordinasikan dengan pihak KUA, penghulu, atau pemuka agama yang bertugas di hari pernikahan Anda. Kami yang akan memastikan seluruh dokumen lengkap dan sah.</p>
-
-                    <blockquote>"Menikah di Bali bukan hanya tentang momen yang indah — ini tentang kenangan yang sah dan abadi untuk keluarga Anda."</blockquote>
-
-                    <div class="article-divider">
-                        <span class="article-divider-icon">✦</span>
-                    </div>
-
-                    <h2 id="btw-solution">Bebas Stres Bersama Bali Top Wedding</h2>
-
-                    <p>Mengumpulkan dokumen N1 hingga formulir dari kedutaan mungkin terdengar melelahkan. Itulah mengapa peran <strong>Wedding Planner</strong> sangat krusial. Pada layanan Religious Wedding, kami menugaskan personil khusus untuk mengkoordinasikan jadwal kedatangan penghulu/pemuka agama ke lokasi venue pernikahan Anda, serta menjembatani alur penyerahan berkas ke catatan sipil setempat (Dukcapil Kabupaten Badung/Denpasar/Gianyar).</p>
-
-                    <p>Tugas Anda hanyalah menikmati setiap detik dari sesi perawatan pranikah Anda, merapikan gaun pengantin, dan menatap yakin mata pasangan Anda di altar. Sisanya, adalah urusan kami.</p>
-
+                <article class="article-content reveal" id="article-body-content">
+                    <!-- Dynamic content will be inserted here -->
                 </article>
 
-                <!-- Tags -->
-                <div class="article-tags reveal">
-                    <span class="tag-label">Tags:</span>
-                    <a href="blog.html" class="tag-chip">Preparation</a>
-                    <a href="blog.html" class="tag-chip">Dokumen Nikah</a>
-                    <a href="blog.html" class="tag-chip">WNI</a>
-                    <a href="blog.html" class="tag-chip">WNA</a>
-                    <a href="blog.html" class="tag-chip">Religious Wedding</a>
-                </div>
-
-                <!-- Author Box -->
-                <div class="author-box reveal">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&q=80" alt="Penulis" class="author-avatar">
-                    <div>
-                        <p class="author-info-name">Tim Editorial BTW</p>
-                        <span class="author-info-role">Wedding Expert · Bali Top Wedding</span>
-                        <p class="author-info-bio">Kami adalah tim planner dan penulis berpengalaman yang berdedikasi untuk membantu setiap pasangan mewujudkan pernikahan impian mereka di Bali dengan penuh keanggunan.</p>
-                    </div>
-                </div>
             </main>
 
             <!-- ── SIDEBAR ── -->
             <aside class="sidebar">
-
-                <!-- Table of Contents -->
-                <div class="sidebar-block reveal">
-                    <span class="sidebar-block-title">Daftar Isi</span>
-                    <ul class="toc-list" id="toc">
-                        <li><a href="#dokumen-wni" class="toc-link">Persyaratan Dokumen WNI</a></li>
-                        <li><a href="#dokumen-wna" class="toc-link">Mixed Marriage (WNA)</a></li>
-                        <li><a href="#timeline" class="toc-link">Timeline Persiapan Ideal</a></li>
-                        <li><a href="#btw-solution" class="toc-link">Bebas Stres Bersama BTW</a></li>
-                    </ul>
-                </div>
 
                 <!-- CTA Box -->
                 <div class="sidebar-cta reveal">
@@ -955,30 +865,9 @@
                 <!-- Related Articles -->
                 <div class="sidebar-block reveal" style="margin-top: 48px;">
                     <span class="sidebar-block-title">Artikel Terkait</span>
-
-                    <a href="blog-detail.html" class="related-card">
-                        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=200&q=70" alt="Checklist" class="related-card-img">
-                        <div class="related-card-body">
-                            <p class="related-card-cat">Preparation</p>
-                            <p class="related-card-title">Checklist 12 Bulan Sebelum Hari H</p>
-                        </div>
-                    </a>
-
-                    <a href="blog-detail.html" class="related-card">
-                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=200&q=70" alt="Venue" class="related-card-img">
-                        <div class="related-card-body">
-                            <p class="related-card-cat">Venues</p>
-                            <p class="related-card-title">Tebing Pantai vs Kebun Tropis</p>
-                        </div>
-                    </a>
-
-                    <a href="blog-detail.html" class="related-card">
-                        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=200&q=70" alt="Melukat" class="related-card-img">
-                        <div class="related-card-body">
-                            <p class="related-card-cat">Ceremony</p>
-                            <p class="related-card-title">Makna Sakral Ritual Melukat</p>
-                        </div>
-                    </a>
+                    <div id="related-articles-container">
+                        <!-- Dynamic cards will be inserted here -->
+                    </div>
                 </div>
 
             </aside>
@@ -994,39 +883,108 @@
                     <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Kontak &amp; WhatsApp</span>
-                    <p>0361 464 623</p>
-                    <p>081238490222</p>
+                    <span class="footer-col-head">Telpon &amp; WhatsApp</span>
+                    <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+                    <a href="#" data-wa="ika" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081237495930 (Ika)</a>
+                    <a href="#" data-wa="suci" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">082266316766 (Suci)</a>
+                    <a href="#" data-wa="yoga" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081238490222 (Yoga)</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Koneksi Digital</span>
-                    <p>wedding.bth@gmail.com</p>
-                    <p>www.balitopwedding.com</p>
+                    <span class="footer-col-head">Media &amp; Digital</span>
+                    <a href="mailto:wedding.bth@gmail.com" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">wedding.bth@gmail.com</a>
+                    <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">www.balitopwedding.com</a>
+                    <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
+                    <a href="#" style="display:inline; margin-right:12px; color: var(--accent); text-decoration: none;">Instagram: @balitopwedding</a>
+                    <a href="#" style="display:inline; color: var(--accent); text-decoration: none;">Tiktok: @balitopwedding</a>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Jam Operasional</span>
+                    <span class="footer-col-head">Office Hours</span>
                     <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+                    <p>Sabtu - Minggu:<br>by appointment only</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-                <span class="footer-copy" style="color:var(--accent);">Powered by PT Bali Top Holiday</span>
+                <span class="footer-copy" style="color:var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
             </div>
         </div>
     </footer>
 
+    <script src="blog-data.js"></script>
     <script>
+        // ── LOAD BLOG DETAIL CONTENT ──
+        function loadBlogDetail() {
+            const params = new URLSearchParams(window.location.search);
+            let postKey = params.get('post') || 'legal-wedding-bali-wni';
+            
+            if (!window.BLOG_DATA || !window.BLOG_DATA[postKey]) {
+                postKey = Object.keys(window.BLOG_DATA || {})[0] || 'legal-wedding-bali-wni';
+            }
+            
+            const post = window.BLOG_DATA[postKey];
+            if (!post) return;
+            
+            // Update page titles & metadata
+            document.title = `${post.title} — Bali Wedding Guidance — Bali Top Wedding`;
+            
+            // Hero section
+            const heroImg = document.getElementById('article-hero-img');
+            heroImg.src = post.featuredImage;
+            heroImg.alt = post.title;
+            
+            document.getElementById('article-category').textContent = post.category;
+            document.getElementById('article-title').textContent = post.title;
+            
+            const metaContainer = document.getElementById('article-meta');
+            metaContainer.innerHTML = `
+                <span>${post.date}</span>
+                <span class="meta-dot"></span>
+                <span>${post.readTime}</span>
+            `;
+            
+            // Breadcrumbs
+            const breadcrumbCurrent = document.getElementById('article-breadcrumb-current');
+            breadcrumbCurrent.textContent = post.title.length > 40 ? post.title.substring(0, 40) + '...' : post.title;
+            
+            // Article body content
+            const bodyContent = document.getElementById('article-body-content');
+            bodyContent.innerHTML = post.body;
+            
+            // Related Articles
+            const relatedContainer = document.getElementById('related-articles-container');
+            if (relatedContainer) {
+                relatedContainer.innerHTML = '';
+                Object.values(window.BLOG_DATA).forEach(otherPost => {
+                    if (otherPost.slug !== post.slug) {
+                        const card = document.createElement('a');
+                        card.href = `blog-detail.html?post=${otherPost.slug}`;
+                        card.className = 'related-card';
+                        card.innerHTML = `
+                            <img src="${otherPost.featuredImage}" alt="${otherPost.title}" class="related-card-img">
+                            <div class="related-card-body">
+                                <p class="related-card-cat">${otherPost.category}</p>
+                                <p class="related-card-title">${otherPost.title}</p>
+                            </div>
+                        `;
+                        relatedContainer.appendChild(card);
+                    }
+                });
+            }
+        }
+
         /* ── REVEAL ANIMATION ── */
-        const revealEls = document.querySelectorAll('.reveal');
-        const revealObs = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        revealEls.forEach(el => revealObs.observe(el));
+        function initRevealAnimation() {
+            const revealEls = document.querySelectorAll('.reveal');
+            const revealObs = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+            revealEls.forEach(el => revealObs.observe(el));
+        }
 
         /* ── READ PROGRESS BAR ── */
         window.addEventListener('scroll', () => {
@@ -1036,26 +994,12 @@
             const articleHeight = article.offsetHeight;
             const scrolled = window.scrollY - articleTop;
             const progress = Math.min(Math.max(scrolled / articleHeight, 0), 1);
-            document.getElementById('read-progress').style.width = (progress * 100) + '%';
-
-            // TOC active link highlight
-            updateToc();
+            
+            const progressBar = document.getElementById('read-progress');
+            if (progressBar) {
+                progressBar.style.width = (progress * 100) + '%';
+            }
         });
-
-        /* ── TOC ACTIVE HIGHLIGHT ── */
-        function updateToc() {
-            const sections = ['dokumen-wni','dokumen-wna','timeline','btw-solution'];
-            let current = '';
-            sections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el && el.getBoundingClientRect().top < 180) {
-                    current = id;
-                }
-            });
-            document.querySelectorAll('.toc-link').forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-            });
-        }
 
         /* ── SUBMENU TOGGLE ── */
         document.querySelectorAll('.submenu-trigger').forEach(trigger => {
@@ -1068,7 +1012,14 @@
                 });
             });
         });
+
+        // Initialize dynamic content on load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBlogDetail();
+            initRevealAnimation();
+        });
     </script>
+    <script src="config.js"></script>
 </body>
 
 </html>

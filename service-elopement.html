@@ -71,14 +71,14 @@
     /* ── INNER HERO ── */
     .inner-hero {
       position: relative; height: 40vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
-      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/20wyjJ6W/1.webp') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/ycz3Gk9G/7.webp') center/cover no-repeat;
     }
     .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
     .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
 
     /* ── UTILITIES & BREADCRUMBS ── */
     .section { padding: 90px 48px; }
-    .max-w { max-width: 1000px; margin: 0 auto; }
+    .max-w { max-width: 1200px; margin: 0 auto; }
     .section-label { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px; }
     .section-rule { width: 48px; height: 0.5px; background: var(--accent); margin: 14px 0 22px; }
     
@@ -106,6 +106,47 @@
     .slide-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
     .slide-dot { width: 8px; height: 8px; border: 1px solid var(--accent); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
     .slide-dot.active { background: var(--accent); width: 20px; border-radius: 10px; }
+
+    /* ── TWO COLUMN CONTENT LAYOUT ── */
+    .service-detail-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+      margin-bottom: 56px;
+      min-height: 480px;
+    }
+    .service-detail-text h2 {
+      text-align: left;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .service-subtitle {
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      color: var(--muted);
+      text-align: left;
+    }
+    .slideshow-container.portrait-slideshow {
+      height: 100%;
+      min-height: 0;
+      margin-bottom: 0;
+      aspect-ratio: auto;
+    }
+    @media (max-width: 768px) {
+      .service-detail-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+      }
+      .slideshow-container.portrait-slideshow {
+        height: auto;
+        aspect-ratio: 16 / 10;
+        min-height: auto;
+      }
+    }
 
     /* ── CONTENT LAYOUT ── */
     h2 { font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px; line-height: 1.25; }
@@ -189,7 +230,6 @@
 
   <header class="inner-hero">
     <div>
-      <span>Main Service</span>
       <h1>Elopement</h1>
     </div>
   </header>
@@ -217,40 +257,43 @@
         <span>Elopement</span>
       </nav>
 
-      <!-- SLIDESHOW -->
-      <div class="slideshow-container reveal">
-        <div class="slideshow-track" id="slideTrack">
-          <div class="slide-item"><img src="https://i.ibb.co.com/20wyjJ6W/1.webp" alt="Elopement 1"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/B5LN043f/2.webp" alt="Elopement 2"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/4wDRQR5s/3.webp" alt="Elopement 3"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/TxB9sH5P/4.webp" alt="Elopement 4"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/qYKXNtGc/5.webp" alt="Elopement 5"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/Xx9pfCbS/6.webp" alt="Elopement 6"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/S4b3zjGD/7.webp" alt="Elopement 7"></div>
+      <!-- SERVICE CONTENT WRAPPER -->
+      <div class="service-detail-wrapper reveal">
+        <!-- LEFT COLUMN: TEXT -->
+        <div class="service-detail-text">
+          <h2>Elopement (Pernikahan Privat Berdua)</h2>
+          <p class="service-subtitle">Memimpikan pernikahan privat hanya Anda dan kisah cinta Anda berdua saja? Bali elopement adalah jawaban yang sempurna.</p>
+          
+          <p>Lupakan segala kerumitan pernikahan umum dan rasakan keajaiban cinta di Pulau Dewata. Bali menawarkan latar terbaik untuk pernikahan privat yang tak terlupakan. Mengikrarkan janji suci di pantai berpasir putih, di tengah pepohonan hijau yang asri, atau di depan air terjun yang luar biasa indah, semua dapat diwujudkan oleh Bali Top Wedding.</p>
+
+          <p>Di Bali Top Wedding, kami menyediakan berbagai pilihan paket elopement yang dirancang untuk memastikan hari istimewa Anda berjalan hangat, mulus, dan tak lekang oleh waktu. Rencanakan Bali elopement Anda sekarang juga dan ciptakan kenangan kebersamaan yang abadi selamanya.</p>
+
+          <p style="font-style: italic;">Bersama Bali Top Wedding, semua jadi praktis.</p>
         </div>
-        <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
-        <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
-        <div class="slide-dots">
-          <div class="slide-dot active" onclick="setSlide(0)"></div>
-          <div class="slide-dot" onclick="setSlide(1)"></div>
-          <div class="slide-dot" onclick="setSlide(2)"></div>
-          <div class="slide-dot" onclick="setSlide(3)"></div>
-          <div class="slide-dot" onclick="setSlide(4)"></div>
-          <div class="slide-dot" onclick="setSlide(5)"></div>
-          <div class="slide-dot" onclick="setSlide(6)"></div>
+
+        <!-- RIGHT COLUMN: SLIDESHOW (PORTRAIT) -->
+        <div class="slideshow-container portrait-slideshow">
+          <div class="slideshow-track" id="slideTrack">
+            <div class="slide-item"><img src="https://i.ibb.co.com/Qv7YkFNj/1.webp" alt="Elopement 1"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/39BGVWvY/2.webp" alt="Elopement 2"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/1tt5YqrF/3.webp" alt="Elopement 3"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/pjZCP2pG/4.webp" alt="Elopement 4"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/KxnFxNWQ/5.webp" alt="Elopement 5"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/tTnT9NNk/6.webp" alt="Elopement 6"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/ycz3Gk9G/7.webp" alt="Elopement 7"></div>
+          </div>
+          <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
+          <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
+          <div class="slide-dots">
+            <div class="slide-dot active" onclick="setSlide(0)"></div>
+            <div class="slide-dot" onclick="setSlide(1)"></div>
+            <div class="slide-dot" onclick="setSlide(2)"></div>
+            <div class="slide-dot" onclick="setSlide(3)"></div>
+            <div class="slide-dot" onclick="setSlide(4)"></div>
+            <div class="slide-dot" onclick="setSlide(5)"></div>
+            <div class="slide-dot" onclick="setSlide(6)"></div>
+          </div>
         </div>
-      </div>
-
-      <!-- MAIN CONTENT -->
-      <div class="reveal">
-        <h2>Elopement (Pernikahan Privat Berdua)</h2>
-        <p style="font-size: 22px; font-style: italic; line-height: 1.6; margin-bottom: 32px; color: var(--muted); text-align: center;">Memimpikan pernikahan privat hanya Anda dan kisah cinta Anda berdua saja? Bali elopement adalah jawaban yang sempurna.</p>
-        
-        <p>Lupakan segala kerumitan pernikahan umum dan rasakan keajaiban cinta di Pulau Dewata. Bali menawarkan latar terbaik untuk pernikahan privat yang tak terlupakan. Mengikrarkan janji suci di pantai berpasir putih, di tengah pepohonan hijau yang asri, atau di depan air terjun yang luar biasa indah, semua dapat diwujudkan oleh Bali Top Wedding.</p>
-
-        <p>Di Bali Top Wedding, kami menyediakan berbagai pilihan paket elopement yang dirancang untuk memastikan hari istimewa Anda berjalan hangat, mulus, dan tak lekang oleh waktu. Rencanakan Bali elopement Anda sekarang juga dan ciptakan kenangan kebersamaan yang abadi selamanya.</p>
-
-        <p style="font-style: italic;">Bersama Bali Top Wedding, semua jadi praktis.</p>
       </div>
 
       <!-- CTA BLOCK -->

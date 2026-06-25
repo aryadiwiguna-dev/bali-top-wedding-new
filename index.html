@@ -288,7 +288,6 @@
       object-fit: cover;
       object-position: center bottom;
       z-index: 1;
-      /* Trik mempertahankan efek gelap overlay */
       filter: brightness(0.65); 
     }
 
@@ -311,12 +310,10 @@
 
     .hero-logo-desktop {
       height: 85px;
-      /* Sedikit dikecilkan agar hemat ruang vertikal */
       width: auto;
       filter: brightness(0) invert(1);
       display: block;
       margin: 0 auto 12px;
-      /* Jarak bawah dipangkas */
     }
 
     .hero-text-mobile {
@@ -334,11 +331,10 @@
       font-size: 11px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #E5D5C2; /* Warna champagne gold terang untuk kontras tinggi */
+      color: #E5D5C2; 
       display: block;
       margin-bottom: 16px;
-      /* Jarak bawah dipangkas */
-      text-shadow: 0 1px 4px rgba(30, 25, 22, 0.6); /* Shadow halus agar tulisan lebih tegas di atas foto */
+      text-shadow: 0 1px 4px rgba(30, 25, 22, 0.6); 
     }
 
     .btn-ghost {
@@ -349,7 +345,6 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       padding: 12px 34px;
-      /* Padding sedikit dirampingkan */
       border: 0.5px solid var(--cream);
       color: var(--cream);
       text-decoration: none;
@@ -371,7 +366,6 @@
       }
 
       .hero-bg {
-        /* Di HP biasanya perlu penyesuaian fokus gambar yang berbeda */
         background-position: center 70%;
       }
     }
@@ -388,13 +382,11 @@
       text-transform: uppercase;
       padding: 16px 40px;
       border-radius: 50px;
-      /* Membuat ujungnya membulat penuh seperti bubble */
       background-color: var(--dark);
       color: var(--cream);
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(30, 25, 22, 0.15);
-      /* Efek bayangan halus */
     }
 
     .btn-bubble:hover {
@@ -402,7 +394,6 @@
       color: var(--dark);
       box-shadow: 0 6px 20px rgba(196, 176, 154, 0.3);
       transform: translateY(-3px);
-      /* Efek terangkat saat disentuh kursor */
     }
 
     .btn-ghost:hover {
@@ -521,7 +512,6 @@
       height: 100%;
       opacity: 0;
       visibility: hidden;
-      /* Animasi memudar selama 0.8 detik yang sangat halus */
       transition: opacity 0.8s ease-in-out, visibility 0.8s;
       z-index: 1;
     }
@@ -605,7 +595,7 @@
       line-height: 1.3;
     }
 
-    /* ── ABOUT TIM HERO & JS SLIDER (YANG BARU DIPERBAIKI) ── */
+    /* ── ABOUT TIM HERO & JS SLIDER ── */
     .about-tim-hero {
       width: 100%;
       aspect-ratio: 2160 / 1440;
@@ -824,6 +814,101 @@
       color: var(--muted);
     }
 
+    /* ── PORTFOLIO COLLAGE ── */
+    .portfolio-collage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      padding: 16px;
+      background: transparent;
+      box-sizing: border-box;
+    }
+
+    .portfolio-collage-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      height: 100%;
+    }
+
+    .portfolio-collage-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .portfolio-collage-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Kolase Baris Pertama (Eka & Shanon):
+       - Kolom 1: Tinggi (1 foto portrait)
+       - Kolom 2: 2 foto bertumpuk
+       - Kolom 3: 2 foto bertumpuk
+    */
+    .collage-layout-1 .item-tall {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+    .collage-layout-1 .item-col2-top {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .collage-layout-1 .item-col2-bottom {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    .collage-layout-1 .item-col3-top {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    .collage-layout-1 .item-col3-bottom {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    /* Kolase Baris Kedua (Wiesma):
+       - Kolom 1: 2 foto bertumpuk
+       - Kolom 2: Tinggi (1 foto portrait)
+       - Kolom 3: 2 foto bertumpuk
+    */
+    .collage-layout-2 .item-col1-top {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .collage-layout-2 .item-col1-bottom {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .collage-layout-2 .item-tall {
+      grid-column: 2;
+      grid-row: 1 / 3;
+    }
+    .collage-layout-2 .item-col3-top {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    .collage-layout-2 .item-col3-bottom {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-collage {
+        min-height: 380px;
+        gap: 8px;
+        padding: 8px;
+      }
+    }
+
     /* ── SEARCH BOX & BLOG ── */
     .search-box {
       max-width: 480px;
@@ -895,7 +980,7 @@
       margin-bottom: 10px;
     }
 
-    /* ── GOOGLE REVIEW SECTION (Parallax & Premium Layout) ── */
+    /* ── GOOGLE REVIEW SECTION ── */
     .google-reviews-section {
       position: relative;
       background: linear-gradient(rgba(30, 25, 22, 0.85), rgba(30, 25, 22, 0.85)), 
@@ -925,7 +1010,6 @@
       margin-bottom: 24px;
     }
 
-    /* Google Review Card Style */
     .google-review-card {
       background: var(--cream);
       color: var(--dark);
@@ -1049,7 +1133,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* Google Reviews Carousel Styles */
     .reviews-carousel {
       position: relative;
       max-width: 850px;
@@ -1274,7 +1357,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 60px auto;
+      margin: 48px auto; 
       opacity: 0.85;
       width: 100%;
     }
@@ -1564,7 +1647,8 @@
     </div>
   </section>
 
-  <div class="luxury-separator reveal">
+  <!-- UBAH: Margin dikurangi dari 48px menjadi 24px agar lebih rapat dengan introduction -->
+  <div class="luxury-separator reveal" style="margin: 48px auto;">
     <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
       <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
@@ -1575,9 +1659,10 @@
     </svg>
   </div>
 
-  <section class="section" style="background:var(--cream); padding-top:80px; padding-bottom:80px;">
-    <div class="max-w split">
-      <div class="split-text">
+  <section class="section" style="background:var(--cream); padding: 0 72px;">
+    <div class="max-w split" style="min-height: auto;">
+      <!-- UBAH: Padding-top pada teks split diset ke 0 agar judul h2 langsung naik mepet separator -->
+      <div class="split-text" style="padding-top: 0; padding-bottom: 48px;">
         <div class="section-rule"></div>
         <h2>MERAJUT CINTA, MENGUKIR CERITA</h2>
         <p>
@@ -1597,24 +1682,30 @@
         </div>
       </div>
 
-      <div class="intro-slider-wrapper reveal">
+      <!-- UBAH: Padding-top diset ke 0 agar foto intro sejajar tingginya dengan teks yang sudah naik -->
+      <div class="intro-slider-wrapper reveal" style="padding-top: 0; padding-bottom: 48px;">
         <div class="intro-slider-container">
-          <div class="intro-slide active-slide"><img src="https://i.ibb.co.com/9mr2fQQZ/AST-8734-copy.webp"
-              alt="Client 1"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/TqnTchsz/AST-9388-copy.webp" alt="Client 2"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/qY18hXyD/DK1-4853-copy.webp" alt="Client 3"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/1JTLGxdr/EDI06934-copy.webp" alt="Client 4"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/C3hw0f1t/ganti-2-copy.webp" alt="Client 5"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/ccZWLnD9/ganti-copy.webp" alt="Client 6"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/zH856y5J/LMR21090-copy.webp" alt="Client 7"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/xtzv1hSL/SAE-118-copy.webp" alt="Client 8"></div>
-          <div class="intro-slide"><img src="https://i.ibb.co.com/4RKKbVqM/W-Hotel-Seminyak-Bali-152-copy.webp" alt="Client 9"></div>
+          <div class="intro-slide active-slide"><img src="https://i.ibb.co.com/8gC0DLP9/1.webp" alt="Client 1"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/RkCrDxj8/2.webp" alt="Client 2"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/jZbHcw83/3.webp" alt="Client 3"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/PHp2dqy/4.webp" alt="Client 4"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/dJ3638cf/5.webp" alt="Client 5"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/Jwh0NT9y/6.webp" alt="Client 6"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/PkT4mzW/7.webp" alt="Client 7"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/fz9Cw547/1.webp" alt="Client 8"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/bjmsc82x/2.webp" alt="Client 9"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/60WQMJjN/3.webp" alt="Client 10"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/xqnVTzMw/4.webp" alt="Client 11"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/G37g7vj2/5.webp" alt="Client 12"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/mrKxcGmr/6.webp" alt="Client 13"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/5WgfQtPR/7.webp" alt="Client 14"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/1SjbGkc/8.webp" alt="Client 15"></div>
+          <div class="intro-slide"><img src="https://i.ibb.co.com/4wQXvp6c/9.webp" alt="Client 16"></div>
         </div>
       </div>
     </div>
   </section>
 
-  
 
   <div class="luxury-separator reveal">
     <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1627,7 +1718,7 @@
     </svg>
   </div>
 
-  <section id="services" class="section" style="background:var(--nude); padding-top: 70px; padding-bottom: 70px;">
+  <section id="services" class="section" style="background:var(--nude); padding-top: 16px; padding-bottom: 0;">
     <div class="max-w">
       <div class="reveal" style="text-align:center; margin-bottom:28px;">
         <h2>Our Services</h2>
@@ -1638,22 +1729,22 @@
         <div class="services-tiles" style="grid-template-columns: repeat(4, 1fr);">
           
           <a href="service-ceremony.html" class="service-tile" style="text-decoration: none; display: block;">
-            <img src="https://i.ibb.co.com/fd1MW60c/ceremony-1.webp" alt="Ceremony">
+            <img src="https://i.ibb.co.com/d0gZrM84/ceremony-1.webp" alt="Ceremony">
             <div class="service-tile-overlay"><span class="service-tile-name">Ceremony</span></div>
           </a>
           
           <a href="service-receptions.html" class="service-tile" style="text-decoration: none; display: block;">
-            <img src="https://i.ibb.co.com/dskxL32q/Reception-2.webp" alt="Dinner or Lunch Reception">
+            <img src="https://i.ibb.co.com/SXMXppV6/Reception-2.webp" alt="Dinner or Lunch Reception">
             <div class="service-tile-overlay"><span class="service-tile-name">Reception</span></div>
           </a>
           
           <a href="service-elopement.html" class="service-tile" style="text-decoration: none; display: block;">
-            <img src="https://i.ibb.co.com/RGFWXv98/Elopement-3.webp" alt="Elopement" style="object-position: center 75%;">
+            <img src="https://i.ibb.co.com/mC4Swy3x/Elopement-3.webp" alt="Elopement" style="object-position: center 75%;">
             <div class="service-tile-overlay"><span class="service-tile-name">Elopement</span></div>
           </a>
           
           <a href="service-after-party.html" class="service-tile" style="text-decoration: none; display: block;">
-            <img src="https://i.ibb.co.com/qLWnT0kW/after-party-4.webp" alt="After Party">
+            <img src="https://i.ibb.co.com/NgFmGV65/after-party-4.webp" alt="After Party">
             <div class="service-tile-overlay"><span class="service-tile-name">After Party</span></div>
           </a>
 
@@ -1712,7 +1803,7 @@
         <div class="section-rule"></div>
         <h3 style="margin-bottom: 24px; font-size: clamp(32px, 3.5vw, 44px); font-weight: 300; font-style: italic;">Tentang Kami</h3>
         <p>Berdiri sejak 2014, Bali Top Wedding adalah wedding planner dan organizer resmi serta berizin hukum yang
-          berbasis di Bali. Sebagai anggota resmi dari Bali Wedding Association (BWA) sejak 2016, kami berfokus dalam
+          berbasis di Bali. Sebagai anggota resmi dari Bali Wedding Association (BWA) since 2016, kami berfokus dalam
           menangani Domestik dan Mix Nationality Weddings (antarnegara).</p>
         <p>Bali Top Wedding menawarkan paket pernikahan dari kelas basic hingga yang dirancang khusus (Customized
           Wedding Packages) sesuai dengan kebutuhan dan impian tiap pasangan. Mari jadikan pernikahan impian Anda sebuah
@@ -1818,7 +1909,7 @@
               <div class="staff-info-right">
                 <span class="staff-name">Adam</span>
                 <span class="staff-role">Design & Creative</span>
-                <p class="staff-quote">"Saya suka dunia wedding karena penuh dengan estetika dan keindahan yang memang saya sukai. Selain itu, saya juga bisa bertemu banyak orang baru, menambah relasi, and mendapatkan pengalaman baru."</p>
+                <p class="staff-quote">"Saya suka dunia wedding karena penuh dengan estetika and keindahan yang memang saya sukai. Selain itu, saya juga bisa bertemu banyak orang baru, menambah relasi, and mendapatkan pengalaman baru."</p>
               </div>
             </div>
             <!-- Ayu Candra -->
@@ -1875,8 +1966,7 @@
   <section class="values-section reveal">
     <div class="max-w">
       <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-        <!-- <span class="section-label">Our Philosophy</span> -->
-        <h2 style="font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px;">Filosofi</h2>
+        <h2 style="font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px;">Filosofi Kami</h2>
       </div>
 
       <div class="values-grid">
@@ -1912,7 +2002,7 @@
     </svg>
   </div>
 
-  <section id="portfolio" style="background:var(--cream); padding-top:110px;">
+  <section id="portfolio" style="background:var(--cream); padding-top:16px;">
     <div class="max-w" style="padding:0 48px; margin-bottom:48px;">
       <h2 style="text-align:center;">Portofolio Kami</h2>
     </div>
@@ -1921,20 +2011,33 @@
       style="display: grid; grid-template-columns: 60% 40%; direction: ltr; min-height: auto; background: var(--cream); margin-bottom: 40px;">
 
       <div class="portfolio-photo" style="width: 100%; height: 100%;">
-        <img src="https://i.ibb.co.com/XfRcnkxb/kolase-1.jpg" alt="Pernikahan Andi &amp; Regen di Ubud"
-          style="object-fit: contain; width: 100%; height: 100%; display: block; background: var(--cream);">
+        <div class="portfolio-collage collage-layout-1">
+          <div class="portfolio-collage-item item-tall">
+            <img src="Portofolio/2023 Eka &amp; Shanon/Editing/WEBP/SAE-3 copy.webp" alt="Pernikahan Eka &amp; Shanon di Uluwatu">
+          </div>
+          <div class="portfolio-collage-item item-col2-top">
+            <img src="Portofolio/2023 Eka &amp; Shanon/Editing/WEBP/SAE-10 copy.webp" alt="Pernikahan Eka &amp; Shanon di Bali">
+          </div>
+          <div class="portfolio-collage-item item-col2-bottom">
+            <img src="Portofolio/2023 Eka &amp; Shanon/Editing/WEBP/SAE-53 copy.webp" alt="Detail Dekorasi Eka &amp; Shanon">
+          </div>
+          <div class="portfolio-collage-item item-col3-top">
+            <img src="Portofolio/2023 Eka &amp; Shanon/Editing/WEBP/SAE-54 copy.webp" alt="Dekorasi Pernikahan Eka &amp; Shanon">
+          </div>
+          <div class="portfolio-collage-item item-col3-bottom">
+            <img src="Portofolio/2023 Eka &amp; Shanon/Editing/WEBP/SAE-85 copy.webp" alt="Momen Indah Eka &amp; Shanon">
+          </div>
+        </div>
       </div>
 
       <div class="portfolio-info"
         style="padding: 64px 48px; background: transparent; display: flex; flex-direction: column; justify-content: center; direction: ltr;">
         <span class="portfolio-tag">Ceremony &amp; Full Planning</span>
         <div class="section-rule" style="margin: 14px 0 24px;"></div>
-        <h3 class="portfolio-title">Andi &amp; Regen</h3>
-        <span class="portfolio-meta" style="margin-bottom: 24px;">Ubud | 2023</span>
-        <p style="font-size: 16px;">Sebuah perayaan taman yang penuh dengan tawa, kehijauan yang rimbun, dan energi dari
-          dua
-          orang yang saling mencintai di Ubud</p>
-        <a href="#" class="portfolio-link">Lihat Galeri Kebahagiaan →</a>
+        <h3 class="portfolio-title">Eka &amp; Shanon</h3>
+        <span class="portfolio-meta" style="margin-bottom: 24px;">Uluwatu | 2023</span>
+        <p style="font-size: 16px;">Sebuah janji suci di atas tebing Uluwatu yang memukau, diiringi suara deburan ombak dan pendar keemasan matahari terbenam Bali yang romantis.</p>
+        <a href="portfolio-detail.html?client=eka-shanon" class="portfolio-link">Lihat Galeri Kebahagiaan →</a>
       </div>
 
     </div>
@@ -1944,18 +2047,32 @@
 
       <div class="portfolio-info"
         style="padding: 64px 48px; background: transparent; display: flex; flex-direction: column; justify-content: center; direction: ltr;">
-        <span class="portfolio-tag">Ceremony &amp; Reception</span>
+        <span class="portfolio-tag">Intimate Ceremony &amp; Reception</span>
         <div class="section-rule" style="margin: 14px 0 24px;"></div>
-        <h3 class="portfolio-title">Sarah &amp; Eric</h3>
-        <span class="portfolio-meta" style="margin-bottom: 24px;">Jimbaran, Bali</span>
-        <p style="font-size: 16px;">Upacara di tepi lautan dengan pemandangan langsung ke Samudra Hindia yang elegan di
-          Jimbaran, Bali.</p>
-        <a href="#" class="portfolio-link">Lihat Galeri Kebahagiaan →</a>
+        <h3 class="portfolio-title">Wiesma</h3>
+        <span class="portfolio-meta" style="margin-bottom: 24px;">Bali | 2026</span>
+        <p style="font-size: 16px;">Perayaan pernikahan Gen Z yang intim, santai, dan penuh kehangatan dengan konsep modern yang elegan dan anti ribet di Bali.</p>
+        <a href="portfolio-detail.html?client=wiesma" class="portfolio-link">Lihat Galeri Kebahagiaan →</a>
       </div>
 
       <div class="portfolio-photo" style="width: 100%; height: 100%;">
-        <img src="https://i.ibb.co.com/99T5zv2q/kolase-2.jpg" alt="Pernikahan Sarah &amp; Eric di Jimbaran"
-          style="object-fit: contain; width: 100%; height: 100%; display: block; background: var(--nude);">
+        <div class="portfolio-collage collage-layout-2">
+          <div class="portfolio-collage-item item-col1-top">
+            <img src="Portofolio/2026 Wiesma/Editing/WEBP/RED_6416 copy.webp" alt="Pernikahan Wiesma di Bali">
+          </div>
+          <div class="portfolio-collage-item item-col1-bottom">
+            <img src="Portofolio/2026 Wiesma/Editing/WEBP/RED_7054 copy.webp" alt="Momen Indah Pernikahan Wiesma">
+          </div>
+          <div class="portfolio-collage-item item-tall">
+            <img src="Portofolio/2026 Wiesma/Editing/WEBP/RED_5398 copy.webp" alt="Kebahagiaan Pernikahan Wiesma">
+          </div>
+          <div class="portfolio-collage-item item-col3-top">
+            <img src="Portofolio/2026 Wiesma/Editing/WEBP/RED_5860 copy.webp" alt="Detail Upacara Wiesma">
+          </div>
+          <div class="portfolio-collage-item item-col3-bottom">
+            <img src="Portofolio/2026 Wiesma/Editing/WEBP/RED_5927 copy.webp" alt="Detail Resepsi Wiesma">
+          </div>
+        </div>
       </div>
 
     </div>
@@ -2002,7 +2119,13 @@
         <h2>Bali Wedding Guidance</h2>
       </div>
 
-      <div class="blog-grid reveal" style="grid-template-columns: repeat(2, 1fr); max-width: 860px; margin: 0 auto;">
+      <div class="blog-grid reveal" style="max-width: 1200px; margin: 0 auto;">
+        <a href="blog-detail.html?post=kembang-api-siang-hari" class="blog-card" style="text-decoration: none; color: inherit; display: block;">
+          <div class="blog-card-image"><img src="bali_wedding_guidance/Kembang Api di Siang Hari/andiregenphoto.webp" alt="Daytime Fireworks Bali"></div>
+          <span class="blog-card-tag">Kamis, 25 Jun 2026</span>
+          <h4 class="blog-card-title">Trend Kembang Api di Siang Bolong: Emang Bisa?</h4>
+          <p style="font-size:15px; color:var(--muted);">Sambutlah Daytime Fireworks (Kembang Api Siang Hari) — tren pernikahan modern yang sedang menjadi primadona di Bali. Efek visualnya luar biasa magis dan sinematik...</p>
+        </a>
         <a href="blog-detail.html?post=legal-wedding-bali-wni" class="blog-card" style="text-decoration: none; color: inherit; display: block;">
           <div class="blog-card-image"><img src="bali_wedding_guidance/legal-wedding-bali-wni/w-hotel-seminyak-bali-126.webp" alt="Legal Wedding Bali WNI"></div>
           <span class="blog-card-tag">Rabu, 24 Jun 2026</span>
@@ -2208,20 +2331,13 @@
     function autoPlayIntroFade() {
       if (introTotalSlides === 0) return;
 
-      // 1. Hilangkan class 'active-slide' dari foto saat ini (membuatnya pudar)
       introSlides[introCurrentSlide].classList.remove('active-slide');
-
-      // 2. Lanjut ke indeks foto berikutnya (kembali ke 0 jika sudah di akhir)
       introCurrentSlide = (introCurrentSlide + 1) % introTotalSlides;
-
-      // 3. Tambahkan class 'active-slide' ke foto baru (membuatnya muncul)
       introSlides[introCurrentSlide].classList.add('active-slide');
     }
 
-    // Jeda antar foto diset 2500 milidetik (2,5 detik)
     let introSlideInterval = setInterval(autoPlayIntroFade, 2000);
 
-    // Hentikan saat kursor masuk area foto
     const introContainer = document.querySelector('.intro-slider-container');
     if (introContainer) {
       introContainer.addEventListener('mouseenter', () => clearInterval(introSlideInterval));
@@ -2230,25 +2346,21 @@
 
     /* 4. INTERACTIVE TABS FUNCTION (UNTUK SEKSI LAYANAN) */
     function switchTab(event, tabId) {
-      // Ambil seluruh elemen panel konten
       const panels = document.querySelectorAll('.tab-panel');
       panels.forEach(panel => {
         panel.classList.remove('active');
       });
 
-      // Ambil seluruh tombol menu tab
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(button => {
         button.classList.remove('active');
       });
 
-      // Aktifkan panel yang dipilih
       const targetPanel = document.getElementById(tabId);
       if (targetPanel) {
         targetPanel.classList.add('active');
       }
 
-      // Aktifkan tombol yang diklik oleh pengguna
       event.currentTarget.classList.add('active');
     }
 
@@ -2259,7 +2371,6 @@
         const parent = this.parentElement;
         parent.classList.toggle('active');
         
-        // Tutup submenu lainnya yang sedang terbuka di dropdown yang sama
         const siblings = parent.parentElement.querySelectorAll('.dropdown-submenu');
         siblings.forEach(sibling => {
           if (sibling !== parent) {
@@ -2285,12 +2396,10 @@
         reviewIndex = index;
       }
       
-      // Move track
       if (reviewsTrack) {
         reviewsTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
       }
       
-      // Update dots
       reviewDots.forEach((dot, idx) => {
         if (idx === reviewIndex) {
           dot.classList.add('active');
@@ -2312,10 +2421,8 @@
       showReview(index);
     }
 
-    // Auto play every 6 seconds
     let reviewInterval = setInterval(nextReview, 6000);
 
-    // Stop auto play on hover
     const carouselContainer = document.querySelector('.reviews-carousel');
     if (carouselContainer) {
       carouselContainer.addEventListener('mouseenter', () => clearInterval(reviewInterval));

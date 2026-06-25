@@ -71,7 +71,7 @@
     /* ── INNER HERO ── */
     .inner-hero {
       position: relative; height: 40vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
-      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/zhd5Nxbw/1.webp') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/HfsX60c8/4.webp') center 30% / cover no-repeat;
     }
     .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
     .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
@@ -92,22 +92,29 @@
     .luxury-separator { display: flex; justify-content: center; align-items: center; margin: 40px auto; opacity: 0.85; width: 100%; }
     .luxury-separator svg { width: 240px; height: auto; max-width: 90%; }
 
-    /* ── ZIG-ZAG EDITORIAL LAYOUT ── */
-    .service-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; margin-bottom: 80px; background: var(--cream); border: 0.5px solid var(--accent); }
-    .service-row:nth-child(even) { direction: rtl; background: var(--nude); }
-    .service-row:nth-child(even) > * { direction: ltr; }
+    /* ── TWO COLUMN CONTENT LAYOUT ── */
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+      margin-bottom: 80px;
+      background: var(--cream);
+      border: 0.5px solid var(--accent);
+      align-items: stretch;
+    }
+    .service-row:nth-child(even) { background: var(--nude); }
     
     .service-photo { position: relative; overflow: hidden; }
     
-    .service-info { padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
-    .service-info h2 { font-size: clamp(32px, 3.5vw, 44px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 20px; line-height: 1.2; }
+    .service-info { padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .service-info h2 { font-size: clamp(32px, 3.5vw, 44px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 20px; line-height: 1.2; margin-top: 0; }
     .service-info p { color: var(--muted); margin-bottom: 20px; text-align: justify; }
 
     /* ── NESTED ROW SLIDER ── */
     .row-slider-container { position: relative; width: 100%; height: 100%; overflow: hidden; background: inherit; }
     .row-slider-track { display: flex; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
     .row-slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-    .row-slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .row-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
     
     .row-slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
     .row-slider-dots .dot { width: 8px; height: 8px; border: 1px solid var(--accent); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; background: rgba(30, 25, 22, 0.1); }
@@ -198,7 +205,6 @@
 
   <header class="inner-hero">
     <div>
-      <span>Main Service</span>
       <h1>Ceremony</h1>
     </div>
   </header>
@@ -236,16 +242,23 @@
 
       <!-- SERVICES ROW 1 -->
       <div class="service-row reveal" id="agama">
+        <div class="service-info">
+          <h2>1. Menikah Sah Secara Agama (Religious Wedding Ceremony)</h2>
+          <p style="font-size: 19px; font-style: italic; line-height: 1.6; margin-bottom: 20px; color: var(--muted);">Menikah sah secara agama di Bali? Tentu saja bisa!</p>
+          <p>Bali Top Wedding memahami bahwa pernikahan bukan hanya tentang perayaan yang indah, tapi juga tentang sebuah awal yang penuh berkah dan janji suci yang tulus di hadapan Tuhan. Untuk itu, kami siap membantu mewujudkan upacara pernikahan Anda sesuai tata cara agama resmi yang berlaku di Indonesia.</p>
+          <p>Kami sadar bahwa setiap detail dalam prosesi keagamaan memiliki makna yang sangat mendalam. Itulah mengapa tim Bali Top Wedding akan memastikan seluruh pengurusan berkas, koordinasi dengan pemuka agama, hingga jalannya prosesi diurus dengan penuh kehati-hatian, profesional, dan bebas stres.</p>
+          <p style="font-style: italic;">Tugas anda hanyalah hadir dengan hati yang bahagia, karena bersama Bali Top Wedding, momen sakral anda jadi lebih praktis.</p>
+        </div>
         <div class="service-photo">
           <div class="row-slider-container">
             <div class="row-slider-track">
-              <div class="row-slide"><img src="https://i.ibb.co.com/zhd5Nxbw/1.webp" alt="Menikah Sah Secara Agama 1"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/B54dQ5nB/2.webp" alt="Menikah Sah Secara Agama 2"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/6RYk5kdR/3.webp" alt="Menikah Sah Secara Agama 3"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/ynJKwVS7/4.webp" alt="Menikah Sah Secara Agama 4"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/WWYFSgyL/5.webp" alt="Menikah Sah Secara Agama 5"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/v491Q6p4/6.webp" alt="Menikah Sah Secara Agama 6"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/TMYN8Qw5/7.webp" alt="Menikah Sah Secara Agama 7"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/hJVTNbLy/1.webp" alt="Menikah Sah Secara Agama 1"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/VcX7jG47/2.webp" alt="Menikah Sah Secara Agama 2"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/v6wZxQTz/3.webp" alt="Menikah Sah Secara Agama 3"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/Y7T6g3C7/4.webp" alt="Menikah Sah Secara Agama 4"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/Vp0qnHT7/5.webp" alt="Menikah Sah Secara Agama 5"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/LD8Q3cXW/6.webp" alt="Menikah Sah Secara Agama 6"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/Qvy3D27f/7.webp" alt="Menikah Sah Secara Agama 7"></div>
             </div>
             <div class="row-slider-dots">
               <span class="dot active"></span>
@@ -258,13 +271,6 @@
             </div>
           </div>
         </div>
-        <div class="service-info">
-          <h2>1. Menikah Sah Secara Agama (Religious Wedding Ceremony)</h2>
-          <p style="font-size: 19px; font-style: italic; line-height: 1.6; margin-bottom: 20px; color: var(--muted);">Menikah sah secara agama di Bali? Tentu saja bisa!</p>
-          <p>Bali Top Wedding memahami bahwa pernikahan bukan hanya tentang perayaan yang indah, tapi juga tentang sebuah awal yang penuh berkah dan janji suci yang tulus di hadapan Tuhan. Untuk itu, kami siap membantu mewujudkan upacara pernikahan Anda sesuai tata cara agama resmi yang berlaku di Indonesia.</p>
-          <p>Kami sadar bahwa setiap detail dalam prosesi keagamaan memiliki makna yang sangat mendalam. Itulah mengapa tim Bali Top Wedding akan memastikan seluruh pengurusan berkas, koordinasi dengan pemuka agama, hingga jalannya prosesi diurus dengan penuh kehati-hatian, profesional, dan bebas stres.</p>
-          <p style="font-style: italic;">Tugas anda hanyalah hadir dengan hati yang bahagia, karena bersama Bali Top Wedding, momen sakral anda jadi lebih praktis.</p>
-        </div>
       </div>
 
       <!-- SERVICES ROW 2 -->
@@ -272,13 +278,13 @@
         <div class="service-photo">
           <div class="row-slider-container">
             <div class="row-slider-track">
-              <div class="row-slide"><img src="https://i.ibb.co.com/4nvxkPbB/1.webp" alt="Commitment Ceremony 1"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/vx2jBQFY/2.webp" alt="Commitment Ceremony 2"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/hJ8rH9ty/3.webp" alt="Commitment Ceremony 3"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/Psfrwc0C/4.webp" alt="Commitment Ceremony 4"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/C5y147BY/5.webp" alt="Commitment Ceremony 5"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/RpCJfQbH/6.webp" alt="Commitment Ceremony 6"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/h14Y5Vk5/7.webp" alt="Commitment Ceremony 7"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/XxWbBw2F/1.webp" alt="Commitment Ceremony 1"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/9Hq0zKkS/2.webp" alt="Commitment Ceremony 2"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/4whPHxLL/3.webp" alt="Commitment Ceremony 3"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/HfsX60c8/4.webp" alt="Commitment Ceremony 4"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/6CC6Knb/5.webp" alt="Commitment Ceremony 5"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/Y408KXFm/6.webp" alt="Commitment Ceremony 6"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/PGKYM0gZ/7.webp" alt="Commitment Ceremony 7"></div>
             </div>
             <div class="row-slider-dots">
               <span class="dot active"></span>
@@ -295,22 +301,29 @@
           <h2>2. Perayaan Tukar Janji (Non Religious Commitment Ceremony)</h2>
           <p>Bertukar janji setia seumur hidup dengan latar belakang keindahan alam Bali. Merayakan momen itu bersama orang-orang terdekat dengan penuh kebahagiaan, tanpa perlu pusing dengan urusan dokumen yang rumit. Jika ini adalah apa yang Anda impikan, Bali Top Wedding siap menjadi yang terdepan untuk membantu mewujudkannya.</p>
           <p>Di Bali Top Wedding, kami percaya “your love is your rules”—tidak ada aturan kaku dalam mengikrarkan cinta. Mau bertukar janji suci yang Anda tulis sendiri di tepi pantai, bersulang manis di atas tebing saat sunset, ataupun membuat acara unik ala Anda berdua, apa pun itu kami siap mewujudkannya dengan indah tanpa menyisakan stres dan keluh kesah.</p>
-          <p>Mulai dari konsep yang simpel dan intim hingga yang elegan, tim kami akan menyiapkan segala detailnya di balik layar dengan seksama hingga hari bahagia tiba. Anda dan pasangan tinggal duduk manis dan menikmati setiap detiknya.</p>
+          <p>Mulai dari konsep yang simpel and intim hingga yang elegan, tim kami akan menyiapkan segala detailnya di balik layar dengan seksama hingga hari bahagia tiba. Anda dan pasangan tinggal duduk manis dan menikmati setiap detiknya.</p>
         </div>
       </div>
 
       <!-- SERVICES ROW 3 -->
       <div class="service-row reveal" id="pembaruan-janji">
+        <div class="service-info">
+          <h2>3. Pembaruan Janji Suci (Renewal of Vows)</h2>
+          <p style="font-size: 19px; font-style: italic; line-height: 1.6; margin-bottom: 20px; color: var(--muted);">Waktu berlalu dan babak berganti, aku akan tetap memilihmu lagi dan lagi.</p>
+          <p>Pembaruan Janji Suci (Renewal of Vows) adalah cara paling indah untuk merayakan perjalanan cinta Anda yang telah teruji oleh waktu. Tanpa perlu pusing dengan urusan ini itu, Bali Top Wedding akan memastikan momen ini sepenuhnya menjadi milik Anda berdua.</p>
+          <p>Di Bali Top Wedding, kami memahami bahwa setiap tahun yang telah Anda lewati bersama memiliki cerita yang berharga. Baik Anda ingin merayakannya secara intim berdua saja, atau berbagi kebahagiaan bersama anak-anak dan keluarga cinta, kami siap mewujudkannya dengan penuh kehangatan.</p>
+          <p style="font-style: italic;">Anda hanya perlu membawa rasa syukur dan cinta yang semakin mendalam, karena sisanya akan dikerjakan dari belakang layar oleh tangan-tangan kreatif Bali Top Wedding.</p>
+        </div>
         <div class="service-photo">
           <div class="row-slider-container">
             <div class="row-slider-track">
-              <div class="row-slide"><img src="https://i.ibb.co.com/vx6XWNWk/1.webp" alt="Renewal of Vows 1"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/TMqY8QNQ/2.webp" alt="Renewal of Vows 2"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/JFBkKd0G/3.webp" alt="Renewal of Vows 3"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/7xZKdW4g/4.webp" alt="Renewal of Vows 4"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/zhPcBmxh/5.webp" alt="Renewal of Vows 5"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/pjnpS0Gc/6.webp" alt="Renewal of Vows 6"></div>
-              <div class="row-slide"><img src="https://i.ibb.co.com/V0VQmQwd/7.webp" alt="Renewal of Vows 7"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/gZC7wds9/1.webp" alt="Renewal of Vows 1"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/RTrQxrcS/2.webp" alt="Renewal of Vows 2"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/PzwksTTd/3.webp" alt="Renewal of Vows 3"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/P3pV5X2/4.webp" alt="Renewal of Vows 4"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/VczN91dd/5.webp" alt="Renewal of Vows 5"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/wZTSfX8F/6.webp" alt="Renewal of Vows 6"></div>
+              <div class="row-slide"><img src="https://i.ibb.co.com/Wv9F3Hy8/7.webp" alt="Renewal of Vows 7"></div>
             </div>
             <div class="row-slider-dots">
               <span class="dot active"></span>
@@ -322,13 +335,6 @@
               <span class="dot"></span>
             </div>
           </div>
-        </div>
-        <div class="service-info">
-          <h2>3. Pembaruan Janji Suci (Renewal of Vows)</h2>
-          <p style="font-size: 19px; font-style: italic; line-height: 1.6; margin-bottom: 20px; color: var(--muted);">Waktu berlalu dan babak berganti, aku akan tetap memilihmu lagi dan lagi.</p>
-          <p>Pembaruan Janji Suci (Renewal of Vows) adalah cara paling indah untuk merayakan perjalanan cinta Anda yang telah teruji oleh waktu. Tanpa perlu pusing dengan urusan ini itu, Bali Top Wedding akan memastikan momen ini sepenuhnya menjadi milik Anda berdua.</p>
-          <p>Di Bali Top Wedding, kami memahami bahwa setiap tahun yang telah Anda lewati bersama memiliki cerita yang berharga. Baik Anda ingin merayakannya secara intim berdua saja, atau berbagi kebahagiaan bersama anak-anak dan keluarga cinta, kami siap mewujudkannya dengan penuh kehangatan.</p>
-          <p style="font-style: italic;">Anda hanya perlu membawa rasa syukur dan cinta yang semakin mendalam, karena sisanya akan dikerjakan dari belakang layar oleh tangan-tangan kreatif Bali Top Wedding.</p>
         </div>
       </div>
 

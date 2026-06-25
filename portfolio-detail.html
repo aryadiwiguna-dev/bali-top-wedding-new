@@ -256,8 +256,9 @@
             justify-content: center;
             text-align: center;
             margin-top: 106px;
-            background: linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)),
-                url('https://i.ibb.co.com/SLjPcxy/SAE-137-2-jpg.webp') center/cover no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .inner-hero h1 {
@@ -851,13 +852,38 @@
         // 1. Set Title and Hero background
         document.title = data.name + " — Bali Top Wedding";
         
-        // Dynamically select background images based on photos
-        const heroBgImg = data.photos && data.photos.length > 0 ? data.photos[0] : 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80';
+        // Dynamically select review background image
         const reviewBgImg = data.photos && data.photos.length > 0 ? data.photos[data.photos.length - 1] : 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80';
 
-        const innerHero = document.querySelector('.inner-hero');
-        innerHero.style.backgroundImage = `linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)), url('${heroBgImg}')`;
-        innerHero.innerHTML = `<div><span class="section-label">Stories of Love</span><h1>${data.name}</h1></div>`;
+        // Temukan foto landscape untuk hero banner secara dinamis, jika tidak ada gunakan foto pertama
+        async function setupHero(photos) {
+            let landscapeUrl = photos && photos.length > 0 ? photos[0] : 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80';
+            
+            if (photos && photos.length > 0) {
+                // Cari gambar berorientasi landscape (lebar > tinggi)
+                for (let url of photos) {
+                    try {
+                        const img = await new Promise((resolve, reject) => {
+                            const tempImg = new Image();
+                            tempImg.onload = () => resolve(tempImg);
+                            tempImg.onerror = () => reject();
+                            tempImg.src = url;
+                        });
+                        if (img.width > img.height) {
+                            landscapeUrl = url;
+                            break;
+                        }
+                    } catch (e) {
+                        // abaikan kesalahan muat dan coba berikutnya
+                    }
+                }
+            }
+
+            const innerHero = document.querySelector('.inner-hero');
+            innerHero.style.backgroundImage = `linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)), url('${landscapeUrl}')`;
+            innerHero.innerHTML = `<div><span class="section-label">Stories of Love</span><h1>${data.name}</h1></div>`;
+        }
+        setupHero(data.photos);
 
         // 2. Set Client Details
         document.getElementById('client-name').innerText = data.name;

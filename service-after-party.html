@@ -71,14 +71,14 @@
     /* ── INNER HERO ── */
     .inner-hero {
       position: relative; height: 40vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
-      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/CpyHsj8v/1.webp') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/wZGP2RSz/7.webp') center/cover no-repeat;
     }
     .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
     .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
 
     /* ── UTILITIES & BREADCRUMBS ── */
     .section { padding: 90px 48px; }
-    .max-w { max-width: 1000px; margin: 0 auto; }
+    .max-w { max-width: 1200px; margin: 0 auto; }
     .section-label { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px; }
     .section-rule { width: 48px; height: 0.5px; background: var(--accent); margin: 14px 0 22px; }
     
@@ -106,6 +106,47 @@
     .slide-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
     .slide-dot { width: 8px; height: 8px; border: 1px solid var(--accent); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
     .slide-dot.active { background: var(--accent); width: 20px; border-radius: 10px; }
+
+    /* ── TWO COLUMN CONTENT LAYOUT ── */
+    .service-detail-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+      margin-bottom: 56px;
+      min-height: 480px;
+    }
+    .service-detail-text h2 {
+      text-align: left;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .service-subtitle {
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      color: var(--muted);
+      text-align: left;
+    }
+    .slideshow-container.portrait-slideshow {
+      height: 100%;
+      min-height: 0;
+      margin-bottom: 0;
+      aspect-ratio: auto;
+    }
+    @media (max-width: 768px) {
+      .service-detail-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+      }
+      .slideshow-container.portrait-slideshow {
+        height: auto;
+        aspect-ratio: 16 / 10;
+        min-height: auto;
+      }
+    }
 
     /* ── CONTENT LAYOUT ── */
     h2 { font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px; line-height: 1.25; }
@@ -189,7 +230,6 @@
 
   <header class="inner-hero">
     <div>
-      <span>Main Service</span>
       <h1>After Party</h1>
     </div>
   </header>
@@ -217,42 +257,45 @@
         <span>After Party</span>
       </nav>
 
-      <!-- SLIDESHOW -->
-      <div class="slideshow-container reveal">
-        <div class="slideshow-track" id="slideTrack">
-          <div class="slide-item"><img src="https://i.ibb.co.com/CpyHsj8v/1.webp" alt="After Party 1"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/nqVkBPPf/2.webp" alt="After Party 2"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/jZ89wz9r/3.webp" alt="After Party 3"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/zT73gg8c/4.webp" alt="After Party 4"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/spK3qN14/5.webp" alt="After Party 5"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/W43fJDts/6.webp" alt="After Party 6"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/wZGP2RSz/7.webp" alt="After Party 7"></div>
+      <!-- SERVICE CONTENT WRAPPER -->
+      <div class="service-detail-wrapper reveal">
+        <!-- LEFT COLUMN: TEXT -->
+        <div class="service-detail-text">
+          <h2>After Party</h2>
+          <p class="service-subtitle">Lepas high heels dan jas, pesta yang sesungguhnya dimulai!</p>
+          
+          <p>Di Bali Top Wedding, kami memahami bahwa After Party adalah waktu di mana aturan formalitas berakhir dan keseruan yang sebenarnya baru saja pecah.</p>
+
+          <p>Berdansa dan tertawa bersama sahabat dekat, lantunan musik DJ favorit, pendar lampu estetik, kesegaran cocktails, hingga camilan tengah malam (midnight snacks) untuk menjaga energi semua orang tetap membara—sungguh terdengar epic bukan?</p>
+
+          <p>Anda tidak perlu khawatir apalagi repot mengurus urusan teknis. Dari balik layar, tangan-tangan kreatif kami siap bekerja untuk mengubah malam pernikahan Anda menjadi sebuah perayaan yang legendaris.</p>
+
+          <p>Jangan biarkan malam yang indah ini cepat berakhir. Anda hanya perlu membawa semangat pesta terbaik, berdansa tanpa lelah, dan serahkan sisanya kepada Bali Top Wedding yang akan memastikan vibes pesta Anda tetap membara hingga lampu terakhir padam.</p>
         </div>
-        <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
-        <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
-        <div class="slide-dots">
-          <div class="slide-dot active" onclick="setSlide(0)"></div>
-          <div class="slide-dot" onclick="setSlide(1)"></div>
-          <div class="slide-dot" onclick="setSlide(2)"></div>
-          <div class="slide-dot" onclick="setSlide(3)"></div>
-          <div class="slide-dot" onclick="setSlide(4)"></div>
-          <div class="slide-dot" onclick="setSlide(5)"></div>
-          <div class="slide-dot" onclick="setSlide(6)"></div>
+
+        <!-- RIGHT COLUMN: SLIDESHOW (PORTRAIT) -->
+        <div class="slideshow-container portrait-slideshow">
+          <div class="slideshow-track" id="slideTrack">
+            <div class="slide-item"><img src="https://i.ibb.co.com/CpyHsj8v/1.webp" alt="After Party 1"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/nqVkBPPf/2.webp" alt="After Party 2"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/jZ89wz9r/3.webp" alt="After Party 3"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/zT73gg8c/4.webp" alt="After Party 4"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/spK3qN14/5.webp" alt="After Party 5"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/W43fJDts/6.webp" alt="After Party 6"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/wZGP2RSz/7.webp" alt="After Party 7"></div>
+          </div>
+          <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
+          <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
+          <div class="slide-dots">
+            <div class="slide-dot active" onclick="setSlide(0)"></div>
+            <div class="slide-dot" onclick="setSlide(1)"></div>
+            <div class="slide-dot" onclick="setSlide(2)"></div>
+            <div class="slide-dot" onclick="setSlide(3)"></div>
+            <div class="slide-dot" onclick="setSlide(4)"></div>
+            <div class="slide-dot" onclick="setSlide(5)"></div>
+            <div class="slide-dot" onclick="setSlide(6)"></div>
+          </div>
         </div>
-      </div>
-
-      <!-- MAIN CONTENT -->
-      <div class="reveal">
-        <h2>After Party</h2>
-        <p style="font-size: 22px; font-style: italic; line-height: 1.6; margin-bottom: 32px; color: var(--muted); text-align: center;">Lepas high heels dan jas, pesta yang sesungguhnya dimulai!</p>
-        
-        <p>Di Bali Top Wedding, kami memahami bahwa After Party adalah waktu di mana aturan formalitas berakhir dan keseruan yang sebenarnya baru saja pecah.</p>
-
-        <p>Berdansa dan tertawa bersama sahabat dekat, lantunan musik DJ favorit, pendar lampu estetik, kesegaran cocktails, hingga camilan tengah malam (midnight snacks) untuk menjaga energi semua orang tetap membara—sungguh terdengar epic bukan?</p>
-
-        <p>Anda tidak perlu khawatir apalagi repot mengurus urusan teknis. Dari balik layar, tangan-tangan kreatif kami siap bekerja untuk mengubah malam pernikahan Anda menjadi sebuah perayaan yang legendaris.</p>
-
-        <p>Jangan biarkan malam yang indah ini cepat berakhir. Anda hanya perlu membawa semangat pesta terbaik, berdansa tanpa lelah, dan serahkan sisanya kepada Bali Top Wedding yang akan memastikan vibes pesta Anda tetap membara hingga lampu terakhir padam.</p>
       </div>
 
       <!-- CTA BLOCK -->

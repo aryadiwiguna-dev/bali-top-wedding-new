@@ -71,14 +71,14 @@
     /* ── INNER HERO ── */
     .inner-hero {
       position: relative; height: 40vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
-      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/8gC0DLP9/1.webp') center/cover no-repeat;
+      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://i.ibb.co.com/vCWVYw1B/4.webp') center 70% / cover no-repeat;
     }
     .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
     .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
 
     /* ── UTILITIES & BREADCRUMBS ── */
     .section { padding: 90px 48px; }
-    .max-w { max-width: 1000px; margin: 0 auto; }
+    .max-w { max-width: 1200px; margin: 0 auto; }
     .section-label { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px; }
     .section-rule { width: 48px; height: 0.5px; background: var(--accent); margin: 14px 0 22px; }
     
@@ -106,6 +106,47 @@
     .slide-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
     .slide-dot { width: 8px; height: 8px; border: 1px solid var(--accent); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
     .slide-dot.active { background: var(--accent); width: 20px; border-radius: 10px; }
+
+    /* ── TWO COLUMN CONTENT LAYOUT ── */
+    .service-detail-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+      margin-bottom: 56px;
+      min-height: 480px;
+    }
+    .service-detail-text h2 {
+      text-align: left;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .service-subtitle {
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      color: var(--muted);
+      text-align: left;
+    }
+    .slideshow-container.portrait-slideshow {
+      height: 100%;
+      min-height: 0;
+      margin-bottom: 0;
+      aspect-ratio: auto;
+    }
+    @media (max-width: 768px) {
+      .service-detail-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+      }
+      .slideshow-container.portrait-slideshow {
+        height: auto;
+        aspect-ratio: 16 / 10;
+        min-height: auto;
+      }
+    }
 
     /* ── CONTENT LAYOUT ── */
     h2 { font-size: clamp(32px, 4vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 24px; line-height: 1.25; }
@@ -189,7 +230,6 @@
 
   <header class="inner-hero">
     <div>
-      <span>Main Service</span>
       <h1>Receptions</h1>
     </div>
   </header>
@@ -217,44 +257,43 @@
         <span>Receptions</span>
       </nav>
 
-      <!-- SLIDESHOW -->
-      <div class="slideshow-container reveal">
-        <div class="slideshow-track" id="slideTrack">
-          <div class="slide-item"><img src="https://i.ibb.co.com/8gC0DLP9/1.webp" alt="Reception 1"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/RkCrDxj8/2.webp" alt="Reception 2"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/jZbHcw83/3.webp" alt="Reception 3"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/PHp2dqy/4.webp" alt="Reception 4"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/dJ3638cf/5.webp" alt="Reception 5"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/Jwh0NT9y/6.webp" alt="Reception 6"></div>
-          <div class="slide-item"><img src="https://i.ibb.co.com/PkT4mzW/7.webp" alt="Reception 7"></div>
+      <!-- SERVICE CONTENT WRAPPER -->
+      <div class="service-detail-wrapper reveal">
+        <!-- LEFT COLUMN: TEXT -->
+        <div class="service-detail-text">
+          <h2>Resepsi Pernikahan</h2>
+          <p class="service-subtitle">Lupakan resepsi jadul yang penuh sesak, ayo rayakan cinta di bawah langit malam Pulau Dewata yang magis.</p>
+          
+          <p>Setelah janji suci terucap, saatnya melepas ketegangan dan berbagi kebahagiaan dalam sebuah resepsi pernikahan yang merefleksikan karakter Anda berdua. Makan malam romantis di bawah cahaya bintang, tertawa bersama di kebun tropis yang asri, atau bahkan semangat dansa rock n roll di dance floor—apa pun itu, tangan-tangan kreatif Bali Top Wedding siap mewujudkannya untuk Anda.</p>
+
+          <p>Di Bali Top Wedding, kami memastikan esensi keindahan Bali menyatu dengan karakter unik Anda berdua. Kami tidak hanya menyiapkan dekorasi yang memukau dan berkelas, tetapi juga memastikan setiap detail—mulai dari pemilihan tempat acara, hidangan yang memanjakan lidah, musik yang menghidupkan suasana, hingga alur acara yang mengalir sempurna.</p>
+
+          <p>Percayakan kemeriahan hari istimewa Anda kepada Bali Top Wedding. Anda dan pasangan hanya perlu berdansa, bersulang di bawah kerlip bintang langit Bali, dan menikmati setiap detiknya, karena tim kami akan memastikan pesta Anda berjalan sempurna dari awal hingga lagu terakhir berdendang.</p>
         </div>
-        <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
-        <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
-        <div class="slide-dots">
-          <div class="slide-dot active" onclick="setSlide(0)"></div>
-          <div class="slide-dot" onclick="setSlide(1)"></div>
-          <div class="slide-dot" onclick="setSlide(2)"></div>
-          <div class="slide-dot" onclick="setSlide(3)"></div>
-          <div class="slide-dot" onclick="setSlide(4)"></div>
-          <div class="slide-dot" onclick="setSlide(5)"></div>
-          <div class="slide-dot" onclick="setSlide(6)"></div>
+
+        <!-- RIGHT COLUMN: SLIDESHOW (PORTRAIT) -->
+        <div class="slideshow-container portrait-slideshow">
+          <div class="slideshow-track" id="slideTrack">
+            <div class="slide-item"><img src="https://i.ibb.co.com/jZfXmmLQ/1.webp" alt="Reception 1"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/tM0Tn2yY/2.webp" alt="Reception 2"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/bj2gJ8x5/3.webp" alt="Reception 3"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/vCWVYw1B/4.webp" alt="Reception 4"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/GQ0cCNyD/5.webp" alt="Reception 5"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/chn0q1cb/6.webp" alt="Reception 6"></div>
+            <div class="slide-item"><img src="https://i.ibb.co.com/XfLjLfjh/7.webp" alt="Reception 7"></div>
+          </div>
+          <button class="slide-arrow arrow-left" onclick="moveSlide(-1)">‹</button>
+          <button class="slide-arrow arrow-right" onclick="moveSlide(1)">›</button>
+          <div class="slide-dots">
+            <div class="slide-dot active" onclick="setSlide(0)"></div>
+            <div class="slide-dot" onclick="setSlide(1)"></div>
+            <div class="slide-dot" onclick="setSlide(2)"></div>
+            <div class="slide-dot" onclick="setSlide(3)"></div>
+            <div class="slide-dot" onclick="setSlide(4)"></div>
+            <div class="slide-dot" onclick="setSlide(5)"></div>
+            <div class="slide-dot" onclick="setSlide(6)"></div>
+          </div>
         </div>
-      </div>
-
-      <!-- MAIN CONTENT -->
-      <div class="reveal">
-        <h2>Layanan Resepsi (Dinner or Lunch Receptions)</h2>
-        <p style="font-size: 22px; font-style: italic; line-height: 1.6; margin-bottom: 32px; color: var(--muted); text-align: center;">Makan malam romantis di bawah pendar lilin dan malam bertabur bintang di Bali.</p>
-        <p>Resepsi pernikahan adalah momen perayaan kegembiraan dan rasa syukur bersama keluarga serta sahabat terdekat. Di Bali Top Wedding, kami merancang dan menyelenggarakan pesta makan siang maupun makan malam (lunch or dinner receptions) yang elegan, intim, dan memukau.</p>
-
-        <h3>1. Penataan Dekorasi &amp; Suasana</h3>
-        <p>Kami menerjemahkan visi estetika Anda ke dalam detail tata meja makan malam yang memukau. Dari lampu gantung kristal yang mewah, rangkaian bunga segar impor maupun lokal berkualitas tinggi, lilin aromaterapi yang intim, hingga bentangan lampu gantung peri (fairy lights) yang menciptakan malam bertabur bintang di langit terbuka Bali.</p>
-
-        <h3>2. Katering &amp; Hidangan Kelas Dunia</h3>
-        <p>Sajian kuliner yang lezat adalah pilar utama dari resepsi yang sukses. Kami bekerja sama dengan mitra katering dan chef terbaik di Bali untuk menghadirkan menu hidangan internasional, perpaduan (fusion), hingga masakan otentik Nusantara. Sajian dapat dinikmati melalui konsep formal set menu (plated dinner), buffet mewah yang beragam, atau stasiun makanan interaktif (food stalls).</p>
-
-        <h3>3. Jalannya Acara &amp; Hiburan</h3>
-        <p>Kami menyusun susunan acara (rundown) secara cermat, memastikan setiap prosesi (seperti tumpengan/pemotongan kue, toast, lempar buket, hingga tarian pertama/first dance) mengalir indah. BTW menyediakan rekomendasi MC dwibahasa profesional, penampilan live music acoustic, band lengkap, hingga pertunjukan tari api khas Bali untuk menghibur para tamu undangan Anda.</p>
       </div>
 
       <!-- CTA BLOCK -->

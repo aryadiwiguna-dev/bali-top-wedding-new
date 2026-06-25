@@ -1,4 +1,55 @@
 window.BLOG_DATA = {
+  "kembang-api-siang-hari": {
+    "slug": "kembang-api-siang-hari",
+    "title": "TREND KEMBANG API DI SIANG BOLONG: EMANG BISA?",
+    "category": "Wedding Trends",
+    "date": "Kamis, 25 Jun 2026",
+    "readTime": "4 menit baca",
+    "author": "Tim Bali Top Wedding",
+    "excerpt": "Sambutlah Daytime Fireworks (Kembang Api Siang Hari) - tren pernikahan modern yang kini sedang menjadi primadona di Bali. Bukan sekadar kepulan asap biasa, ini adalah seni visual yang memadukan warna-warni yang estetik dan dentuman kemeriahan yang dramatis.",
+    "featuredImage": "bali_wedding_guidance/Kembang Api di Siang Hari/andiregenphoto.webp",
+    "body": `
+      <p>Jawabannya: <strong>Bisa banget, dan efeknya luar biasa magis!</strong></p>
+      
+      <p>Kalau mendengar kata "kembang api", ingatan kita pasti langsung tertuju pada gemerlap cahaya di tengah pekatnya langit malam. Namun, tren pernikahan global terkini justru mendobrak tradisi tersebut. Kini, keajaiban kembang api justru dipindahkan ke bawah hangatnya sinar matahari Bali.</p>
+      
+      <p>Sambutlah <strong>Daytime Fireworks</strong> (Kembang Api Siang Hari) — tren pernikahan modern yang kini sedang menjadi primadona di Bali. Bukan sekadar kepulan asap biasa, ini adalah seni visual yang memadukan warna-warni yang estetik (<em>colored smoke</em>) dan dentuman kemeriahan yang dramatis di siang atau sore hari.</p>
+
+      <blockquote>"Daytime fireworks menghadirkan letupan warna-warni yang dinamis, mendobrak batas keindahan malam untuk menyemarakkan momen sakral Anda di bawah langit siang Bali."</blockquote>
+
+      <h2 id="mengapa-tren">Mengapa Tren Ini Wajib Ada di Hari Bahagia Anda?</h2>
+
+      <h3 id="efek-visual">1. Efek Visual yang Magis di Foto Portrait</h3>
+      <p>Pernikahan outdoor di Bali — baik berlatar tebing Uluwatu maupun pantai Nusa Dua — sudah sangat indah. Namun, kepulan asap vertikal berwarna <em>dusty pink</em>, <em>baby blue</em>, atau merah terang di latar belakang akan membuat foto pernikahan Anda terlihat sangat hidup, sinematik, dan <em>Instagrammable</em>.</p>
+
+      <div class="article-image-wrap" style="margin: 40px 0; text-align: center;">
+        <img src="bali_wedding_guidance/Kembang Api di Siang Hari/andiregenphoto-00592.webp" alt="Daytime Fireworks Portrait" style="width: 100%; max-height: 480px; object-fit: cover; border: 0.5px solid var(--accent); border-radius: 4px;">
+        <p style="font-size: 13px; color: var(--muted); margin-top: 8px; font-style: italic;">Efek visual magis kembang api siang hari pada sesi foto.</p>
+      </div>
+
+      <h3 id="menghidupkan-momen">2. Menghidupkan Momen Paling Sakral</h3>
+      <p>Waktu terbaik untuk menyalakannya adalah saat <em>The First Kiss</em> (sesaat setelah janji suci diucapkan) atau di akhir <em>Flower Shower</em> (saat Anda berjalan ditaburi kelopak bunga oleh undangan). Efek kejutannya selalu berhasil memicu tawa, sorak-sorai, dan tepuk tangan bahagia dari para tamu.</p>
+
+      <div class="article-image-wrap" style="margin: 40px 0; text-align: center;">
+        <img src="bali_wedding_guidance/Kembang Api di Siang Hari/andiregenphoto-2.webp" alt="The First Kiss Fireworks" style="width: 100%; max-height: 480px; object-fit: cover; border: 0.5px solid var(--accent); border-radius: 4px;">
+        <p style="font-size: 13px; color: var(--muted); margin-top: 8px; font-style: italic;">Momen ciuman pertama yang diiringi kembang api warna-warni.</p>
+      </div>
+
+      <h3 id="sentuhan-modern">3. Sentuhan Modern yang Anti-Mainstream</h3>
+      <p>Ini adalah opsi sempurna untuk menggantikan tradisi lama seperti pelepasan balon atau burung merpati, memberikan kesan pernikahan yang segar, berjiwa muda, dan kekinian.</p>
+
+      <div class="article-image-wrap" style="margin: 40px 0; text-align: center;">
+        <img src="bali_wedding_guidance/Kembang Api di Siang Hari/andiregenphoto-12558.webp" alt="Colored Smoke Wedding" style="width: 100%; max-height: 480px; object-fit: cover; border: 0.5px solid var(--accent); border-radius: 4px;">
+      </div>
+
+      <h2 id="merajut-cinta">Merajut Cinta, Mengukir Cerita bersama Bali Top Wedding</h2>
+      <p>Lupakan pernikahan jadul yang kaku, dan wujudkan <em>dream wedding</em> yang mencerminkan jati diri Anda sepenuhnya. Biarkan kami menghadirkan momen penuh warna yang akan dikenang seumur hidup di bawah indahnya langit Bali.</p>
+
+      <p style="font-size: 15px; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--linen); padding-top: 20px; margin-top: 40px;">
+        <strong>Disclaimer:</strong> Efek visual dan kerapatan warna <em>daytime fireworks</em> sangat bergantung pada kondisi cuaca serta arah angin pada hari-H. Penggunaan efek ini wajib mematuhi regulasi keamanan dan mendapatkan izin resmi dari pihak-pihak terkait.
+      </p>
+    `
+  },
   "legal-wedding-bali-wni": {
     "slug": "legal-wedding-bali-wni",
     "title": "LEGAL WEDDING DI BALI: PANDUAN MUDAH UNTUK CALON PENGANTIN WNI",

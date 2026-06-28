@@ -1,0 +1,404 @@
+/* ── BALI TOP WEDDING MOBILE RESPONSIVE OVERRIDES ── */
+
+/* Hide mobile toggle by default on desktop view to preserve navbar alignment */
+.navbar-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* ── VIEWPORT RESET & LAYOUT DEFAULTS ── */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .section {
+    padding: 60px 24px !important;
+  }
+
+  /* ── HEADER & TOP BAR ── */
+  .top-bar {
+    display: none !important;
+  }
+
+  .navbar {
+    top: 0 !important;
+    height: 64px !important;
+    padding: 0 24px !important;
+    box-shadow: 0 2px 15px rgba(30, 25, 22, 0.05);
+  }
+
+  .navbar-logo img {
+    height: 28px !important;
+  }
+
+  .header-spacer {
+    height: 64px !important;
+  }
+
+  /* ── HAMBURGER TOGGLE BUTTON ── */
+  .navbar-toggle {
+    display: flex !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    padding: 0;
+    z-index: 1001;
+    position: relative;
+    outline: none;
+  }
+
+  .navbar-toggle span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: var(--dark);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar.menu-open .navbar-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar.menu-open .navbar-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.menu-open .navbar-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── MOBILE MENU DRAWER ── */
+  .navbar-links {
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: calc(100vh - 64px) !important;
+    background: var(--cream) !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+    padding: 32px 24px !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow-y: auto !important;
+    z-index: 999 !important;
+    display: flex !important;
+  }
+
+  .navbar.menu-open .navbar-links {
+    transform: translateX(0) !important;
+  }
+
+  .navbar-links .nav-item {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    border-bottom: 0.5px solid var(--linen) !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-links .nav-item::after {
+    display: none !important;
+  }
+
+  /* Language Switcher Link styling inside mobile menu drawer */
+  .navbar-links .lang-switch {
+    border-left: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-top: 15px !important;
+    width: auto !important;
+  }
+
+  /* ── MOBILE DROPDOWN ACCORDION ── */
+  .nav-dropdown {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+  }
+
+  .nav-dropdown > a {
+    border-bottom: 0.5px solid var(--linen) !important;
+  }
+
+  .dropdown-panel {
+    position: static !important;
+    display: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    width: 100% !important;
+    background: var(--nude) !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 16px !important;
+    margin-top: 5px !important;
+    z-index: auto !important;
+  }
+
+  .nav-dropdown.dropdown-open .dropdown-panel {
+    display: block !important;
+  }
+
+  .dropdown-submenu {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .dropdown-submenu .submenu-trigger {
+    padding: 8px 0;
+    font-size: 12px !important;
+    letter-spacing: 0.1em;
+    border-bottom: 0.5px dashed var(--accent);
+  }
+
+  .dropdown-submenu .submenu-details {
+    display: none !important;
+    padding: 8px 12px 4px !important;
+  }
+
+  .dropdown-submenu.active .submenu-details {
+    display: block !important;
+  }
+
+  .dropdown-panel a {
+    font-size: 15px !important;
+    padding: 6px 0 !important;
+  }
+
+  /* ── HERO RESPONSIVENESS ── */
+  .hero {
+    height: 80vh !important;
+    min-height: 480px !important;
+  }
+
+  .hero-content-wrapper {
+    top: 0 !important;
+  }
+
+  .hero-content {
+    padding: 0 16px !important;
+  }
+
+  .hero-label {
+    font-size: 9px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  /* ── GENERAL GRIDS & FLEXBOX STACKS ── */
+  .max-w {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .split {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .split > div {
+    height: auto !important;
+  }
+
+  .split-text,
+  .split-right-pad {
+    padding: 32px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Staff Slider container fixes on mobile */
+  .staff-slider-container {
+    aspect-ratio: auto !important;
+    min-height: 480px !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 400px !important;
+  }
+
+  .intro-slider-wrapper {
+    height: 350px !important;
+    padding: 0 0 32px !important;
+  }
+
+  /* Portfolio Row layout (centered/order stacked on mobile) */
+  .portfolio-row {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 24px !important;
+  }
+
+  .portfolio-row .portfolio-photo {
+    order: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .portfolio-row .portfolio-info {
+    order: 2 !important;
+    width: 100% !important;
+    padding: 32px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Service Detail Layout page overrides (2 columns to 1 stack) */
+  .service-detail-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    min-height: auto !important;
+  }
+
+  .slideshow-container.portrait-slideshow {
+    height: auto !important;
+    aspect-ratio: 1.5 / 1 !important;
+    min-height: auto !important;
+  }
+
+  /* Services Grid Tiles */
+  .services-tiles-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 100% !important;
+  }
+
+  .services-tiles-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Philosophy section grid stack (Filosofi Kami) */
+  .values-section {
+    padding: 60px 24px !important;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-top: 32px !important;
+  }
+
+  .value-card {
+    padding: 32px 24px !important;
+  }
+
+  /* Portfolio Collage & Grid */
+  .portfolio-collage {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Blog Cards Grid */
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Contact page grid split stack */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Service Rows (Sub-services layout stack) */
+  .service-row, .service-row:nth-child(even) {
+    grid-template-columns: 1fr !important;
+    direction: ltr !important;
+    margin-bottom: 40px !important;
+    min-height: auto !important;
+  }
+
+  .service-row img {
+    height: 300px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Additional Services list on services overview */
+  .additional-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ── FOOTER RESPONSIVENESS ── */
+  footer {
+    padding: 48px 24px 32px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: center !important;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col-head {
+    margin-bottom: 12px !important;
+  }
+
+  .footer-socials {
+    justify-content: center !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding-top: 24px !important;
+  }
+
+  /* Intro Welcome CTA panel */
+  .intro-cta-block {
+    padding: 16px !important;
+    width: 100% !important;
+  }
+
+  .intro-cta-block div {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .intro-cta-block .btn-bubble {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-tiles-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
+}

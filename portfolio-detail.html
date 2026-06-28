@@ -249,33 +249,18 @@
         /* ── INNER HERO ── */
         .inner-hero {
             position: relative;
-            height: 45vh;
-            min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            height: 70vh;
+            min-height: 500px;
             margin-top: 106px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-
-        .inner-hero h1 {
-            font-size: clamp(42px, 5vw, 64px);
-            font-weight: 300;
-            font-style: italic;
-            color: var(--cream);
-            margin-bottom: 10px;
-        }
-
-        .inner-hero span {
-            font-family: 'Jost', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
+        .inner-hero-content { text-align: center; padding: 48px 24px 0; }
+        .inner-hero-content h1 { font-size: clamp(38px, 4.5vw, 56px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+        .inner-hero-content span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
+        .luxury-separator { display: flex; justify-content: center; align-items: center; margin: 32px auto 48px; opacity: 0.85; width: 100%; }
+        .luxury-separator svg { width: 240px; height: auto; max-width: 90%; }
 
         /* ── UTILITIES ── */
         .section {
@@ -345,21 +330,34 @@
             margin-top: 8px;
         }
 
-        /* ── GALLERY MASONRY (Aspect Ratio Preserved) ── */
-        .gallery-masonry {
-            column-count: 2;
-            column-gap: 24px;
+        /* ── GALLERY GRID (Zigzag Left-to-Right Ordering & Tight Stacking) ── */
+        .gallery-two-columns {
+            display: flex;
+            gap: 24px;
             margin-top: 60px;
         }
 
+        .gallery-single-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 60px;
+        }
+
+        .gallery-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
         .gallery-masonry-item {
-            break-inside: avoid;
-            margin-bottom: 24px;
             position: relative;
             overflow: hidden;
             background: var(--nude);
             border: 0.5px solid rgba(196, 176, 154, 0.15);
             cursor: pointer;
+            width: 100%;
         }
 
         .gallery-masonry-item img {
@@ -371,16 +369,6 @@
 
         .gallery-masonry-item:hover img {
             transform: scale(1.03);
-        }
-
-        @media (max-width: 768px) {
-            .gallery-masonry {
-                column-count: 1;
-                column-gap: 0;
-            }
-            .gallery-masonry-item {
-                margin-bottom: 16px;
-            }
         }
 
         /* ── LIGHTBOX MODAL ── */
@@ -656,6 +644,26 @@
             color: var(--muted);
         }
 
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .footer-socials a.footer-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+
+    .footer-socials a.footer-social-icon:hover {
+      color: var(--cream);
+    }
+
         @media (max-width: 900px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .navbar { overflow-x: auto; padding: 0 24px; }
@@ -663,6 +671,7 @@
             .review-section { padding: 80px 24px; }
         }
     </style>
+  <link rel="stylesheet" href="responsive.css?v=2.3">
 </head>
 
 <body>
@@ -685,49 +694,72 @@
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
             </svg></a>
         </div>
-        <a href="contact.html" class="top-bar-cta">Hubungi Kami</a>
+        <a href="contact.html" class="top-bar-cta" data-i18n="topbar.cta">Hubungi Kami</a>
     </div>
 
     <nav class="navbar" id="navbar">
         <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
         <div class="navbar-links">
-            <a href="index.html" class="nav-item">Home</a>
+            <a href="index.html" class="nav-item" data-i18n="nav.home">Home</a>
             <div class="nav-dropdown">
-                <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
+                <a href="services.html" class="nav-item" data-i18n="nav.services">Our Services <span class="nav-caret"></span></a>
                 <div class="dropdown-panel">
                     <div class="dropdown-submenu">
-                        <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
+                        <div class="dropdown-group-title submenu-trigger" data-i18n="nav.main_service">Main Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="service-ceremony.html">Ceremony</a>
-                            <a href="service-receptions.html">Receptions</a>
-                            <a href="service-after-party.html">After Party</a>
-                            <a href="service-elopement.html">Elopement</a>
+                            <a href="service-ceremony.html" data-i18n="nav.ceremony">Ceremony</a>
+                            <a href="service-receptions.html" data-i18n="nav.receptions">Receptions</a>
+                            <a href="service-after-party.html" data-i18n="nav.after_party">After Party</a>
+                            <a href="service-elopement.html" data-i18n="nav.elopement">Elopement</a>
                         </div>
                     </div>
                     <div class="dropdown-submenu" style="margin-top: 12px;">
-                        <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
+                        <div class="dropdown-group-title submenu-trigger" data-i18n="nav.additional_service">Additional Service <span class="submenu-arrow">▸</span></div>
                         <div class="submenu-details">
-                            <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
-                            <a href="service-group-tour.html">Group Tour</a>
-                            <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
+                            <a href="service-group-tour-fun-games.html" data-i18n="nav.group_tour_fun_games">Group Tour &amp; Fun Games</a>
+                            <a href="service-group-tour.html" data-i18n="nav.group_tour">Group Tour</a>
+                            <a href="service-fun-games-gala-dinner.html" data-i18n="nav.fun_games_gala_dinner">Fun Games &amp; Gala Dinner</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="portfolio.html" class="nav-item">Portfolio</a>
-            <a href="special-offer.html" class="nav-item">Special Offer</a>
-            <a href="contact.html" class="nav-item">Contact Us</a>
-            <a href="about.html" class="nav-item">About BTW</a>
-            <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
+            <a href="portfolio.html" class="nav-item" data-i18n="nav.portfolio">Portfolio</a>
+            <a href="special-offer.html" class="nav-item" data-i18n="nav.special_offer">Special Offer</a>
+            <a href="contact.html" class="nav-item" data-i18n="nav.contact">Contact Us</a>
+            <a href="about.html" class="nav-item" data-i18n="nav.about">About BTW</a>
+            <a href="blog.html" class="nav-item" data-i18n="nav.guidance">Bali Wedding Guidance</a>
+      <a href="#" class="nav-item lang-switch" title="Switch to English" style="display: inline-flex; align-items: center; gap: 6px; padding-left: 12px; border-left: 0.5px solid var(--accent); margin-left: 8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-top: -1px;">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+          <path d="M2 12h20"/>
+        </svg>
+        <span style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">EN</span>
+      </a>
         </div>
     </nav>
 
     <!-- ── HERO BANNER ── -->
-    <header class="inner-hero">
-    </header>
+    <header class="inner-hero"></header>
+
+    <!-- <div class="inner-hero-content reveal">
+        <span>Stories of Love</span>
+        <h1 id="hero-title"></h1>
+    </div> -->
+
+    <div class="luxury-separator reveal">
+        <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 12H90M150 12H240" stroke="#C4B09A" stroke-width="0.75" />
+            <path d="M120 4L128 12L120 20L112 12L120 4Z" fill="#C4B09A" />
+            <circle cx="106" cy="12" r="2.5" fill="#C4B09A" />
+            <circle cx="134" cy="12" r="2.5" fill="#C4B09A" />
+            <circle cx="98" cy="12" r="1.5" fill="#C4B09A" />
+            <circle cx="142" cy="12" r="1.5" fill="#C4B09A" />
+        </svg>
+    </div>
 
     <!-- ── CLIENT DETAIL SECTION ── -->
-    <section class="section" style="padding-bottom: 80px;">
+    <section class="section" style="padding-top: 20px; padding-bottom: 80px;">
         <div class="max-w">
 
             <div class="reveal visible">
@@ -782,33 +814,66 @@
         <div class="max-w">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <span class="footer-col-head">Alamat Kantor</span>
-                    <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
+                    <span class="footer-col-head" data-i18n="footer.address_title">Alamat Kantor</span>
+                    <p data-i18n="footer.address_text">Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
                 </div>
                 <div class="footer-col">
-                    <span class="footer-col-head">Telpon &amp; WhatsApp</span>
-                    <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+                    <span class="footer-col-head" data-i18n="footer.phone_title">Telpon &amp; WhatsApp</span>
+                    <p style="margin-bottom:6px;" data-i18n="footer.phone_text">Telpon: 0361 464 623</p>
                     <a href="#" data-wa="ika" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081237495930 (Ika)</a>
                     <a href="#" data-wa="suci" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">082266316766 (Suci)</a>
                     <a href="#" data-wa="yoga" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">081238490222 (Yoga)</a>
                 </div>
-                <div class="footer-col">
-                    <span class="footer-col-head">Media &amp; Digital</span>
-                    <a href="mailto:wedding.bth@gmail.com" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">wedding.bth@gmail.com</a>
-                    <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; display: block; margin-bottom: 10px;">www.balitopwedding.com</a>
-                    <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
-                    <a href="#" style="display:inline; margin-right:12px; color: var(--accent); text-decoration: none;">Instagram: @balitopwedding</a>
-                    <a href="#" style="display:inline; color: var(--accent); text-decoration: none;">Tiktok: @balitopwedding</a>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-head">Office Hours</span>
-                    <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
-                    <p>Sabtu - Minggu:<br>by appointment only</p>
+                        <div class="footer-col">
+          <span class="footer-col-head" data-i18n="footer.media_title">Media &amp; Digital</span>
+          <div class="footer-socials" style="margin-top: 0;">
+            <a href="mailto:wedding.bth@gmail.com" class="footer-social-icon" title="Email: wedding.bth@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </a>
+            <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" class="footer-social-icon" title="Website: www.balitopwedding.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" title="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <path d="m10 15 5-3-5-3z" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" title="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+<div class="footer-col">
+                    <span class="footer-col-head" data-i18n="footer.hours_title">Office Hours</span>
+                    <p data-i18n="footer.hours_weekdays">Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+                    <p data-i18n="footer.hours_weekends">Sabtu - Minggu:<br>by appointment only</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-                <span class="footer-copy" style="color:var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
+                <span class="footer-copy" data-i18n="footer.copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+                <span class="footer-copy" style="color:var(--accent); font-weight: 500;">data-i18n="footer.powered">Powered by PT Finayaka Sukses Makmur</span>
             </div>
         </div>
     </footer>
@@ -855,35 +920,31 @@
         // Dynamically select review background image
         const reviewBgImg = data.photos && data.photos.length > 0 ? data.photos[data.photos.length - 1] : 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80';
 
-        // Temukan foto landscape untuk hero banner secara dinamis, jika tidak ada gunakan foto pertama
-        async function setupHero(photos) {
-            let landscapeUrl = photos && photos.length > 0 ? photos[0] : 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80';
-            
-            if (photos && photos.length > 0) {
-                // Cari gambar berorientasi landscape (lebar > tinggi)
-                for (let url of photos) {
-                    try {
-                        const img = await new Promise((resolve, reject) => {
-                            const tempImg = new Image();
-                            tempImg.onload = () => resolve(tempImg);
-                            tempImg.onerror = () => reject();
-                            tempImg.src = url;
-                        });
-                        if (img.width > img.height) {
-                            landscapeUrl = url;
-                            break;
-                        }
-                    } catch (e) {
-                        // abaikan kesalahan muat dan coba berikutnya
-                    }
-                }
-            }
+        // Setup Hero dengan gambar landscape pilihan khusus untuk setiap client
+        function setupHero() {
+            const clientHeroImages = {
+                "claudia": "Portofolio/2023 Claudia/File Sementara (bukan edit)/GPA_1474.webp",
+                "eka-shanon": "Portofolio/2023 Eka & Shanon/File sementara (bukan edit)/SAE-137.webp",
+                "lin-fiega": "Portofolio/2023 Lin & Fiega/File sementara (bukan edit)/RIS_0115.webp",
+                "amalia": "Portofolio/2024 Amalia/File sementara (bukan edit)/FER04865.webp",
+                "devi": "Portofolio/2024 Devi/File sementara (bukan edit)/ANDIREGENPHOTO-00014.webp",
+                "yuka-hawker": "Portofolio/2024 Yuka & Hawker/File sementara (bukan edit)/alomoraphoto-19.webp",
+                "anton-jesenia": "Portofolio/2025 Anton & Jesenia/File sementara (bukan edit)/MK (14 of 261).webp",
+                "hanum-fuki": "Portofolio/2025 Hanum & Fuki/Editing/WEBP/MKEDT-05158 copy.webp",
+                "junwen": "Portofolio/2025 Junwen/Editing/WEBP/ANDIREGENPHOTO-18821 copy.webp",
+                "andi": "Portofolio/2026 Andi/File sementara (bukan edit)/BTW-20.webp",
+                "maria": "Portofolio/2026 Maria/LMR_0122.webp",
+                "wiesma": "Portofolio/2026 Wiesma/File sementara (bukan edit)/RED_5536.webp"
+            };
+
+            const landscapeUrl = clientHeroImages[clientKey] || (data.photos && data.photos.length > 0 ? data.photos[0] : 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80');
 
             const innerHero = document.querySelector('.inner-hero');
-            innerHero.style.backgroundImage = `linear-gradient(rgba(30, 25, 22, 0.45), rgba(30, 25, 22, 0.45)), url('${landscapeUrl}')`;
-            innerHero.innerHTML = `<div><span class="section-label">Stories of Love</span><h1>${data.name}</h1></div>`;
+            if (innerHero) {
+                innerHero.style.backgroundImage = `url('${landscapeUrl}')`;
+            }
         }
-        setupHero(data.photos);
+        setupHero();
 
         // 2. Set Client Details
         document.getElementById('client-name').innerText = data.name;
@@ -892,25 +953,63 @@
 
         // 3. Populate Gallery
         const galleryContainer = document.getElementById('galleryContainer');
-        galleryContainer.innerHTML = '';
         
-        if (data.photos && data.photos.length > 0) {
-            galleryContainer.style.display = '';
-            data.photos.forEach((photoUrl, index) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-masonry-item';
-                item.onclick = () => openLightbox(index);
-                item.innerHTML = `<img src="${photoUrl}" alt="${data.name} Wedding Photo ${index + 1}" loading="lazy">`;
-                galleryContainer.appendChild(item);
-            });
-        } else {
-            galleryContainer.style.display = 'block';
-            galleryContainer.innerHTML = `
-                <div style="text-align: center; padding: 80px 24px; background: var(--nude); border: 0.5px dashed var(--accent);">
-                    <p style="font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 0;">Galeri foto akan segera hadir</p>
-                </div>
-            `;
+        function renderGallery() {
+            galleryContainer.innerHTML = '';
+            if (data.photos && data.photos.length > 0) {
+                galleryContainer.style.display = '';
+                
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    galleryContainer.className = 'gallery-single-column';
+                    data.photos.forEach((photoUrl, index) => {
+                        const item = document.createElement('div');
+                        item.className = 'gallery-masonry-item';
+                        item.onclick = () => openLightbox(index);
+                        item.innerHTML = `<img src="${photoUrl}" alt="${data.name} Wedding Photo ${index + 1}" loading="lazy">`;
+                        galleryContainer.appendChild(item);
+                    });
+                } else {
+                    galleryContainer.className = 'gallery-two-columns';
+                    const colLeft = document.createElement('div');
+                    colLeft.className = 'gallery-col';
+                    const colRight = document.createElement('div');
+                    colRight.className = 'gallery-col';
+                    
+                    galleryContainer.appendChild(colLeft);
+                    galleryContainer.appendChild(colRight);
+                    
+                    data.photos.forEach((photoUrl, index) => {
+                        const item = document.createElement('div');
+                        item.className = 'gallery-masonry-item';
+                        item.onclick = () => openLightbox(index);
+                        item.innerHTML = `<img src="${photoUrl}" alt="${data.name} Wedding Photo ${index + 1}" loading="lazy">`;
+                        
+                        // Alternate left and right for zigzag
+                        if (index % 2 === 0) {
+                            colLeft.appendChild(item);
+                        } else {
+                            colRight.appendChild(item);
+                        }
+                    });
+                }
+            } else {
+                galleryContainer.style.display = 'block';
+                galleryContainer.innerHTML = `
+                    <div style="text-align: center; padding: 80px 24px; background: var(--nude); border: 0.5px dashed var(--accent);">
+                        <p style="font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 0;">Galeri foto akan segera hadir</p>
+                    </div>
+                `;
+            }
         }
+        
+        renderGallery();
+        
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(renderGallery, 150);
+        });
 
         // 4. Set Review Section
         const reviewSection = document.getElementById('reviewSection');
@@ -1023,6 +1122,10 @@
         });
     </script>
     <script src="config.js"></script>
+  <script src="https://unpkg.com/i18next@21.8.9/dist/umd/i18next.min.js"></script>
+  <script src="translation-data.js"></script>
+  <script src="translation.js"></script>
+  <script src="responsive.js?v=2.3" defer></script>
 </body>
 
 </html>

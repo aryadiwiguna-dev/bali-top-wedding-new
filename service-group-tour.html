@@ -70,11 +70,12 @@
 
     /* ── INNER HERO ── */
     .inner-hero {
-      position: relative; height: 40vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 106px;
-      background: linear-gradient(rgba(30, 25, 22, 0.5), rgba(30, 25, 22, 0.5)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80') center/cover no-repeat;
+      position: relative; height: 35vh; min-height: 280px; margin-top: 106px;
+      background: linear-gradient(rgba(30, 25, 22, 0.25), rgba(30, 25, 22, 0.25)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80') center/cover no-repeat;
     }
-    .inner-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 10px; }
-    .inner-hero span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    .inner-hero-content { text-align: center; padding: 48px 24px 0; }
+    .inner-hero-content h1 { font-size: clamp(38px, 4.5vw, 56px); font-weight: 300; font-style: italic; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+    .inner-hero-content span { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
 
     /* ── UTILITIES & BREADCRUMBS ── */
     .section { padding: 90px 48px; }
@@ -134,6 +135,26 @@
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .footer-socials a.footer-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+
+    .footer-socials a.footer-social-icon:hover {
+      color: var(--cream);
+    }
+
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .navbar { overflow-x: auto; padding: 0 24px; }
@@ -141,6 +162,7 @@
       .cta-block { padding: 32px 24px; }
     }
   </style>
+  <link rel="stylesheet" href="responsive.css?v=2.3">
 </head>
 <body>
 
@@ -150,49 +172,57 @@
       <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg></a>
       <a href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg></a>
     </div>
-    <a href="contact.html" class="top-bar-cta">Hubungi Kami</a>
+    <a href="contact.html" class="top-bar-cta" data-i18n="topbar.cta">Hubungi Kami</a>
   </div>
 
   <nav class="navbar" id="navbar">
     <a href="index.html" class="navbar-logo"><img src="logo-btw.png" alt="Bali Top Wedding Logo"></a>
     <div class="navbar-links">
-      <a href="index.html" class="nav-item">Home</a>
+      <a href="index.html" class="nav-item" data-i18n="nav.home">Home</a>
       <div class="nav-dropdown">
-        <a href="services.html" class="nav-item">Our Services <span class="nav-caret"></span></a>
+        <a href="services.html" class="nav-item" data-i18n="nav.services">Our Services <span class="nav-caret"></span></a>
         <div class="dropdown-panel">
           <div class="dropdown-submenu">
-            <div class="dropdown-group-title submenu-trigger">Main Service <span class="submenu-arrow">▸</span></div>
+            <div class="dropdown-group-title submenu-trigger" data-i18n="nav.main_service">Main Service <span class="submenu-arrow">▸</span></div>
             <div class="submenu-details">
-              <a href="service-ceremony.html">Ceremony</a>
-              <a href="service-receptions.html">Receptions</a>
-              <a href="service-after-party.html">After Party</a>
-              <a href="service-elopement.html">Elopement</a>
+              <a href="service-ceremony.html" data-i18n="nav.ceremony">Ceremony</a>
+              <a href="service-receptions.html" data-i18n="nav.receptions">Receptions</a>
+              <a href="service-after-party.html" data-i18n="nav.after_party">After Party</a>
+              <a href="service-elopement.html" data-i18n="nav.elopement">Elopement</a>
             </div>
           </div>
           <div class="dropdown-submenu" style="margin-top: 12px;">
-            <div class="dropdown-group-title submenu-trigger">Additional Service <span class="submenu-arrow">▸</span></div>
+            <div class="dropdown-group-title submenu-trigger" data-i18n="nav.additional_service">Additional Service <span class="submenu-arrow">▸</span></div>
             <div class="submenu-details">
-              <a href="service-group-tour-fun-games.html">Group Tour &amp; Fun Games</a>
-              <a href="service-group-tour.html">Group Tour</a>
-              <a href="service-fun-games-gala-dinner.html">Fun Games &amp; Gala Dinner</a>
+              <a href="service-group-tour-fun-games.html" data-i18n="nav.group_tour_fun_games">Group Tour &amp; Fun Games</a>
+              <a href="service-group-tour.html" data-i18n="nav.group_tour">Group Tour</a>
+              <a href="service-fun-games-gala-dinner.html" data-i18n="nav.fun_games_gala_dinner">Fun Games &amp; Gala Dinner</a>
             </div>
           </div>
         </div>
       </div>
-      <a href="portfolio.html" class="nav-item">Portfolio</a>
-      <a href="special-offer.html" class="nav-item">Special Offer</a>
-      <a href="contact.html" class="nav-item">Contact Us</a>
-      <a href="about.html" class="nav-item">About BTW</a>
-      <a href="blog.html" class="nav-item">Bali Wedding Guidance</a>
+      <a href="portfolio.html" class="nav-item" data-i18n="nav.portfolio">Portfolio</a>
+      <a href="special-offer.html" class="nav-item" data-i18n="nav.special_offer">Special Offer</a>
+      <a href="contact.html" class="nav-item" data-i18n="nav.contact">Contact Us</a>
+      <a href="about.html" class="nav-item" data-i18n="nav.about">About BTW</a>
+      <a href="blog.html" class="nav-item" data-i18n="nav.guidance">Bali Wedding Guidance</a>
+      <a href="#" class="nav-item lang-switch" title="Switch to English" style="display: inline-flex; align-items: center; gap: 6px; padding-left: 12px; border-left: 0.5px solid var(--accent); margin-left: 8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-top: -1px;">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+          <path d="M2 12h20"/>
+        </svg>
+        <span style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">EN</span>
+      </a>
     </div>
   </nav>
 
-  <header class="inner-hero">
-    <div>
-      <span>Additional Service</span>
-      <h1>Group Tour</h1>
-    </div>
-  </header>
+  <header class="inner-hero"></header>
+
+  <div class="inner-hero-content reveal">
+    <span>Additional Service</span>
+    <h1>Group Tour</h1>
+  </div>
 
   <div class="luxury-separator reveal">
     <svg width="240" height="24" viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -264,34 +294,67 @@
     <div class="max-w">
       <div class="footer-grid">
         <div class="footer-col">
-          <span class="footer-col-head">Alamat Kantor</span>
-          <p>Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
+          <span class="footer-col-head" data-i18n="footer.address_title">Alamat Kantor</span>
+          <p data-i18n="footer.address_text">Jalan Tukad Balian No. 99 A,<br>Sidakarya, Denpasar Selatan,<br>Bali 80224, Indonesia</p>
         </div>
         <div class="footer-col">
-          <span class="footer-col-head">Telpon &amp; WhatsApp</span>
-          <p style="margin-bottom:6px;">Telpon: 0361 464 623</p>
+          <span class="footer-col-head" data-i18n="footer.phone_title">Telpon &amp; WhatsApp</span>
+          <p style="margin-bottom:6px;" data-i18n="footer.phone_text">Telpon: 0361 464 623</p>
           <a href="#" data-wa="ika" target="_blank" rel="noopener">081237495930 (Ika)</a>
           <a href="#" data-wa="suci" target="_blank" rel="noopener">082266316766 (Suci)</a>
           <a href="#" data-wa="yoga" target="_blank" rel="noopener">081238490222 (Yoga)</a>
         </div>
-        <div class="footer-col">
-          <span class="footer-col-head">Media &amp; Digital</span>
-          <a href="mailto:wedding.bth@gmail.com">wedding.bth@gmail.com</a>
-          <a href="http://www.balitopwedding.com" target="_blank" rel="noopener">www.balitopwedding.com</a>
-          <p style="margin-top:14px; margin-bottom:4px; font-size:14px; color:var(--muted);">Social Media:</p>
-          <a href="#" style="display:inline; margin-right:12px;">Instagram: @balitopwedding</a>
-          <a href="#" style="display:inline;">Tiktok: @balitopwedding</a>
+                <div class="footer-col">
+          <span class="footer-col-head" data-i18n="footer.media_title">Media &amp; Digital</span>
+          <div class="footer-socials" style="margin-top: 0;">
+            <a href="mailto:wedding.bth@gmail.com" class="footer-social-icon" title="Email: wedding.bth@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </a>
+            <a href="http://www.balitopwedding.com" target="_blank" rel="noopener" class="footer-social-icon" title="Website: www.balitopwedding.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" title="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <path d="m10 15 5-3-5-3z" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-icon" title="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="footer-col">
-          <span class="footer-col-head">Office Hours</span>
-          <p>Senin – Jumat:<br>10.00 – 18.00 Wita</p>
-          <p>Sabtu - Minggu:<br>by appointment only</p>
+<div class="footer-col">
+          <span class="footer-col-head" data-i18n="footer.hours_title">Office Hours</span>
+          <p data-i18n="footer.hours_weekdays">Senin – Jumat:<br>10.00 – 18.00 Wita</p>
+          <p data-i18n="footer.hours_weekends">Sabtu - Minggu:<br>by appointment only</p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span class="footer-copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
-        <span class="footer-copy" style="color: var(--accent); font-weight: 500;">Powered by PT Finayaka Sukses Makmur</span>
+        <span class="footer-copy" data-i18n="footer.copy">© 2026 Bali Top Wedding · Hak Cipta Dilindungi.</span>
+        <span class="footer-copy" style="color: var(--accent); font-weight: 500;">data-i18n="footer.powered">Powered by PT Finayaka Sukses Makmur</span>
       </div>
     </div>
   </footer>
@@ -351,5 +414,9 @@
     }
   </script>
   <script src="config.js"></script>
+  <script src="https://unpkg.com/i18next@21.8.9/dist/umd/i18next.min.js"></script>
+  <script src="translation-data.js"></script>
+  <script src="translation.js"></script>
+  <script src="responsive.js?v=2.3" defer></script>
 </body>
 </html>

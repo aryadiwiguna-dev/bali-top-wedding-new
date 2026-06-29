@@ -635,7 +635,7 @@
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
+            gap: 24px;
             margin-top: 64px;
         }
 
@@ -644,6 +644,7 @@
             overflow: hidden;
             aspect-ratio: 3 / 4;
             background: var(--dark);
+            border-radius: 4px;
         }
 
         .team-card img {
@@ -652,7 +653,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.7s ease;
-            filter: grayscale(20%);
+            filter: grayscale(10%);
         }
 
         .team-card:hover img {
@@ -664,22 +665,21 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(30, 25, 22, 0.92));
-            padding: 48px 32px 32px;
-            transform: translateY(60px);
-            transition: transform 0.4s ease;
-        }
-
-        .team-card:hover .team-card-overlay {
-            transform: translateY(0);
+            background: linear-gradient(to top, rgba(30, 25, 22, 0.95) 0%, rgba(30, 25, 22, 0.7) 70%, transparent 100%);
+            padding: 40px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: background 0.4s ease;
         }
 
         .team-card-name {
-            font-size: clamp(22px, 2vw, 30px);
+            font-size: clamp(22px, 2vw, 28px);
             font-weight: 300;
             font-style: italic;
             color: var(--cream);
             margin-bottom: 4px;
+            line-height: 1.2;
         }
 
         .team-card-role {
@@ -690,16 +690,27 @@
             text-transform: uppercase;
             color: var(--accent);
             display: block;
-            margin-bottom: 16px;
         }
 
         .team-card-quote {
-            font-size: 15px;
+            font-size: 14px;
             font-style: italic;
-            color: rgba(250, 248, 245, 0.75);
+            color: rgba(250, 248, 245, 0.85);
             line-height: 1.6;
             border-top: 0.5px solid rgba(196, 176, 154, 0.3);
-            padding-top: 14px;
+            padding-top: 12px;
+            margin-top: 12px;
+            
+            /* Hidden by default, expands on hover */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+        }
+
+        .team-card:hover .team-card-quote {
+            max-height: 180px;
+            opacity: 1;
         }
 
         /* ── STAFF SLIDER & WIDGET (Consistent with index.html) ── */
@@ -787,26 +798,38 @@
         }
 
 
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 900px) {
             .about-story-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
+            .team-section {
+                padding: 60px 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
             .team-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .team-card {
-                aspect-ratio: 4 / 3;
+                aspect-ratio: 3 / 4;
             }
 
-            .team-card-overlay {
-                transform: translateY(0);
-            }
-
-            .team-section {
-                padding: 60px 24px;
+            .team-card-quote {
+                max-height: 180px;
+                opacity: 1;
+                margin-top: 12px;
             }
         }
     </style>
@@ -963,23 +986,20 @@
 
             <div class="values-grid reveal">
                 <div class="value-card">
-                    <span class="value-number">CREATE</span>
-                    <h3>Menciptakan</h3>
+                    <h3>Create</h3>
                     <p>Mulai dari awal hingga hari bahagia Anda terwujud, Bali Top Wedding akan mendampingi Anda di
                         semua tahapannya termasuk pembuatan konsep acara (concepting), pengelolaan anggaran (budgeting),
                         rekomendasi tempat (venue), dan hal–hal terkait lainnya.</p>
                 </div>
 
                 <div class="value-card">
-                    <span class="value-number">CARE</span>
-                    <h3>Memperhatikan</h3>
+                    <h3>Care</h3>
                     <p>Bali Top Wedding memberikan perhatian penuh terhadap detail sekecil apa pun untuk memastikan hari
                         istimewa Anda menjadi refleksi yang tulus dan murni dari kisah cinta Anda yang luar biasa.</p>
                 </div>
 
                 <div class="value-card">
-                    <span class="value-number">COMMIT</span>
-                    <h3>Berkomitmen</h3>
+                    <h3>Commit</h3>
                     <p>Bali Top Wedding berkomitmen penuh untuk memberikan Anda layanan yang professional, serta
                         pengalaman sebuah wedding yang sakral, penuh makna, dan bebas stres baik sebelum, selama, hingga
                         setelah hari bahagia Anda terlaksana.</p>
